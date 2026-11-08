@@ -16,57 +16,57 @@ export function LuxuryBackground3D() {
       0.1,
       1000
     );
-    camera.position.z = 80;
+    camera.position.z = 75;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Golden celestial particles (simulating suspended gold leaf foil)
-    const particleCount = 750;
+    // Warm Champagne Gold Flakes (Floating gold leaf specks on ivory)
+    const particleCount = 650;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const scales = new Float32Array(particleCount);
-    const velocities = new Float32Array(particleCount);
+    const speeds = new Float32Array(particleCount);
 
     for (let i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 160;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 160;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 120;
-      scales[i] = Math.random() * 2.2 + 0.5;
-      velocities[i] = Math.random() * 0.04 + 0.01;
+      positions[i * 3] = (Math.random() - 0.5) * 150;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 150;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 100;
+      scales[i] = Math.random() * 2.4 + 0.6;
+      speeds[i] = Math.random() * 0.03 + 0.008;
     }
 
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute("scale", new THREE.BufferAttribute(scales, 1));
 
-    // Particle Shader / Material with rich golden champagne tone
+    // Particle Texture with subtle warm gold aura
     const particleTexture = createGoldParticleTexture();
     const material = new THREE.PointsMaterial({
-      color: 0xd4af37,
-      size: 1.8,
+      color: 0xa88126,
+      size: 2.2,
       map: particleTexture,
       transparent: true,
-      opacity: 0.65,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.55,
+      blending: THREE.NormalBlending,
       depthWrite: false,
     });
 
     const particles = new THREE.Points(geometry, material);
     scene.add(particles);
 
-    // Subtle 3D Wireframe Plane for undulating royal silk mesh
-    const planeGeo = new THREE.PlaneGeometry(160, 160, 32, 32);
+    // Subtle 3D Wireframe Plane simulating undulating Banarasi silk
+    const planeGeo = new THREE.PlaneGeometry(150, 150, 28, 28);
     const planeMat = new THREE.MeshBasicMaterial({
-      color: 0xd4af37,
+      color: 0xcbbda3,
       wireframe: true,
       transparent: true,
-      opacity: 0.045,
+      opacity: 0.12,
     });
     const silkPlane = new THREE.Mesh(planeGeo, planeMat);
-    silkPlane.rotation.x = -Math.PI / 2.8;
-    silkPlane.position.y = -35;
+    silkPlane.rotation.x = -Math.PI / 2.7;
+    silkPlane.position.y = -32;
     scene.add(silkPlane);
 
     // Mouse movement tracking
@@ -84,41 +84,44 @@ export function LuxuryBackground3D() {
 
     // Animation Loop
     let animationFrameId: number;
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
       const elapsedTime = clock.getElapsedTime();
 
       // Smooth camera dampening to mouse
-      targetX += (mouseX * 12 - targetX) * 0.05;
-      targetY += (-mouseY * 12 - targetY) * 0.05;
+      targetX += (mouseX * 10 - targetX) * 0.04;
+      targetY += (-mouseY * 10 - targetY) * 0.04;
 
       camera.position.x = targetX;
       camera.position.y = targetY;
       camera.lookAt(0, 0, 0);
 
-      // Rotate particle cloud gently
-      particles.rotation.y = elapsedTime * 0.03;
-      particles.rotation.x = Math.sin(elapsedTime * 0.05) * 0.05;
-
-      // Animate silk mesh waves
-      const posAttr = planeGeo.attributes.position;
-      for (let i = 0; i < posAttr.count; i++) {
-        const u = posAttr.getX(i);
-        const v = posAttr.getY(i);
-        const z = Math.sin(u * 0.08 + elapsedTime * 0.8) * Math.cos(v * 0.08 + elapsedTime * 0.6) * 3.5;
-        posAttr.setZ(i, z);
+      // Undulate Banarasi silk wireframe
+      const positionAttr = planeGeo.attributes.position;
+      for (let i = 0; i < positionAttr.count; i++) {
+        const u = positionAttr.getX(i);
+        const v = positionAttr.getY(i);
+        const z =
+          Math.sin(u * 0.08 + elapsedTime * 0.6) * 2.8 +
+          Math.cos(v * 0.08 + elapsedTime * 0.5) * 2.8;
+        positionAttr.setZ(i, z);
       }
-      posAttr.needsUpdate = true;
+      positionAttr.needsUpdate = true;
+
+      // Slowly rotate gold flakes
+      particles.rotation.y = elapsedTime * 0.02;
+      particles.rotation.x = Math.sin(elapsedTime * 0.015) * 0.06;
 
       renderer.render(scene, camera);
     };
 
     animate();
 
-    // Resize Handler
+    // Window resize handler
     const handleResize = () => {
+      if (!container) return;
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -130,7 +133,7 @@ export function LuxuryBackground3D() {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
-      if (container.contains(renderer.domElement)) {
+      if (container && renderer.domElement) {
         container.removeChild(renderer.domElement);
       }
       geometry.dispose();
@@ -142,36 +145,31 @@ export function LuxuryBackground3D() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-      {/* 3D Canvas */}
-      <div ref={mountRef} className="absolute inset-0 opacity-80" />
-
-      {/* Atmospheric Radial Vignette & Vignette Gradients */}
-      <div className="absolute inset-0 bg-radial-vignette pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040305]/40 via-transparent to-[#040305] pointer-events-none" />
-
-      {/* Subtle Noise Texture */}
-      <div className="absolute inset-0 bg-noise opacity-40 pointer-events-none" />
-    </div>
+    <div
+      ref={mountRef}
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+      style={{ opacity: 0.9 }}
+    />
   );
 }
 
-// Helper to create a glowing golden dot texture procedurally
-function createGoldParticleTexture() {
+// Procedural Radial Texture for Gold Flakes
+function createGoldParticleTexture(): THREE.Texture {
   const canvas = document.createElement("canvas");
   canvas.width = 64;
   canvas.height = 64;
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return new THREE.Texture();
+  const ctx = canvas.getContext("2d")!;
 
-  const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-  gradient.addColorStop(0, "rgba(255, 248, 220, 1)");
-  gradient.addColorStop(0.2, "rgba(212, 175, 55, 0.9)");
-  gradient.addColorStop(0.6, "rgba(180, 130, 20, 0.4)");
-  gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+  const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 30);
+  gradient.addColorStop(0, "rgba(227, 207, 139, 1)");
+  gradient.addColorStop(0.3, "rgba(190, 153, 50, 0.85)");
+  gradient.addColorStop(0.7, "rgba(163, 125, 37, 0.4)");
+  gradient.addColorStop(1, "rgba(163, 125, 37, 0)");
 
   ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, 64, 64);
+  ctx.beginPath();
+  ctx.arc(32, 32, 30, 0, Math.PI * 2);
+  ctx.fill();
 
   const texture = new THREE.CanvasTexture(canvas);
   return texture;

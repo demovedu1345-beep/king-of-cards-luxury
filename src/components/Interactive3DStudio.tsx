@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkles, Layers, Sliders, Check, Eye, Package } from "lucide-react";
+import { Sparkles, Layers, Sliders, Check, Eye, Package, RotateCcw } from "lucide-react";
 
 interface StudioProps {
   onAddToSampleKit: (item: any) => void;
@@ -12,7 +12,6 @@ const MODELS = [
     type: "Architectural Door Suite",
     sku: "KNSR8811M",
     priceINR: 145,
-    bgGradient: "from-[#2b080f] via-obsidian-900 to-obsidian-950",
     motif: "Peacock & Royal Archway",
     tagline: "Inspired by City Palace Udaipur",
     views: ["Closed Doors", "Parted Jharokha", "Insert Leaflet", "Mailing Envelope"],
@@ -23,7 +22,6 @@ const MODELS = [
     type: "Royal Proclamation Scroll",
     sku: "KFS9012",
     priceINR: 220,
-    bgGradient: "from-[#082b1d] via-obsidian-900 to-obsidian-950",
     motif: "Arabic Calligraphy & Antique Brass",
     tagline: "Imperial court proclamation style",
     views: ["Rolled in Velvet Case", "Unrolled Scroll", "Golden Tassel Seal", "Shipping Casket"],
@@ -34,7 +32,6 @@ const MODELS = [
     type: "Cast Frosted Acrylic",
     sku: "KACR771",
     priceINR: 195,
-    bgGradient: "from-[#1a1424] via-obsidian-900 to-obsidian-950",
     motif: "Semi-Opaque Slate & Foil Botanicals",
     tagline: "Contemporary European haute aesthetic",
     views: ["Frosted Slab", "In Translucent Vellum", "Hand Wax Seal", "Monogram Suite"],
@@ -45,7 +42,6 @@ const MODELS = [
     type: "Luxury Mithai Hamper Box",
     sku: "KBOX440",
     priceINR: 480,
-    bgGradient: "from-[#380e1a] via-obsidian-900 to-obsidian-950",
     motif: "Rigid Box with 4 Dry Fruit Jars",
     tagline: "Dual-tier celebration book & hampers",
     views: ["Closed Luxury Box", "Open Tier 1: Invite Book", "Open Tier 2: 4 Brass Jars", "Silk Ribbon Pull"],
@@ -53,9 +49,9 @@ const MODELS = [
 ];
 
 const FOIL_FINISHES = [
-  { id: "gold", name: "24K Imperial Gold", color: "#d4af37", previewClass: "text-amber-300 border-amber-400" },
-  { id: "rose", name: "Champagne Rose Gold", color: "#e8a598", previewClass: "text-rose-300 border-rose-400" },
-  { id: "silver", name: "Sterling Royal Silver", color: "#e2e8f0", previewClass: "text-slate-200 border-slate-300" },
+  { id: "gold", name: "24K Imperial Gold", color: "#be9932" },
+  { id: "rose", name: "Champagne Rose Gold", color: "#d99081" },
+  { id: "copper", name: "Royal Antique Copper", color: "#b86b43" },
 ];
 
 const LANGUAGES = [
@@ -70,7 +66,7 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
   const [activeFoil, setActiveFoil] = useState(FOIL_FINISHES[0]);
   const [activeLanguage, setActiveLanguage] = useState(LANGUAGES[0]);
   const [activeViewIndex, setActiveViewIndex] = useState(0);
-  const [doorOpen, setDoorOpen] = useState(false);
+  const [doorsOpen, setDoorsOpen] = useState(false);
   const [addedToast, setAddedToast] = useState(false);
 
   const handleAddSample = () => {
@@ -87,21 +83,21 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
   };
 
   return (
-    <section id="studio-3d" className="relative py-28 overflow-hidden border-t border-gold-500/15">
+    <section id="studio-3d" className="relative py-28 overflow-hidden bg-ivory-50 border-t border-gold-400/25">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-gold-500/30 bg-gold-950/30 backdrop-blur-md mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-gold-300 font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-gold-400/40 bg-white/80 shadow-sm mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-gold-600" />
+            <span className="text-[11px] font-mono tracking-[0.2em] uppercase text-gold-800 font-bold">
               Interactive 3D Virtual Atelier
             </span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
+          <h2 className="font-serif text-3xl sm:text-5xl font-extrabold tracking-tight text-charcoal-950 mb-4">
             Inspect Every Fold &amp; Foil In <span className="text-gold-foil italic">3D Precision</span>
           </h2>
-          <p className="text-zinc-400 font-light text-sm sm:text-base leading-relaxed">
+          <p className="text-charcoal-700 font-normal text-sm sm:text-base leading-relaxed">
             Customize metallic finishes, toggle multi-lingual wedding shlokas, and virtually unbox our
             most revered bespoke creations before requesting physical samples.
           </p>
@@ -114,9 +110,9 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
           <div className="lg:col-span-4 flex flex-col gap-6">
             
             {/* Model Selector Card */}
-            <div className="glass-panel rounded-2xl p-6 border border-gold-500/25">
-              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-gold-400 mb-4 flex items-center gap-2">
-                <Layers className="w-4 h-4" />
+            <div className="pearl-card rounded-2xl p-6 bg-white">
+              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-gold-800 font-bold mb-4 flex items-center gap-2">
+                <Layers className="w-4 h-4 text-gold-600" />
                 Select Signature Silhouette
               </h3>
               <div className="flex flex-col gap-2.5">
@@ -126,19 +122,19 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
                     onClick={() => {
                       setSelectedModel(m);
                       setActiveViewIndex(0);
-                      setDoorOpen(false);
+                      setDoorsOpen(false);
                     }}
-                    className={`squeeze-btn w-full text-left p-3.5 rounded-xl border transition-all duration-300 flex items-center justify-between ${
+                    className={`squeeze-btn w-full text-left p-3.5 rounded-xl border transition-all duration-200 flex items-center justify-between ${
                       selectedModel.id === m.id
-                        ? "border-gold-400 bg-gold-500/15 text-white shadow-lg shadow-gold-500/10"
-                        : "border-zinc-800 bg-obsidian-900/50 hover:border-gold-500/30 text-zinc-300"
+                        ? "border-gold-500 bg-gold-50/80 shadow-sm font-semibold"
+                        : "border-gold-200/60 bg-white hover:border-gold-400/60 text-charcoal-800"
                     }`}
                   >
                     <div>
-                      <span className="font-serif font-bold text-sm block">{m.name}</span>
-                      <span className="text-[11px] font-mono text-zinc-400">{m.type}</span>
+                      <span className="font-serif font-bold text-sm block text-charcoal-950">{m.name}</span>
+                      <span className="text-[11px] font-mono text-charcoal-500">{m.type}</span>
                     </div>
-                    <span className="text-xs font-mono font-bold text-gold-400">
+                    <span className="text-xs font-mono font-bold text-gold-800">
                       ₹{m.priceINR}
                     </span>
                   </button>
@@ -147,9 +143,9 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
             </div>
 
             {/* Hot-Stamped Foil Finishes */}
-            <div className="glass-panel rounded-2xl p-6 border border-gold-500/25">
-              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-gold-400 mb-4 flex items-center gap-2">
-                <Sliders className="w-4 h-4" />
+            <div className="pearl-card rounded-2xl p-6 bg-white">
+              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-gold-800 font-bold mb-4 flex items-center gap-2">
+                <Sliders className="w-4 h-4 text-gold-600" />
                 Hot-Stamped Metallic Leaf
               </h3>
               <div className="grid grid-cols-3 gap-3">
@@ -159,15 +155,15 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
                     onClick={() => setActiveFoil(foil)}
                     className={`squeeze-btn p-3 rounded-xl border text-center transition-all ${
                       activeFoil.id === foil.id
-                        ? "border-gold-400 bg-gold-500/20 shadow-md"
-                        : "border-zinc-800 bg-obsidian-900/40 hover:border-zinc-700"
+                        ? "border-gold-500 bg-gold-100/70 shadow-sm"
+                        : "border-gold-200/60 bg-white hover:border-gold-400/50"
                     }`}
                   >
                     <div
-                      className="w-5 h-5 rounded-full mx-auto mb-2 border border-white/20 shadow-inner"
+                      className="w-5 h-5 rounded-full mx-auto mb-2 border border-black/10 shadow-sm"
                       style={{ backgroundColor: foil.color }}
                     />
-                    <span className="text-[10px] font-mono uppercase tracking-wider block text-zinc-200">
+                    <span className="text-[10px] font-mono uppercase tracking-wider block text-charcoal-800 font-bold">
                       {foil.name.split(" ")[1] || foil.name}
                     </span>
                   </button>
@@ -176,9 +172,9 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
             </div>
 
             {/* Sacred Typography / Script Selector */}
-            <div className="glass-panel rounded-2xl p-6 border border-gold-500/25">
-              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-gold-400 mb-3 flex items-center gap-2">
-                <Eye className="w-4 h-4" />
+            <div className="pearl-card rounded-2xl p-6 bg-white">
+              <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-gold-800 font-bold mb-3 flex items-center gap-2">
+                <Eye className="w-4 h-4 text-gold-600" />
                 Language &amp; Auspicious Shlokas
               </h3>
               <div className="grid grid-cols-2 gap-2">
@@ -188,8 +184,8 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
                     onClick={() => setActiveLanguage(lang)}
                     className={`squeeze-btn px-3 py-2 text-xs font-mono rounded-lg border text-left transition-colors ${
                       activeLanguage.id === lang.id
-                        ? "border-gold-400 bg-gold-500/20 text-gold-300 font-bold"
-                        : "border-zinc-800 bg-obsidian-900/40 text-zinc-400 hover:text-zinc-200"
+                        ? "border-gold-500 bg-gold-100/80 text-gold-900 font-bold"
+                        : "border-gold-200/60 bg-white text-charcoal-700 hover:text-charcoal-900"
                     }`}
                   >
                     {lang.name}
@@ -201,29 +197,29 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
           </div>
 
           {/* Right Stage: Interactive 3D Simulation Canvas */}
-          <div className="lg:col-span-8 flex flex-col justify-between glass-panel rounded-3xl p-6 sm:p-10 border border-gold-500/30 relative overflow-hidden bg-gradient-to-br from-obsidian-900 via-obsidian-950 to-obsidian-950">
+          <div className="lg:col-span-8 flex flex-col justify-between pearl-card rounded-3xl p-6 sm:p-10 border border-gold-400/35 relative overflow-hidden bg-white shadow-xl">
             
             {/* Top Stage Bar: SKU, View Options & Interactive Door Toggle */}
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gold-500/20 pb-5">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gold-400/25 pb-5">
               <div>
-                <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest block">
+                <span className="text-xs font-mono text-charcoal-500 uppercase tracking-widest block">
                   Interactive Preview • SKU: {selectedModel.sku}
                 </span>
-                <span className="font-serif text-lg font-bold text-white">
+                <span className="font-serif text-lg font-bold text-charcoal-950">
                   {selectedModel.name}
                 </span>
               </div>
 
               {/* Views switcher pills */}
-              <div className="flex items-center gap-1.5 p-1 rounded-xl bg-obsidian-900/80 border border-zinc-800">
+              <div className="flex items-center gap-1.5 p-1 rounded-xl bg-ivory-100 border border-gold-300">
                 {selectedModel.views.map((v, i) => (
                   <button
                     key={v}
                     onClick={() => setActiveViewIndex(i)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
+                    className={`px-3 py-1 text-[11px] font-mono tracking-wider rounded-lg transition-colors ${
                       activeViewIndex === i
-                        ? "bg-gold-500 text-obsidian-950 font-bold shadow-md"
-                        : "text-zinc-400 hover:text-white"
+                        ? "bg-white text-gold-900 font-bold shadow-sm"
+                        : "text-charcoal-600 hover:text-charcoal-900"
                     }`}
                   >
                     {v}
@@ -232,119 +228,113 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
               </div>
             </div>
 
-            {/* Central 3D Card Visualizer Canvas Area */}
-            <div className="relative my-8 min-h-[380px] flex items-center justify-center">
+            {/* Main Interactive Invitation Door Stage */}
+            <div className="my-10 relative flex items-center justify-center min-h-[360px] perspective-1200 select-none">
               
-              {/* Foil Particle Glow Aura */}
-              <div
-                className="absolute w-72 h-72 rounded-full blur-[80px] opacity-30 pointer-events-none transition-colors duration-500"
-                style={{ backgroundColor: activeFoil.color }}
-              />
-
-              {/* Dynamic 3D Card Simulation Box */}
-              <div
-                className={`w-full max-w-md p-8 rounded-2xl border transition-all duration-700 shadow-2xl relative ${
-                  doorOpen ? "scale-105" : "scale-100"
-                }`}
-                style={{
-                  borderColor: `${activeFoil.color}60`,
-                  background: `linear-gradient(145deg, rgba(16,13,20,0.95), rgba(8,6,10,0.98))`,
-                  boxShadow: `0 25px 60px rgba(0,0,0,0.9), 0 0 40px ${activeFoil.color}25`,
-                }}
-              >
-                {/* Metallic Gold Trim Accent */}
-                <div
-                  className="absolute inset-2 rounded-xl border pointer-events-none opacity-40"
-                  style={{ borderColor: activeFoil.color }}
-                />
-
-                {/* Card Content rendered according to configuration */}
-                <div className="text-center relative z-10 py-4">
-                  {/* Auspicious Emblem */}
-                  <div
-                    className="w-14 h-14 rounded-full mx-auto mb-4 border flex items-center justify-center shadow-lg transition-transform duration-500 hover:rotate-12"
-                    style={{
-                      borderColor: activeFoil.color,
-                      background: `radial-gradient(circle, ${activeFoil.color}30, transparent 70%)`,
-                    }}
-                  >
-                    <Sparkles className="w-6 h-6" style={{ color: activeFoil.color }} />
+              {/* Back Card Panel (Inside invitation) */}
+              <div className="w-[340px] sm:w-[420px] h-[340px] rounded-2xl p-6 border-2 border-gold-400/40 bg-gradient-to-br from-ivory-100 via-white to-ivory-200 flex flex-col justify-between shadow-2xl relative">
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full border border-gold-500 mx-auto mb-2 flex items-center justify-center bg-gold-50">
+                    <span className="font-serif text-xl text-gold-700">ॐ</span>
                   </div>
-
-                  {/* Dynamic Shloka / Nuptial Script Header */}
-                  <p
-                    className="text-xs font-serif italic mb-3 transition-all duration-300 px-4"
-                    style={{ color: activeFoil.color }}
-                  >
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-gold-800 font-bold block">
+                    {selectedModel.motif}
+                  </span>
+                  <div className="h-[1px] w-20 bg-gold-400 mx-auto my-2" />
+                  <p className="font-serif text-xs text-charcoal-800 italic px-4 py-2 bg-gold-50/60 rounded-lg border border-gold-300/40">
                     {activeLanguage.snippet}
                   </p>
+                </div>
 
-                  <h4 className="font-serif text-2xl sm:text-3xl font-extrabold text-white tracking-wide mb-2">
-                    Kavya &amp; Siddharth
-                  </h4>
+                <div className="border-t border-gold-300 pt-3 flex items-center justify-between text-[11px] font-mono text-charcoal-600">
+                  <span>Hot Foil: <strong className="text-gold-900">{activeFoil.name}</strong></span>
+                  <span className="text-royal-crimson font-bold">Royal Wax Monogram</span>
+                </div>
+              </div>
 
-                  <div
-                    className="h-[1px] w-28 mx-auto my-3"
-                    style={{
-                      background: `linear-gradient(90deg, transparent, ${activeFoil.color}, transparent)`,
-                    }}
-                  />
-
-                  <p className="text-xs font-mono tracking-widest uppercase text-zinc-300">
-                    The Oberoi Udaivilas • Udaipur
-                  </p>
-                  <p className="text-[11px] font-mono text-zinc-400 mt-1">
-                    Sunday, Nineteenth of November, 2026
-                  </p>
-
-                  {/* Interactive Gate Unfold Simulator */}
-                  <div className="mt-6 pt-5 border-t border-zinc-800/80 flex items-center justify-center gap-4">
-                    <button
-                      onClick={() => setDoorOpen(!doorOpen)}
-                      className="squeeze-btn px-4 py-2 rounded-full border text-xs font-mono uppercase tracking-wider flex items-center gap-2 transition-all"
-                      style={{
-                        borderColor: activeFoil.color,
-                        color: activeFoil.color,
-                      }}
-                    >
-                      <Layers className="w-3.5 h-3.5" />
-                      <span>{doorOpen ? "Close Outer Jharokha" : "Unfold Architectural Doors"}</span>
-                    </button>
+              {/* Foldable Left Door Panel */}
+              <div
+                onClick={() => setDoorsOpen(!doorsOpen)}
+                className="absolute left-1/2 -translate-x-full w-[170px] sm:w-[210px] h-[340px] rounded-l-2xl border-2 border-r-0 border-gold-500/50 bg-gradient-to-br from-white via-ivory-100 to-ivory-200 p-4 flex flex-col justify-between cursor-pointer transition-transform duration-700 ease-out origin-left shadow-2xl"
+                style={{
+                  transform: doorsOpen ? "rotateY(-135deg)" : "rotateY(0deg)",
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <div className="border border-gold-400/40 h-full rounded-l-xl p-3 flex flex-col justify-between bg-gold-50/20">
+                  <span className="text-[9px] font-mono tracking-widest uppercase text-gold-800">
+                    Jharokha Left Wing
+                  </span>
+                  <div className="text-center my-auto">
+                    <div className="w-10 h-10 rounded-full border border-gold-400 mx-auto mb-2 flex items-center justify-center">
+                      <Sparkles className="w-4 h-4 text-gold-600" />
+                    </div>
+                    <span className="text-[11px] font-serif font-bold text-charcoal-800 block">
+                      Auspicious
+                    </span>
                   </div>
+                  <span className="text-[8px] font-mono text-charcoal-500">
+                    Click to {doorsOpen ? "Close" : "Open"}
+                  </span>
+                </div>
+              </div>
+
+              {/* Foldable Right Door Panel */}
+              <div
+                onClick={() => setDoorsOpen(!doorsOpen)}
+                className="absolute left-1/2 w-[170px] sm:w-[210px] h-[340px] rounded-r-2xl border-2 border-l-0 border-gold-500/50 bg-gradient-to-bl from-white via-ivory-100 to-ivory-200 p-4 flex flex-col justify-between cursor-pointer transition-transform duration-700 ease-out origin-right shadow-2xl"
+                style={{
+                  transform: doorsOpen ? "rotateY(135deg)" : "rotateY(0deg)",
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <div className="border border-gold-400/40 h-full rounded-r-xl p-3 flex flex-col justify-between bg-gold-50/20">
+                  <span className="text-[9px] font-mono tracking-widest uppercase text-gold-800 text-right">
+                    Jharokha Right Wing
+                  </span>
+                  <div className="text-center my-auto">
+                    <div className="w-10 h-10 rounded-full border border-gold-400 mx-auto mb-2 flex items-center justify-center">
+                      <Sparkles className="w-4 h-4 text-gold-600" />
+                    </div>
+                    <span className="text-[11px] font-serif font-bold text-charcoal-800 block">
+                      Celebration
+                    </span>
+                  </div>
+                  <span className="text-[8px] font-mono text-charcoal-500 text-right">
+                    Click to {doorsOpen ? "Close" : "Open"}
+                  </span>
                 </div>
               </div>
 
             </div>
 
-            {/* Bottom Actions Bar */}
-            <div className="border-t border-gold-500/20 pt-6 flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <span className="text-xs text-zinc-400 block font-mono">
-                  Customization includes 2 Inserts, Wax Seal &amp; Mailing Envelopes
-                </span>
-                <span className="text-sm font-serif font-bold text-white">
-                  Estimated Bulk Pricing: ₹{selectedModel.priceINR} / unit
-                </span>
-              </div>
+            {/* Bottom Controls Bar */}
+            <div className="border-t border-gold-400/25 pt-5 flex flex-wrap items-center justify-between gap-4">
+              <button
+                onClick={() => setDoorsOpen(!doorsOpen)}
+                className="squeeze-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold-400 bg-gold-50 hover:bg-gold-100 text-charcoal-900 font-bold text-xs font-mono uppercase tracking-wider"
+              >
+                <RotateCcw className="w-3.5 h-3.5 text-gold-700" />
+                <span>{doorsOpen ? "Fold Doors Closed" : "Unfold Jharokha Doors"}</span>
+              </button>
 
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={handleAddSample}
-                  className="squeeze-btn px-6 py-3 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-obsidian-950 font-semibold text-xs tracking-wider uppercase flex items-center gap-2 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/40"
-                >
-                  <Package className="w-4 h-4" />
-                  <span>Add To Touch &amp; Feel Box</span>
-                </button>
-              </div>
+              <button
+                onClick={handleAddSample}
+                className="squeeze-btn px-7 py-3 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-charcoal-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2.5 shadow-md shadow-gold-500/20 hover:shadow-gold-500/35"
+              >
+                {addedToast ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-800" />
+                    <span>Added to Sample Kit</span>
+                  </>
+                ) : (
+                  <>
+                    <Package className="w-4 h-4 text-charcoal-950" />
+                    <span>Add Bespoke Sample to Kit</span>
+                  </>
+                )}
+              </button>
             </div>
-
-            {/* Added Toast Notification */}
-            {addedToast && (
-              <div className="absolute top-6 right-6 glass-panel border border-emerald-500/50 bg-emerald-950/90 text-emerald-200 px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-mono tracking-wider animate-bounce">
-                <Check className="w-4 h-4 text-emerald-400" />
-                <span>Added to your Free Sample Kit!</span>
-              </div>
-            )}
 
           </div>
 
