@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PhoneCall } from "lucide-react";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { LuxuryBackground3D } from "./components/LuxuryBackground3D";
 import { Navbar } from "./components/Navbar";
@@ -6,6 +7,7 @@ import { Hero } from "./components/Hero";
 import { CuratedShowcase } from "./components/CuratedShowcase";
 import { Interactive3DStudio } from "./components/Interactive3DStudio";
 import { CraftsmanshipAtelier } from "./components/CraftsmanshipAtelier";
+import { StackedHeritageCards } from "./components/StackedHeritageCards";
 import { CatalogExplorer } from "./components/CatalogExplorer";
 import { SampleKitExperience } from "./components/SampleKitExperience";
 import { TestimonialsRoyal } from "./components/TestimonialsRoyal";
@@ -81,6 +83,9 @@ export function App() {
         {/* Sovereign Materiality & Craft Atelier */}
         <CraftsmanshipAtelier />
 
+        {/* 4 Sovereign Epochs Pinned Heritage Cards Stack */}
+        <StackedHeritageCards />
+
         {/* Complete 4,000+ Filterable Catalog */}
         <CatalogExplorer
           onAddToSampleKit={handleAddToSampleKit}
@@ -113,6 +118,31 @@ export function App() {
         onClear={handleClearSampleKit}
         currency={currency}
       />
+
+      {/* Floating 24/7 VIP Bridal Concierge Badge */}
+      <aside aria-label="VIP Bridal Concierge" className="fixed bottom-6 left-6 z-40">
+        <a
+          href="https://wa.me/919900033307?text=Hello%20King%20of%20Cards,%20I%20would%20like%20to%20inquire%20about%20bespoke%20royal%20invitations"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="squeeze-btn group flex items-center gap-3 px-4 py-2.5 rounded-full border border-gold-400/50 bg-white/95 text-charcoal-900 shadow-2xl backdrop-blur-xl hover:border-gold-500 hover:shadow-gold-500/20 transition-all"
+        >
+          <div className="relative">
+            <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700">
+              <PhoneCall className="w-4 h-4" />
+            </div>
+            <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse border-2 border-white" />
+          </div>
+          <div className="text-left hidden sm:block">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-charcoal-500 block leading-tight">
+              Instant Atelier Assistance
+            </span>
+            <span className="font-serif text-xs font-bold text-gold-900 block leading-tight">
+              VIP WhatsApp Concierge
+            </span>
+          </div>
+        </a>
+      </aside>
     </SmoothScroll>
   );
 }

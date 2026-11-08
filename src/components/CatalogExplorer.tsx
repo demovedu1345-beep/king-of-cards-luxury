@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Search, Filter, Sparkles, Check, Eye, Package, ArrowUpDown } from "lucide-react";
 import { PRODUCTS, type Product, TRADITIONS, FORMATS } from "../data/mockProducts";
+import { SpotlightCard } from "./SpotlightCard";
 
 interface CatalogProps {
   onAddToSampleKit: (product: Product) => void;
@@ -185,8 +186,9 @@ export function CatalogExplorer({
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((p) => (
-              <div
+              <SpotlightCard
                 key={p.id}
+                spotlightColor="rgba(190, 153, 50, 0.18)"
                 className="pearl-card rounded-2xl overflow-hidden bg-white border border-gold-300/80 hover:border-gold-500 transition-all duration-300 flex flex-col justify-between group shadow-lg"
               >
                 {/* Image Container with Hover zoom */}
@@ -258,7 +260,7 @@ export function CatalogExplorer({
                     </button>
                   </div>
                 </div>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         )}

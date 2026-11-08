@@ -1,6 +1,9 @@
 import { useState, useRef } from "react";
 import { Sparkles, ArrowRight, ShieldCheck, Compass, RotateCcw, Heart } from "lucide-react";
 import confetti from "canvas-confetti";
+import { MagneticButton } from "./MagneticButton";
+import { CircularBadge } from "./CircularBadge";
+import { CountUp } from "./CountUp";
 
 interface HeroProps {
   onExploreClick: () => void;
@@ -52,21 +55,24 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
   };
 
   return (
-    <section id="hero" className="relative min-h-[95vh] pt-36 pb-20 flex items-center justify-center overflow-hidden bg-ivory-radial">
+    <section id="hero" className="relative min-h-[96vh] pt-36 pb-20 flex items-center justify-center overflow-hidden bg-ivory-radial">
       {/* Delicate background ambiance */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-b from-gold-200/25 via-gold-100/10 to-transparent blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[720px] h-[520px] bg-gradient-to-b from-gold-200/25 via-gold-100/10 to-transparent blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Left Column: Editorial Headline & High-Tension Typography */}
           <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-            {/* Crowned Pill Tag with Liquid Glass Rim */}
-            <div className="liquid-glass inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-6 shadow-sm in-blur" style={{ animationDelay: "100ms" }}>
-              <span className="w-2 h-2 rounded-full bg-gold-600 animate-ping" />
-              <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-gold-800 font-bold">
-                Haute Wedding Stationery Atelier
-              </span>
+            
+            <div className="flex items-center gap-4 mb-6">
+              {/* Crowned Pill Tag with Liquid Glass Rim */}
+              <div className="liquid-glass inline-flex items-center gap-2.5 px-4 py-2 rounded-full shadow-sm in-blur" style={{ animationDelay: "100ms" }}>
+                <span className="w-2 h-2 rounded-full bg-gold-600 animate-ping" />
+                <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-gold-800 font-bold">
+                  Haute Wedding Stationery Atelier
+                </span>
+              </div>
             </div>
 
             {/* Massive Display Title */}
@@ -84,37 +90,40 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
               and sculpted keepsake invitation boxes designed for the world’s most discerning couples.
             </p>
 
-            {/* Action Buttons with Emil Kowalski Squeeze Physics */}
+            {/* Action Buttons with Magnetic Pull Physics */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-5 w-full sm:w-auto mb-12 in-blur" style={{ animationDelay: "650ms" }}>
-              <button
+              <MagneticButton
                 onClick={onExploreClick}
-                className="squeeze-btn w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-charcoal-950 font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-3 shadow-xl shadow-gold-500/25 hover:shadow-gold-500/40"
+                pullStrength={0.25}
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-charcoal-950 font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-3 shadow-xl shadow-gold-500/25 hover:shadow-gold-500/40"
               >
                 <span>Explore Haute Atelier</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </MagneticButton>
 
-              <button
+              <MagneticButton
                 onClick={onStudioClick}
-                className="squeeze-btn w-full sm:w-auto px-7 py-4 rounded-full border border-gold-400/50 bg-white/80 hover:bg-white text-gold-800 font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2.5 shadow-sm backdrop-blur-md"
+                pullStrength={0.2}
+                className="w-full sm:w-auto px-7 py-4 rounded-full border border-gold-400/50 bg-white/80 hover:bg-white text-gold-800 font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2.5 shadow-sm backdrop-blur-md"
               >
                 <Sparkles className="w-4 h-4 text-gold-600" />
                 <span>3D Card Studio</span>
-              </button>
+              </MagneticButton>
 
-              <button
+              <MagneticButton
                 onClick={onSampleBoxClick}
-                className="squeeze-btn w-full sm:w-auto px-6 py-4 rounded-full border border-gold-300 bg-gold-50/70 hover:bg-gold-100 text-charcoal-800 font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2"
+                pullStrength={0.15}
+                className="w-full sm:w-auto px-6 py-4 rounded-full border border-gold-300 bg-gold-50/70 hover:bg-gold-100 text-charcoal-800 font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2"
               >
                 <span>Free Sample Box</span>
-              </button>
+              </MagneticButton>
             </div>
 
-            {/* Royal Proof Metrics */}
+            {/* Royal Proof Metrics with Live CountUp */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gold-400/25 w-full max-w-xl">
               <div>
                 <span className="font-serif text-2xl sm:text-3xl font-extrabold text-charcoal-950 block">
-                  4,000<span className="text-gold-600 font-normal">+</span>
+                  <CountUp end={4000} duration={2.4} suffix="+" />
                 </span>
                 <span className="text-[11px] uppercase font-mono tracking-wider text-charcoal-600">
                   Bespoke Designs
@@ -122,7 +131,7 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
               </div>
               <div>
                 <span className="font-serif text-2xl sm:text-3xl font-extrabold text-charcoal-950 block">
-                  1.2M<span className="text-gold-600 font-normal">+</span>
+                  <CountUp end={1.2} duration={2.0} decimals={1} suffix="M+" />
                 </span>
                 <span className="text-[11px] uppercase font-mono tracking-wider text-charcoal-600">
                   Couples Blessed
@@ -130,7 +139,7 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
               </div>
               <div>
                 <span className="font-serif text-2xl sm:text-3xl font-extrabold text-charcoal-950 block">
-                  48<span className="text-gold-600 font-normal">+</span>
+                  <CountUp end={48} duration={1.8} suffix="+" />
                 </span>
                 <span className="text-[11px] uppercase font-mono tracking-wider text-charcoal-600">
                   Global Nations
@@ -143,6 +152,11 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
           <div className="lg:col-span-5 flex flex-col items-center justify-center relative perspective-1200">
             {/* Ambient Background Aura Glow */}
             <div className="absolute w-80 h-80 rounded-full bg-gold-400/20 blur-[80px] -z-10 pointer-events-none" />
+
+            {/* Spinning Circular Royal Crest Badge */}
+            <div className="absolute -top-8 -right-4 z-20 hidden sm:block">
+              <CircularBadge size={110} />
+            </div>
 
             {/* Interactive Tilt Container */}
             <div
