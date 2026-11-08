@@ -58,8 +58,8 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
           
           {/* Left Column: Editorial Headline & High-Tension Typography */}
           <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-            {/* Crowned Pill Tag */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-gold-500/30 bg-gold-950/30 backdrop-blur-md mb-6 shadow-sm">
+            {/* Crowned Pill Tag with Liquid Glass Rim */}
+            <div className="liquid-glass inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-6 shadow-sm in-blur" style={{ animationDelay: "100ms" }}>
               <span className="w-2 h-2 rounded-full bg-gold-400 animate-ping" />
               <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-gold-300 font-semibold">
                 Haute Wedding Stationery Atelier
@@ -67,7 +67,7 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
             </div>
 
             {/* Massive Display Title */}
-            <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6">
+            <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-[-0.02em] text-white leading-[1.08] mb-6 in-blur" style={{ animationDelay: "250ms" }}>
               Crowning Life’s <br />
               <span className="text-gold-foil italic font-normal">
                 Greatest Celebrations.
@@ -75,14 +75,14 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
             </h1>
 
             {/* Editorial Body Description */}
-            <p className="text-base sm:text-lg text-zinc-300/90 font-light leading-relaxed max-w-2xl mb-8">
+            <p className="text-base sm:text-lg text-zinc-300/90 font-light leading-relaxed max-w-[65ch] mb-8 in-blur" style={{ animationDelay: "450ms" }}>
               Where heritage Indian craftsmanship meets contemporary European haute couture.
               Handcrafted laser-cut palace jharokhas, 24K hot-stamped gold foil, royal velvet scrolls,
               and sculpted keepsake invitation boxes designed for the world’s most discerning couples.
             </p>
 
             {/* Action Buttons with Emil Kowalski Squeeze Physics */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-5 w-full sm:w-auto mb-12">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-5 w-full sm:w-auto mb-12 in-blur" style={{ animationDelay: "650ms" }}>
               <button
                 onClick={onExploreClick}
                 className="squeeze-btn w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-obsidian-950 font-semibold text-sm tracking-wider uppercase flex items-center justify-center gap-3 shadow-xl shadow-gold-500/20 hover:shadow-gold-500/40"
