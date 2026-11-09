@@ -22,39 +22,66 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
   const [cardFlipped, setCardFlipped] = useState(false);
 
   const heroSectionRef = useRef<HTMLDivElement>(null);
-  const textColRef = useRef<HTMLDivElement>(null);
-  const cardColRef = useRef<HTMLDivElement>(null);
+  const heroStageRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const ribbonBannerRef = useRef<HTMLDivElement>(null);
+  const titleCharsRef = useRef<HTMLDivElement>(null);
 
-  // GSAP ScrollTrigger Parallax on Hero Exit
+  // Spylt & Floema GSAP Orchestration:
+  // 1. Spylt ClipPath expanding ribbon banner
+  // 2. Spylt Character-by-character SplitText entrance
+  // 3. Spylt 3D Hero Rotation + Scale + Y-percent scrub on scroll!
   useEffect(() => {
     const hero = heroSectionRef.current;
-    const textCol = textColRef.current;
-    const cardCol = cardColRef.current;
-    if (!hero || !textCol || !cardCol) return;
+    const stage = heroStageRef.current;
+    const ribbon = ribbonBannerRef.current;
+    const titleBlock = titleCharsRef.current;
+    if (!hero || !stage) return;
 
     const ctx = gsap.context(() => {
-      // Scrubbed parallax exit: text rises faster than card
-      gsap.to(textCol, {
-        y: -90,
-        opacity: 0.2,
-        ease: "none",
-        scrollTrigger: {
-          trigger: hero,
-          start: "center top",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
+      // 1. Spylt Expanding ClipPath Ribbon Banner Entrance
+      if (ribbon) {
+        gsap.fromTo(
+          ribbon,
+          { clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)", opacity: 0 },
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            opacity: 1,
+            duration: 1.1,
+            delay: 0.3,
+            ease: "circ.out",
+          }
+        );
+      }
 
-      gsap.to(cardCol, {
-        y: -40,
-        scale: 0.94,
-        opacity: 0.35,
-        ease: "none",
+      // 2. Spylt Character-by-Character Headline Split Entrance
+      if (titleBlock) {
+        const chars = titleBlock.querySelectorAll(".hero-char");
+        gsap.fromTo(
+          chars,
+          { yPercent: 180, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.02,
+            delay: 0.45,
+            ease: "power2.out",
+          }
+        );
+      }
+
+      // 3. The Signature Spylt 3D Hero Scroll Perspective Transform
+      // As you scroll down from hero, stage rotates 4deg, scales down to 0.93, and shifts down!
+      gsap.to(stage, {
+        rotate: 4.5,
+        scale: 0.93,
+        yPercent: 22,
+        opacity: 0.25,
+        ease: "power1.inOut",
         scrollTrigger: {
           trigger: hero,
-          start: "center top",
+          start: "top top",
           end: "bottom top",
           scrub: 1.2,
         },
@@ -100,47 +127,86 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
     });
   };
 
+  const titleLine1 = "Crowning Life’s";
+  const titleLine2 = "Greatest Celebrations.";
+
   return (
     <section
       id="hero"
       ref={heroSectionRef}
-      className="relative min-h-[96vh] pt-36 pb-20 flex items-center justify-center overflow-hidden bg-ivory-radial"
+      className="relative min-h-[98vh] pt-36 pb-20 flex items-center justify-center overflow-hidden bg-ivory-radial"
     >
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/* ANIMATED GRADIENT MESH BACKGROUND BLOBS                     */}
-      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* Floema Architectural Blueprint Crosshairs */}
+      <div className="absolute top-6 left-8 font-mono text-[9px] uppercase tracking-[0.25em] text-gold-700/60 pointer-events-none hidden sm:flex items-center gap-2">
+        <span>+</span>
+        <span>FLOEMA CAD REF: 2026-HERITAGE</span>
+        <span>•</span>
+        <span>BLPRNT: V9.2</span>
+      </div>
+      <div className="absolute top-6 right-8 font-mono text-[9px] uppercase tracking-[0.25em] text-gold-700/60 pointer-events-none hidden sm:block">
+        + PERSPECTIVE: 1200PX • SCALE: 1:1
+      </div>
+
+      {/* Animated gradient mesh background blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
         <div className="gradient-orb-1 absolute top-1/4 left-1/4 w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-gold-300/20 via-gold-200/10 to-transparent blur-[120px]" />
         <div className="gradient-orb-2 absolute top-1/3 right-1/4 w-[600px] h-[480px] rounded-full bg-gradient-to-bl from-gold-400/15 via-gold-100/20 to-transparent blur-[140px]" />
         <div className="gradient-orb-3 absolute bottom-10 left-1/2 -translate-x-1/2 w-[700px] h-[360px] rounded-full bg-gradient-to-t from-gold-200/25 via-gold-100/10 to-transparent blur-[100px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div
+        ref={heroStageRef}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full will-change-transform"
+        style={{ transformOrigin: "top center" }}
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Editorial Headline & High-Tension Typography */}
-          <div ref={textColRef} className="lg:col-span-7 flex flex-col items-start text-left z-10">
+          {/* Left Column: Editorial Headline & Spylt Split Text */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
             
-            <div className="flex items-center gap-4 mb-6">
-              {/* Crowned Pill Tag with Liquid Glass Rim */}
-              <div className="liquid-glass inline-flex items-center gap-2.5 px-4 py-2 rounded-full shadow-sm in-blur" style={{ animationDelay: "100ms" }}>
+            {/* Spylt Expanding ClipPath Pill Banner */}
+            <div className="mb-6 overflow-hidden">
+              <div
+                ref={ribbonBannerRef}
+                className="liquid-glass inline-flex items-center gap-2.5 px-4 py-2 rounded-full shadow-sm"
+                style={{ clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)" }}
+              >
                 <span className="w-2 h-2 rounded-full bg-gold-600 animate-ping" />
                 <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-gold-900 font-bold">
-                  Haute Wedding Stationery Atelier
+                  Haute Wedding Stationery Atelier • Est. 2002
                 </span>
               </div>
             </div>
 
-            {/* Massive Display Title with Split Masking */}
-            <h1
-              className="font-serif text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-[-0.025em] text-charcoal-950 leading-[1.08] mb-6 in-blur"
-              style={{ animationDelay: "250ms" }}
-            >
-              Crowning Life’s <br />
-              <span className="text-gold-foil italic font-normal">
-                Greatest Celebrations.
-              </span>
-            </h1>
+            {/* Massive Display Title with Spylt Character-by-Character SplitText */}
+            <div ref={titleCharsRef} className="mb-6 overflow-hidden">
+              <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-[-0.025em] text-charcoal-950 leading-[1.08]">
+                <div className="overflow-hidden">
+                  {titleLine1.split("").map((char, i) => (
+                    <span
+                      key={i}
+                      className="hero-char inline-block will-change-transform"
+                      style={{ whiteSpace: char === " " ? "pre" : "normal" }}
+                    >
+                      {char}
+                    </span>
+                  ))}
+                </div>
+                <div className="overflow-hidden">
+                  <span className="text-gold-foil italic font-normal">
+                    {titleLine2.split("").map((char, i) => (
+                      <span
+                        key={i}
+                        className="hero-char inline-block will-change-transform"
+                        style={{ whiteSpace: char === " " ? "pre" : "normal" }}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                  </span>
+                </div>
+              </h1>
+            </div>
 
             {/* Editorial Body Description with 65ch constraint */}
             <p
@@ -214,7 +280,7 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
           </div>
 
           {/* Right Column: Interactive 3D Tilt Wedding Invitation Card Showcase */}
-          <div ref={cardColRef} className="lg:col-span-5 flex flex-col items-center justify-center relative perspective-1200">
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative perspective-1200">
             {/* Ambient Background Aura Glow */}
             <div className="absolute w-80 h-80 rounded-full bg-gold-400/20 blur-[80px] -z-10 pointer-events-none" />
 

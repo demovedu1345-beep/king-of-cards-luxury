@@ -6,10 +6,12 @@ import { CustomCursor } from "./components/CustomCursor";
 import { ScrollProgressBar } from "./components/ScrollProgressBar";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
+import { ArchitecturalManifesto } from "./components/ArchitecturalManifesto";
 import { InfiniteMarquee } from "./components/InfiniteMarquee";
 import { CuratedShowcase } from "./components/CuratedShowcase";
 import { GradientDivider } from "./components/GradientDivider";
 import { ProductCarousel3D } from "./components/ProductCarousel3D";
+import { FloemaCollectionsRail } from "./components/FloemaCollectionsRail";
 import { Interactive3DStudio } from "./components/Interactive3DStudio";
 import { CraftsmanshipAtelier } from "./components/CraftsmanshipAtelier";
 import { StackedHeritageCards } from "./components/StackedHeritageCards";
@@ -79,12 +81,15 @@ export function App() {
       />
 
       <main className="relative z-10">
-        {/* Flagship Hero Section with 3D Tilt Card & Conic Border */}
+        {/* Spylt & Floema-Inspired Flagship Hero Section */}
         <Hero
           onExploreClick={() => scrollToSection("collections")}
           onStudioClick={() => scrollToSection("studio-3d")}
           onSampleBoxClick={() => scrollToSection("sample-box")}
         />
+
+        {/* Spylt Kinetic Reading Scrub & Floema Architectural Manifesto */}
+        <ArchitecturalManifesto />
 
         {/* Dual-Direction Haute Couture Infinite Marquee */}
         <InfiniteMarquee />
@@ -95,11 +100,14 @@ export function App() {
         {/* Section Divider */}
         <GradientDivider showSparkles />
 
-        {/* NEW: Movable 3D Perspective Display Product Section with High-Level Explosive Click Reveal */}
+        {/* Movable 3D Perspective Display Product Section with High-Level Explosive Click Reveal */}
         <ProductCarousel3D
           onAddToSampleKit={handleAddToSampleKit}
           currency={currency}
         />
+
+        {/* Floema Architectural Layer Exploded Specimen Explorer */}
+        <FloemaCollectionsRail onSelectCategory={handleSelectCategoryFromShowcase} />
 
         {/* Section Divider */}
         <GradientDivider showSparkles />
