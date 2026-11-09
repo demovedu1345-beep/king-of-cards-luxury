@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Sparkles, Layers, Sliders, Check, Eye, Package, RotateCcw } from "lucide-react";
 import { triggerFlyToCart } from "../utils/flyToCart";
+import { playTactileClick, playFoilGlint, playPaperRustle } from "../utils/soundEffects";
 
 interface StudioProps {
   onAddToSampleKit: (item: any) => void;
@@ -131,6 +132,7 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
                   <button
                     key={m.id}
                     onClick={() => {
+                      playPaperRustle();
                       setSelectedModel(m);
                       setActiveViewIndex(0);
                       setDoorsOpen(false);
@@ -163,7 +165,10 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
                 {FOIL_FINISHES.map((foil) => (
                   <button
                     key={foil.id}
-                    onClick={() => setActiveFoil(foil)}
+                    onClick={() => {
+                      playFoilGlint();
+                      setActiveFoil(foil);
+                    }}
                     className={`squeeze-btn p-3 rounded-xl border text-center transition-all ${
                       activeFoil.id === foil.id
                         ? "border-gold-500 bg-gold-100/70 shadow-sm"
@@ -192,7 +197,10 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
                 {LANGUAGES.map((lang) => (
                   <button
                     key={lang.id}
-                    onClick={() => setActiveLanguage(lang)}
+                    onClick={() => {
+                      playTactileClick();
+                      setActiveLanguage(lang);
+                    }}
                     className={`squeeze-btn px-3 py-2 text-xs font-mono rounded-lg border text-left transition-colors ${
                       activeLanguage.id === lang.id
                         ? "border-gold-500 bg-gold-100/80 text-gold-900 font-bold"
@@ -265,7 +273,10 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
 
               {/* Foldable Left Door Panel */}
               <div
-                onClick={() => setDoorsOpen(!doorsOpen)}
+                onClick={() => {
+                  playPaperRustle();
+                  setDoorsOpen(!doorsOpen);
+                }}
                 className="absolute left-1/2 -translate-x-full w-[170px] sm:w-[210px] h-[340px] rounded-l-2xl border-2 border-r-0 border-gold-500/50 bg-gradient-to-br from-white via-ivory-100 to-ivory-200 p-4 flex flex-col justify-between cursor-pointer transition-transform duration-700 ease-out origin-left shadow-2xl"
                 style={{
                   transform: doorsOpen ? "rotateY(-135deg)" : "rotateY(0deg)",
@@ -292,7 +303,10 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
 
               {/* Foldable Right Door Panel */}
               <div
-                onClick={() => setDoorsOpen(!doorsOpen)}
+                onClick={() => {
+                  playPaperRustle();
+                  setDoorsOpen(!doorsOpen);
+                }}
                 className="absolute left-1/2 w-[170px] sm:w-[210px] h-[340px] rounded-r-2xl border-2 border-l-0 border-gold-500/50 bg-gradient-to-bl from-white via-ivory-100 to-ivory-200 p-4 flex flex-col justify-between cursor-pointer transition-transform duration-700 ease-out origin-right shadow-2xl"
                 style={{
                   transform: doorsOpen ? "rotateY(135deg)" : "rotateY(0deg)",

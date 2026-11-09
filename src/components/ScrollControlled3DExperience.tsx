@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Sparkles, Package, ShieldCheck, Compass, Check } from "lucide-react";
 import { triggerFlyToCart } from "../utils/flyToCart";
+import { playTactileClick } from "../utils/soundEffects";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -145,6 +146,7 @@ export function ScrollControlled3DExperience({
   }, []);
 
   const handleAddSample = (e: React.MouseEvent<HTMLButtonElement>) => {
+    playTactileClick();
     triggerFlyToCart(e.currentTarget, productData.imageUrl, () => {
       onAddToSampleKit(productData);
       setAddedToast(true);

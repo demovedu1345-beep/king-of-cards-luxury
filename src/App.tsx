@@ -7,6 +7,7 @@ import { ScrollProgressBar } from "./components/ScrollProgressBar";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { ArchitecturalManifesto } from "./components/ArchitecturalManifesto";
+import { SpyltCurvedDip } from "./components/SpyltCurvedDip";
 import { InfiniteMarquee } from "./components/InfiniteMarquee";
 import { CuratedShowcase } from "./components/CuratedShowcase";
 import { GradientDivider } from "./components/GradientDivider";
@@ -22,6 +23,8 @@ import { TestimonialsRoyal } from "./components/TestimonialsRoyal";
 import { StoreBoutiques } from "./components/StoreBoutiques";
 import { Footer } from "./components/Footer";
 import { SampleKitDrawer } from "./components/SampleKitDrawer";
+import { FloemaBlueprintOverlay } from "./components/FloemaBlueprintOverlay";
+import { setSoundEnabled } from "./utils/soundEffects";
 import type { Product } from "./data/mockProducts";
 
 export function App() {
@@ -29,6 +32,14 @@ export function App() {
   const [currency, setCurrency] = useState<"INR" | "USD" | "GBP" | "AED">("INR");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState("All");
+  const [blueprintMode, setBlueprintMode] = useState(false);
+  const [soundEnabled, setSoundEnabledState] = useState(true);
+
+  const handleToggleSound = () => {
+    const next = !soundEnabled;
+    setSoundEnabledState(next);
+    setSoundEnabled(next);
+  };
 
   const handleAddToSampleKit = (product: Product | any) => {
     // Avoid duplicate additions if already selected
@@ -69,6 +80,12 @@ export function App() {
       {/* Fixed Viewport Top Scroll Progress Indicator */}
       <ScrollProgressBar />
 
+      {/* Floema Architectural CAD Blueprint HUD Overlay */}
+      <FloemaBlueprintOverlay
+        isActive={blueprintMode}
+        onClose={() => setBlueprintMode(false)}
+      />
+
       {/* 3D WebGL Golden Particle Background & Vanta Waves */}
       <LuxuryBackground3D />
 
@@ -79,6 +96,10 @@ export function App() {
         currency={currency}
         onCurrencyChange={setCurrency}
         onNavigate={scrollToSection}
+        blueprintMode={blueprintMode}
+        onToggleBlueprintMode={() => setBlueprintMode(!blueprintMode)}
+        soundEnabled={soundEnabled}
+        onToggleSound={handleToggleSound}
       />
 
       <main className="relative z-10">
@@ -92,8 +113,26 @@ export function App() {
         {/* Spylt Kinetic Reading Scrub & Floema Architectural Manifesto */}
         <ArchitecturalManifesto />
 
-        {/* Dual-Direction Haute Couture Infinite Marquee */}
+        {/* Spylt Signature Organic Dipping Curve Transition */}
+        <SpyltCurvedDip
+          fillColor="#f5f1ea"
+          bgColor="#faf8f5"
+          direction="down"
+          height={64}
+          showCenterTag
+          centerTagText="ROYAL ARCH // 01"
+        />
+
+        {/* Dual-Direction Haute Couture Infinite Marquee with Scroll Velocity Reactivity */}
         <InfiniteMarquee />
+
+        {/* Spylt Inverse Organic Dipping Transition */}
+        <SpyltCurvedDip
+          fillColor="#faf8f5"
+          bgColor="#f5f1ea"
+          direction="up"
+          height={64}
+        />
 
         {/* Curated Royal Collections Showcase (Pinned Horizontal GSAP Scroll) */}
         <CuratedShowcase onSelectCategory={handleSelectCategoryFromShowcase} />
@@ -149,6 +188,16 @@ export function App() {
 
         {/* Flagship Experience Lounges & Boutiques */}
         <StoreBoutiques />
+
+        {/* Spylt Deep Midnight Dipping Transition into Footer */}
+        <SpyltCurvedDip
+          fillColor="#111013"
+          bgColor="#faf8f5"
+          direction="down"
+          height={76}
+          showCenterTag
+          centerTagText="ROYAL ARCH // FINALE"
+        />
       </main>
 
       {/* Haute Footer */}

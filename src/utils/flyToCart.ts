@@ -1,10 +1,14 @@
 import confetti from "canvas-confetti";
+import { playTactileClick, playFoilGlint, playCartChime } from "./soundEffects";
 
 export function triggerFlyToCart(
   startEl: HTMLElement | null,
   imageUrl: string,
   onComplete?: () => void
 ) {
+  playTactileClick();
+  playFoilGlint();
+
   if (!startEl) {
     if (onComplete) onComplete();
     return;
@@ -58,6 +62,7 @@ export function triggerFlyToCart(
     // Bounce target cart badge
     targetEl.classList.add("scale-125");
     targetEl.style.transition = "transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)";
+    playCartChime();
 
     // Confetti burst from cart position
     const normX = (targetRect.left + targetRect.width / 2) / window.innerWidth;

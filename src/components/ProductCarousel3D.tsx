@@ -17,6 +17,7 @@ import confetti from "canvas-confetti";
 import { PRODUCTS, type Product } from "../data/mockProducts";
 import { SpotlightCard } from "./SpotlightCard";
 import { triggerFlyToCart } from "../utils/flyToCart";
+import { playTactileClick, playFoilGlint, playPaperRustle } from "../utils/soundEffects";
 
 interface ProductCarousel3DProps {
   onAddToSampleKit: (product: Product) => void;
@@ -70,10 +71,12 @@ export function ProductCarousel3D({
   }, [selectedProduct]);
 
   const handlePrev = () => {
+    playPaperRustle();
     setActiveIndex((prev) => (prev === 0 ? PRODUCTS.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
+    playPaperRustle();
     setActiveIndex((prev) => (prev + 1) % PRODUCTS.length);
   };
 
@@ -125,10 +128,14 @@ export function ProductCarousel3D({
 
   // Explosive Click animation & modal trigger
   const handleCardClick = (product: Product, index: number) => {
+    playTactileClick();
     if (index !== activeIndex) {
+      playPaperRustle();
       setActiveIndex(index);
       return;
     }
+
+    playFoilGlint();
 
     // Trigger golden celebratory confetti burst
     confetti({

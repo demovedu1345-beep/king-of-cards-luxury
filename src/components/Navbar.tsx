@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Crown, Sparkles, ShoppingBag, PhoneCall, Globe, Menu, X } from "lucide-react";
+import { Crown, Sparkles, ShoppingBag, PhoneCall, Globe, Menu, X, Compass, Volume2, VolumeX } from "lucide-react";
+import { playTactileClick } from "../utils/soundEffects";
 
 interface NavbarProps {
   sampleKitCount: number;
@@ -7,6 +8,10 @@ interface NavbarProps {
   currency: "INR" | "USD" | "GBP" | "AED";
   onCurrencyChange: (c: "INR" | "USD" | "GBP" | "AED") => void;
   onNavigate: (sectionId: string) => void;
+  blueprintMode?: boolean;
+  onToggleBlueprintMode?: () => void;
+  soundEnabled?: boolean;
+  onToggleSound?: () => void;
 }
 
 export function Navbar({
@@ -15,6 +20,10 @@ export function Navbar({
   currency,
   onCurrencyChange,
   onNavigate,
+  blueprintMode = false,
+  onToggleBlueprintMode,
+  soundEnabled = true,
+  onToggleSound,
 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,6 +35,11 @@ export function Navbar({
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (sectionId: string) => {
+    playTactileClick();
+    onNavigate(sectionId);
+  };
 
   return (
     <>
@@ -39,7 +53,7 @@ export function Navbar({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo & Royal Crest */}
           <button
-            onClick={() => onNavigate("hero")}
+            onClick={() => handleNavClick("hero")}
             className="flex items-center gap-3.5 group text-left focus:outline-none"
           >
             <div className="relative w-10 h-10 rounded-full border border-gold-500/40 flex items-center justify-center bg-gradient-to-br from-gold-100 via-white to-ivory-200 shadow-sm group-hover:border-gold-500 transition-colors">
@@ -57,16 +71,16 @@ export function Navbar({
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-[11px] font-semibold tracking-[0.16em] uppercase text-charcoal-800">
+          <nav className="hidden lg:flex items-center gap-6 text-[11px] font-semibold tracking-[0.16em] uppercase text-charcoal-800">
             <button
-              onClick={() => onNavigate("collections")}
+              onClick={() => handleNavClick("collections")}
               className="hover:text-gold-700 transition-colors duration-200 py-1 relative group"
             >
               Collections
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-600 transition-all duration-300 group-hover:w-full" />
             </button>
             <button
-              onClick={() => onNavigate("movable-showcase")}
+              onClick={() => handleNavClick("movable-showcase")}
               className="hover:text-gold-700 transition-colors duration-200 py-1 relative group flex items-center gap-1.5 font-bold text-gold-900"
             >
               <Sparkles className="w-3.5 h-3.5 text-gold-600 animate-pulse" />
@@ -74,35 +88,35 @@ export function Navbar({
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-600 transition-all duration-300 group-hover:w-full" />
             </button>
             <button
-              onClick={() => onNavigate("studio-3d")}
+              onClick={() => handleNavClick("studio-3d")}
               className="hover:text-gold-700 transition-colors duration-200 py-1 relative group"
             >
               3D Studio
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-600 transition-all duration-300 group-hover:w-full" />
             </button>
             <button
-              onClick={() => onNavigate("craft")}
+              onClick={() => handleNavClick("craft")}
               className="hover:text-gold-700 transition-colors duration-200 py-1 relative group"
             >
               The Craft
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-600 transition-all duration-300 group-hover:w-full" />
             </button>
             <button
-              onClick={() => onNavigate("catalog")}
+              onClick={() => handleNavClick("catalog")}
               className="hover:text-gold-700 transition-colors duration-200 py-1 relative group"
             >
               All Invitations
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-600 transition-all duration-300 group-hover:w-full" />
             </button>
             <button
-              onClick={() => onNavigate("sample-box")}
+              onClick={() => handleNavClick("sample-box")}
               className="hover:text-gold-700 transition-colors duration-200 py-1 relative group"
             >
               Sample Box
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-600 transition-all duration-300 group-hover:w-full" />
             </button>
             <button
-              onClick={() => onNavigate("boutiques")}
+              onClick={() => handleNavClick("boutiques")}
               className="hover:text-gold-700 transition-colors duration-200 py-1 relative group"
             >
               Boutiques
@@ -110,11 +124,59 @@ export function Navbar({
             </button>
           </nav>
 
-          {/* Right Action Icons: Currency, WhatsApp VIP, and Sample Kit Drawer Trigger */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          {/* Right Action Icons: Floema CAD Toggle, Audio, Currency, WhatsApp VIP, and Sample Kit */}
+          <div className="flex items-center gap-2.5 sm:gap-3.5">
+            
+            {/* Floema CAD Blueprint Mode Toggle */}
+            {onToggleBlueprintMode && (
+              <button
+                onClick={() => {
+                  playTactileClick();
+                  onToggleBlueprintMode();
+                }}
+                className={`squeeze-btn hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border text-[10px] font-mono uppercase tracking-wider transition-all shadow-sm ${
+                  blueprintMode
+                    ? "bg-gold-500 text-charcoal-950 border-gold-600 font-bold shadow-gold-500/25"
+                    : "bg-white/80 text-charcoal-700 border-gold-300/60 hover:border-gold-400"
+                }`}
+                title="Toggle Floema Architectural CAD Blueprint Mode"
+              >
+                <Compass className={`w-3 h-3 ${blueprintMode ? "text-charcoal-950 animate-spin" : "text-gold-600"}`} />
+                <span className="hidden md:inline">CAD Mode</span>
+              </button>
+            )}
+
+            {/* Tactile Audio FX Toggle */}
+            {onToggleSound && (
+              <button
+                onClick={() => {
+                  playTactileClick();
+                  onToggleSound();
+                }}
+                className={`squeeze-btn hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-full border text-[10px] font-mono tracking-wider transition-all shadow-sm ${
+                  soundEnabled
+                    ? "bg-white/90 text-gold-900 border-gold-300/80 hover:border-gold-400"
+                    : "bg-charcoal-100/50 text-charcoal-400 border-charcoal-200"
+                }`}
+                title={soundEnabled ? "Audio Effects: ON" : "Audio Effects: OFF"}
+              >
+                {soundEnabled ? (
+                  <>
+                    <Volume2 className="w-3 h-3 text-gold-600" />
+                    <span className="hidden lg:inline text-[9px] font-bold">FX ON</span>
+                  </>
+                ) : (
+                  <>
+                    <VolumeX className="w-3 h-3 text-charcoal-400" />
+                    <span className="hidden lg:inline text-[9px]">FX OFF</span>
+                  </>
+                )}
+              </button>
+            )}
+
             {/* Currency Switcher */}
             <div className="relative group hidden sm:flex items-center">
-              <div className="flex items-center gap-1.5 text-[11px] font-mono tracking-wider px-3 py-1.5 rounded-full border border-gold-400/30 bg-white/80 text-charcoal-800 hover:border-gold-500 cursor-pointer transition-colors shadow-sm">
+              <div className="flex items-center gap-1.5 text-[11px] font-mono tracking-wider px-2.5 py-1.5 rounded-full border border-gold-400/30 bg-white/80 text-charcoal-800 hover:border-gold-500 cursor-pointer transition-colors shadow-sm">
                 <Globe className="w-3 h-3 text-gold-600" />
                 <span>{currency}</span>
               </div>
@@ -123,7 +185,10 @@ export function Navbar({
                   {(["INR", "USD", "GBP", "AED"] as const).map((c) => (
                     <button
                       key={c}
-                      onClick={() => onCurrencyChange(c)}
+                      onClick={() => {
+                        playTactileClick();
+                        onCurrencyChange(c);
+                      }}
                       className={`px-3 py-1 rounded text-left hover:bg-gold-50 transition-colors ${
                         currency === c ? "text-gold-700 font-bold bg-gold-100/60" : "text-charcoal-700"
                       }`}
@@ -140,19 +205,23 @@ export function Navbar({
               href="https://wa.me/919900033307?text=Hello%20King%20of%20Cards,%20I%20would%20like%20to%20inquire%20about%20bespoke%20wedding%20invitations"
               target="_blank"
               rel="noopener noreferrer"
-              className="squeeze-btn hidden md:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-600/30 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-semibold tracking-wide transition-colors shadow-sm"
+              onClick={playTactileClick}
+              className="squeeze-btn hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-emerald-600/30 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-[11px] font-semibold tracking-wide transition-colors shadow-sm"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-emerald-600" />
+              <PhoneCall className="w-3 h-3 text-emerald-600" />
               <span>VIP Concierge</span>
             </a>
 
             {/* Sample Kit Bag Trigger Button */}
             <button
               id="navbar-sample-kit-btn"
-              onClick={onOpenSampleKit}
-              className="squeeze-btn relative flex items-center gap-2.5 px-4 py-2 rounded-full border border-gold-400/40 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-charcoal-950 font-bold text-xs tracking-wider uppercase shadow-md shadow-gold-500/15 hover:shadow-gold-500/30 transition-all"
+              onClick={() => {
+                playTactileClick();
+                onOpenSampleKit();
+              }}
+              className="squeeze-btn relative flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full border border-gold-400/40 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-charcoal-950 font-bold text-xs tracking-wider uppercase shadow-md shadow-gold-500/15 hover:shadow-gold-500/30 transition-all"
             >
-              <ShoppingBag className="w-4 h-4 text-charcoal-950" />
+              <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-charcoal-950" />
               <span className="hidden sm:inline">Sample Kit</span>
               {sampleKitCount > 0 && (
                 <span className="flex items-center justify-center w-5 h-5 rounded-full bg-charcoal-950 text-gold-300 text-[11px] font-bold shadow-sm">
@@ -163,7 +232,10 @@ export function Navbar({
 
             {/* Mobile Hamburger Menu Toggle */}
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => {
+                playTactileClick();
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
               className="lg:hidden p-2 rounded-lg border border-gold-400/30 bg-white/80 text-charcoal-800 hover:text-gold-700 focus:outline-none"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -175,45 +247,45 @@ export function Navbar({
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white/95 border-t border-gold-400/30 mt-3 px-6 py-6 flex flex-col gap-4 text-xs font-semibold tracking-wider uppercase text-charcoal-800 shadow-xl backdrop-blur-xl">
             <button
-              onClick={() => { onNavigate("collections"); setMobileMenuOpen(false); }}
+              onClick={() => { handleNavClick("collections"); setMobileMenuOpen(false); }}
               className="text-left py-2 hover:text-gold-700 transition-colors"
             >
               Curated Collections
             </button>
             <button
-              onClick={() => { onNavigate("movable-showcase"); setMobileMenuOpen(false); }}
+              onClick={() => { handleNavClick("movable-showcase"); setMobileMenuOpen(false); }}
               className="text-left py-2 text-gold-900 font-bold flex items-center gap-2"
             >
               <Sparkles className="w-4 h-4 text-gold-600" />
               Interactive 3D Display
             </button>
             <button
-              onClick={() => { onNavigate("studio-3d"); setMobileMenuOpen(false); }}
+              onClick={() => { handleNavClick("studio-3d"); setMobileMenuOpen(false); }}
               className="text-left py-2 text-gold-700 flex items-center gap-2"
             >
               <Sparkles className="w-4 h-4 text-gold-600" />
               Virtual Unboxer Studio
             </button>
             <button
-              onClick={() => { onNavigate("craft"); setMobileMenuOpen(false); }}
+              onClick={() => { handleNavClick("craft"); setMobileMenuOpen(false); }}
               className="text-left py-2 hover:text-gold-700 transition-colors"
             >
               Material &amp; Craftsmanship
             </button>
             <button
-              onClick={() => { onNavigate("catalog"); setMobileMenuOpen(false); }}
+              onClick={() => { handleNavClick("catalog"); setMobileMenuOpen(false); }}
               className="text-left py-2 hover:text-gold-700 transition-colors"
             >
               All 4,000+ Invitations
             </button>
             <button
-              onClick={() => { onNavigate("sample-box"); setMobileMenuOpen(false); }}
+              onClick={() => { handleNavClick("sample-box"); setMobileMenuOpen(false); }}
               className="text-left py-2 hover:text-gold-700 transition-colors"
             >
               Order Sample Box
             </button>
             <button
-              onClick={() => { onNavigate("boutiques"); setMobileMenuOpen(false); }}
+              onClick={() => { handleNavClick("boutiques"); setMobileMenuOpen(false); }}
               className="text-left py-2 hover:text-gold-700 transition-colors"
             >
               Flagship Boutiques
@@ -224,7 +296,10 @@ export function Navbar({
                 {(["INR", "USD", "GBP", "AED"] as const).map((c) => (
                   <button
                     key={c}
-                    onClick={() => onCurrencyChange(c)}
+                    onClick={() => {
+                      playTactileClick();
+                      onCurrencyChange(c);
+                    }}
                     className={`px-2.5 py-1 text-xs font-mono rounded ${
                       currency === c ? "bg-gold-500 text-charcoal-950 font-bold" : "text-charcoal-600"
                     }`}

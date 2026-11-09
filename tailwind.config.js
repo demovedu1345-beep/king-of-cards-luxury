@@ -46,6 +46,7 @@ export default {
         }
       },
       fontFamily: {
+        display: ['"Antonio"', '"Cinzel Decorative"', 'sans-serif'],
         serif: ['"Cinzel Decorative"', '"Cinzel"', '"Cormorant Garamond"', 'Playfair Display', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
