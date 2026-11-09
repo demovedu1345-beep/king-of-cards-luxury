@@ -1,11 +1,10 @@
-// ANGRAITY — Haute Stationery & Fine Print Atelier Companion Experience
+// KING OF CARDS — Haute Wedding Cards & Bespoke Stationery Atelier Companion Experience
 // Integrates floating navigation, interactive 3D card tilt customizer, real-time foil & paper rendering,
 // and zero-payment VIP proof reservation flow.
 
 (function () {
   'use strict';
 
-  // Wait for DOM to be ready
   function init() {
     if (document.getElementById('angraity-root')) return;
 
@@ -16,32 +15,32 @@
 
     // State
     const state = {
-      monogram: 'A & G',
-      names: 'Alexander & Genevieve',
-      details: 'Request the pleasure of your company\nSaturday, October 18, 2026\nVilla San Michele • Florence, Italy',
+      monogram: 'P & R',
+      names: 'Priya & Rohan',
+      details: 'Cordially invite you to celebrate their wedding ceremony\nSaturday, November 28, 2026\nThe Leela Palace • Bengaluru',
       foil: { name: '24k Pure Gold', color: '#D4AF37', border: 'rgba(212, 175, 55, 0.5)' },
-      paper: { name: '900 GSM Heavy Cotton Arch', class: 'arch', bg: '#FDFBF7' },
-      seal: { name: 'Royal Burgundy', color: '#783747' },
+      paper: { name: '900 GSM Archival Gilded Board', class: 'arch', bg: '#FDFBF7' },
+      seal: { name: 'Royal Ruby Burgundy', color: '#783747' },
       isDrawerOpen: false,
     };
 
     // Inject HTML Markup
     root.innerHTML = `
-      <!-- Floating Atelier Header -->
+      <!-- Floating King of Cards Atelier Header -->
       <header class="ang-luxury-header" id="angHeader">
         <nav class="ang-nav-links">
-          <a class="ang-nav-link" id="navLinkSuites" href="#suites">Signature Suites</a>
-          <a class="ang-nav-link" id="navLinkCraft" href="#craft">Mastery & Specs</a>
+          <a class="ang-nav-link" id="navLinkSuites" href="#suites">Signature Cards</a>
+          <a class="ang-nav-link" id="navLinkCraft" href="#craft">Craftsmanship & Specs</a>
           <a class="ang-nav-link" href="./floema/" title="Explore Architectural & Spatial Exhibition" style="display: inline-flex; align-items: center; gap: 0.35rem; color: #D4AF37;">
             <span>Architectural Studio</span>
-            <span style="font-size: 0.65rem; background: rgba(212, 175, 55, 0.2); border: 1px solid rgba(212, 175, 55, 0.4); padding: 0.15rem 0.4rem; border-radius: 9999px;">3D Space</span>
+            <span style="font-size: 0.65rem; background: rgba(212, 175, 55, 0.2); border: 1px solid rgba(212, 175, 55, 0.4); padding: 0.15rem 0.4rem; border-radius: 9999px;">3D CAD</span>
           </a>
         </nav>
         <button class="ang-btn-customise" id="openCustomizerBtn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
-          Bespoke Customizer
+          Card Customizer
         </button>
       </header>
 
@@ -50,8 +49,8 @@
         <aside class="ang-customizer-drawer" id="customizerDrawer">
           <div class="ang-drawer-header">
             <div>
-              <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: #B49A68; font-weight: 600;">Atelier Bespoke Workshop</div>
-              <h2 class="ang-drawer-title" style="margin: 0.25rem 0 0 0;">Interactive Suite Proofing</h2>
+              <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: #B49A68; font-weight: 600;">King of Cards • Bespoke Workshop</div>
+              <h2 class="ang-drawer-title" style="margin: 0.25rem 0 0 0;">Interactive Card Proofing</h2>
             </div>
             <button class="ang-drawer-close" id="closeDrawerBtn" aria-label="Close Customizer">✕</button>
           </div>
@@ -71,7 +70,7 @@
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
                   <div class="ang-card-seal" id="previewSeal">
-                    <span id="previewSealLetter">A</span>
+                    <span id="previewSealLetter">P</span>
                   </div>
                   <div style="font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #9A948D;">Hand-Poured Wax Seal</div>
                 </div>
@@ -81,16 +80,16 @@
             <!-- Customizer Controls -->
             <div class="ang-field-group">
               <label class="ang-field-label" for="inputMonogram">Monogram Initials</label>
-              <input type="text" id="inputMonogram" class="ang-input-text" value="${state.monogram}" maxlength="8" placeholder="e.g. A & G">
+              <input type="text" id="inputMonogram" class="ang-input-text" value="${state.monogram}" maxlength="8" placeholder="e.g. P & R">
             </div>
 
             <div class="ang-field-group">
               <label class="ang-field-label" for="inputNames">Honor / Couple Names</label>
-              <input type="text" id="inputNames" class="ang-input-text" value="${state.names}" placeholder="e.g. Alexander & Genevieve">
+              <input type="text" id="inputNames" class="ang-input-text" value="${state.names}" placeholder="e.g. Priya & Rohan">
             </div>
 
             <div class="ang-field-group">
-              <label class="ang-field-label" for="inputDetails">Ceremony Invitation Details</label>
+              <label class="ang-field-label" for="inputDetails">Invitation Details & Venue</label>
               <textarea id="inputDetails" class="ang-input-text" rows="3" style="resize: vertical;">${state.details}</textarea>
             </div>
 
@@ -117,11 +116,11 @@
               </div>
             </div>
 
-            <!-- Paper Stock Selector -->
+            <!-- Paper Stock / Box Format Selector -->
             <div class="ang-field-group">
-              <label class="ang-field-label">Archival Cardstock & Silhouette</label>
+              <label class="ang-field-label">Archival Stock & Packaging Format</label>
               <div class="ang-options-grid" id="paperOptions">
-                <div class="ang-option-card active" data-paper-name="900 GSM Heavy Cotton Arch" data-paper-class="arch" data-paper-bg="#FDFBF7">
+                <div class="ang-option-card active" data-paper-name="900 GSM Archival Gilded Board" data-paper-class="arch" data-paper-bg="#FDFBF7">
                   <span style="font-size: 1rem;">🏛</span>
                   <span>900 GSM Gilded Arch</span>
                 </div>
@@ -129,22 +128,22 @@
                   <span style="font-size: 1rem;">📜</span>
                   <span>600 GSM Deckle Edge</span>
                 </div>
-                <div class="ang-option-card" data-paper-name="800 GSM Ultra Matte Obsidian" data-paper-class="dark" data-paper-bg="#1E1C1A">
-                  <span style="font-size: 1rem;">🖤</span>
-                  <span>800 GSM Noir Obsidian</span>
+                <div class="ang-option-card" data-paper-name="800 GSM Silk-Lined Padded Box" data-paper-class="dark" data-paper-bg="#1E1C1A">
+                  <span style="font-size: 1rem;">🎁</span>
+                  <span>Silk-Lined Box Set</span>
                 </div>
-                <div class="ang-option-card" data-paper-name="1000 GSM Triple Museum Board" data-paper-class="bevel" data-paper-bg="#FAF8F5">
+                <div class="ang-option-card" data-paper-name="1000 GSM Laser-Cut Board" data-paper-class="bevel" data-paper-bg="#FAF8F5">
                   <span style="font-size: 1rem;">💎</span>
-                  <span>1000 GSM Museum Board</span>
+                  <span>Laser-Cut Keepsake</span>
                 </div>
               </div>
             </div>
 
             <!-- Wax Seal Color Selector -->
             <div class="ang-field-group">
-              <label class="ang-field-label">Hand-Poured Botanical Wax Seal</label>
+              <label class="ang-field-label">Hand-Poured Wax Seal</label>
               <div class="ang-options-grid" id="sealOptions">
-                <div class="ang-option-card active" data-seal-name="Royal Burgundy" data-seal-color="#783747">
+                <div class="ang-option-card active" data-seal-name="Royal Ruby Burgundy" data-seal-color="#783747">
                   <span class="ang-swatch-dot" style="background: #783747;"></span>
                   <span>Royal Burgundy</span>
                 </div>
@@ -179,23 +178,23 @@
           <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(212, 175, 55, 0.15); border: 1px solid #D4AF37; margin: 0 auto 1.25rem; display: flex; align-items: center; justify-content: center; color: #D4AF37; font-size: 1.5rem;">
             ✓
           </div>
-          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.25em; color: #B49A68; margin-bottom: 0.5rem;">White-Glove Commission</div>
+          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.25em; color: #B49A68; margin-bottom: 0.5rem;">King of Cards • White-Glove Commission</div>
           <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 2rem; color: #F5F1E9; margin: 0 0 1rem;">Sample Suite Reserved</h3>
           <p style="color: #A9A29A; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
-            Your bespoke stationery proof specifications have been dispatched to the Angraity Master Printmaker. No payment is required. A physical archival proof will be hand-embossed and delivered in our signature wax-sealed velvet folio.
+            Your bespoke card specifications have been queued at the King of Cards master atelier. No payment is required. A physical archival proof will be hand-embossed and delivered in our signature wax-sealed presentation folio.
           </p>
 
           <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 1rem; text-align: left; margin-bottom: 1.75rem; font-size: 0.8rem; color: #EAE2D5; display: flex; flex-direction: column; gap: 0.4rem;">
-            <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Reference:</span> <strong style="color: #D4AF37;" id="modalRef">ANG-7821</strong></div>
-            <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Monogram / Names:</span> <span id="modalNames">Alexander & Genevieve</span></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Reference:</span> <strong style="color: #D4AF37;" id="modalRef">KOC-8291</strong></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Monogram / Names:</span> <span id="modalNames">Priya & Rohan</span></div>
             <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Foil Deboss:</span> <span id="modalFoil">24k Pure Gold</span></div>
-            <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Paper Stock:</span> <span id="modalPaper">900 GSM Heavy Cotton Arch</span></div>
-            <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Wax Seal:</span> <span id="modalSeal">Royal Burgundy</span></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Board & Packaging:</span> <span id="modalPaper">900 GSM Archival Gilded Board</span></div>
+            <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Wax Seal:</span> <span id="modalSeal">Royal Ruby Burgundy</span></div>
             <div style="display: flex; justify-content: space-between;"><span style="color: #8C867E;">Payment Status:</span> <span style="color: #6EE7B7; font-weight: 600;">Complimentary Atelier Gift ($0.00)</span></div>
           </div>
 
           <button class="ang-btn-proof" id="closeModalBtn" style="width: 100%;">
-            Return to Atelier Showcase
+            Return to King of Cards Showcase
           </button>
         </div>
       </div>
@@ -283,13 +282,13 @@
 
     // Two-Way Binding Inputs
     inputMonogram.addEventListener('input', (e) => {
-      state.monogram = e.target.value.trim() || 'A & G';
+      state.monogram = e.target.value.trim() || 'P & R';
       previewMonogram.textContent = state.monogram;
-      previewSealLetter.textContent = state.monogram.charAt(0) || 'A';
+      previewSealLetter.textContent = state.monogram.charAt(0) || 'P';
     });
 
     inputNames.addEventListener('input', (e) => {
-      state.names = e.target.value.trim() || 'Alexander & Genevieve';
+      state.names = e.target.value.trim() || 'Priya & Rohan';
       previewNames.textContent = state.names;
     });
 
@@ -312,11 +311,11 @@
         };
 
         cardPreview.style.setProperty('--card-foil-color', state.foil.color);
-        showToast(`Selected ${state.foil.name} Debossing`);
+        showToast(`Selected ${state.foil.name} Hot Foil`);
       });
     });
 
-    // Paper Stock Selection
+    // Paper / Packaging Selection
     const paperOptions = document.querySelectorAll('#paperOptions .ang-option-card');
     paperOptions.forEach((card) => {
       card.addEventListener('click', () => {
@@ -348,7 +347,7 @@
           cardPreview.querySelector('.ang-card-details').style.color = '#4A4643';
         }
 
-        showToast(`Stock updated: ${state.paper.name}`);
+        showToast(`Format updated: ${state.paper.name}`);
       });
     });
 
@@ -373,18 +372,15 @@
     // Request VIP Proof Button
     const requestProofBtn = document.getElementById('requestProofBtn');
     requestProofBtn.addEventListener('click', () => {
-      // Close customizer drawer
       closeDrawer();
 
-      // Populate confirmation modal
       const randomId = Math.floor(1000 + Math.random() * 9000);
-      modalRef.textContent = `ANG-${randomId}`;
+      modalRef.textContent = `KOC-${randomId}`;
       modalNames.textContent = `${state.monogram} — ${state.names}`;
       modalFoil.textContent = state.foil.name;
       modalPaper.textContent = state.paper.name;
       modalSeal.textContent = state.seal.name;
 
-      // Open Modal
       modalBackdrop.style.opacity = '1';
       modalBackdrop.style.pointerEvents = 'auto';
       document.body.style.overflow = 'hidden';
@@ -394,7 +390,7 @@
       modalBackdrop.style.opacity = '0';
       modalBackdrop.style.pointerEvents = 'none';
       document.body.style.overflow = '';
-      showToast('Thank you — your sample proof is queued!');
+      showToast('Thank you — your sample card proof is reserved!');
     }
 
     closeModalBtn.addEventListener('click', closeModal);
@@ -405,10 +401,9 @@
     // Smooth Scroll Anchor Handlers
     document.getElementById('navLinkSuites').addEventListener('click', (e) => {
       e.preventDefault();
-      // Look for suites section or flavor section
       const candidates = document.querySelectorAll('section, div');
       for (let el of candidates) {
-        if (el.textContent.includes('Signature Suites') || el.textContent.includes('Imperial Wedding Suite')) {
+        if (el.textContent.includes('Maroon Royal Scroll') || el.textContent.includes('Signature Suites') || el.textContent.includes('The Royal')) {
           el.scrollIntoView({ behavior: 'smooth' });
           return;
         }
@@ -420,7 +415,7 @@
       e.preventDefault();
       const candidates = document.querySelectorAll('section, div');
       for (let el of candidates) {
-        if (el.textContent.includes('Paper Weight') || el.textContent.includes('Mastery in Paper')) {
+        if (el.textContent.includes('Board Weight') || el.textContent.includes('Mastery in Laser-Cut') || el.textContent.includes('Exclusive Cards')) {
           el.scrollIntoView({ behavior: 'smooth' });
           return;
         }
@@ -428,14 +423,13 @@
       window.scrollTo({ top: window.innerHeight * 3.5, behavior: 'smooth' });
     });
 
-    // Also connect existing CTAs in the React/GSAP DOM
+    // Connect CTAs in cloned UI
     document.addEventListener('click', (e) => {
       const target = e.target.closest('button, a');
       if (!target) return;
       const text = (target.textContent || '').trim().toLowerCase();
-      if (text.includes('explore atelier suites') || text.includes('chug a spylt')) {
+      if (text.includes('explore luxury cards') || text.includes('explore atelier suites') || text.includes('chug a spylt')) {
         e.preventDefault();
-        // Scroll to suites
         document.getElementById('navLinkSuites').click();
       } else if (text.includes('find in stores') || text.includes('order sample') || text.includes('customise')) {
         e.preventDefault();
@@ -443,7 +437,7 @@
       }
     });
 
-    console.log('ANGRAITY Atelier Companion Experience successfully loaded.');
+    console.log('King of Cards Luxury Atelier Companion Experience successfully loaded.');
   }
 
   if (document.readyState === 'loading') {
