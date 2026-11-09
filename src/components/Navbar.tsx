@@ -66,11 +66,18 @@ export function Navbar({
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-600 transition-all duration-300 group-hover:w-full" />
             </button>
             <button
-              onClick={() => onNavigate("studio-3d")}
-              className="hover:text-gold-700 transition-colors duration-200 py-1 relative group flex items-center gap-1.5"
+              onClick={() => onNavigate("movable-showcase")}
+              className="hover:text-gold-700 transition-colors duration-200 py-1 relative group flex items-center gap-1.5 font-bold text-gold-900"
             >
               <Sparkles className="w-3.5 h-3.5 text-gold-600 animate-pulse" />
-              3D Card Studio
+              3D Display
+              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-600 transition-all duration-300 group-hover:w-full" />
+            </button>
+            <button
+              onClick={() => onNavigate("studio-3d")}
+              className="hover:text-gold-700 transition-colors duration-200 py-1 relative group"
+            >
+              3D Studio
               <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gold-600 transition-all duration-300 group-hover:w-full" />
             </button>
             <button
@@ -173,11 +180,18 @@ export function Navbar({
               Curated Collections
             </button>
             <button
+              onClick={() => { onNavigate("movable-showcase"); setMobileMenuOpen(false); }}
+              className="text-left py-2 text-gold-900 font-bold flex items-center gap-2"
+            >
+              <Sparkles className="w-4 h-4 text-gold-600" />
+              Interactive 3D Display
+            </button>
+            <button
               onClick={() => { onNavigate("studio-3d"); setMobileMenuOpen(false); }}
               className="text-left py-2 text-gold-700 flex items-center gap-2"
             >
               <Sparkles className="w-4 h-4 text-gold-600" />
-              Interactive 3D Studio
+              Virtual Unboxer Studio
             </button>
             <button
               onClick={() => { onNavigate("craft"); setMobileMenuOpen(false); }}

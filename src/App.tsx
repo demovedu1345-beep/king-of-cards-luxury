@@ -2,9 +2,14 @@ import { useState } from "react";
 import { PhoneCall } from "lucide-react";
 import { SmoothScroll } from "./components/SmoothScroll";
 import { LuxuryBackground3D } from "./components/LuxuryBackground3D";
+import { CustomCursor } from "./components/CustomCursor";
+import { ScrollProgressBar } from "./components/ScrollProgressBar";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
+import { InfiniteMarquee } from "./components/InfiniteMarquee";
 import { CuratedShowcase } from "./components/CuratedShowcase";
+import { GradientDivider } from "./components/GradientDivider";
+import { ProductCarousel3D } from "./components/ProductCarousel3D";
 import { Interactive3DStudio } from "./components/Interactive3DStudio";
 import { CraftsmanshipAtelier } from "./components/CraftsmanshipAtelier";
 import { StackedHeritageCards } from "./components/StackedHeritageCards";
@@ -14,6 +19,7 @@ import { TestimonialsRoyal } from "./components/TestimonialsRoyal";
 import { StoreBoutiques } from "./components/StoreBoutiques";
 import { Footer } from "./components/Footer";
 import { SampleKitDrawer } from "./components/SampleKitDrawer";
+import type { Product } from "./data/mockProducts";
 
 export function App() {
   const [sampleKit, setSampleKit] = useState<any[]>([]);
@@ -21,7 +27,7 @@ export function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState("All");
 
-  const handleAddToSampleKit = (product: any) => {
+  const handleAddToSampleKit = (product: Product | any) => {
     // Avoid duplicate additions if already selected
     if (!sampleKit.some((item) => item.sku === product.sku)) {
       if (sampleKit.length >= 5) {
@@ -54,7 +60,13 @@ export function App() {
 
   return (
     <SmoothScroll>
-      {/* 3D WebGL Golden Particle Background */}
+      {/* Precision Luxury Custom Cursor */}
+      <CustomCursor />
+
+      {/* Fixed Viewport Top Scroll Progress Indicator */}
+      <ScrollProgressBar />
+
+      {/* 3D WebGL Golden Particle Background & Vanta Waves */}
       <LuxuryBackground3D />
 
       {/* Main Luxury Navigation Bar */}
@@ -67,17 +79,32 @@ export function App() {
       />
 
       <main className="relative z-10">
-        {/* Flagship Hero Section */}
+        {/* Flagship Hero Section with 3D Tilt Card & Conic Border */}
         <Hero
           onExploreClick={() => scrollToSection("collections")}
           onStudioClick={() => scrollToSection("studio-3d")}
           onSampleBoxClick={() => scrollToSection("sample-box")}
         />
 
-        {/* Curated Royal Collections Showcase */}
+        {/* Dual-Direction Haute Couture Infinite Marquee */}
+        <InfiniteMarquee />
+
+        {/* Curated Royal Collections Showcase (Pinned Horizontal GSAP Scroll) */}
         <CuratedShowcase onSelectCategory={handleSelectCategoryFromShowcase} />
 
-        {/* The Interactive 3D Card Studio */}
+        {/* Section Divider */}
+        <GradientDivider showSparkles />
+
+        {/* NEW: Movable 3D Perspective Display Product Section with High-Level Explosive Click Reveal */}
+        <ProductCarousel3D
+          onAddToSampleKit={handleAddToSampleKit}
+          currency={currency}
+        />
+
+        {/* Section Divider */}
+        <GradientDivider showSparkles />
+
+        {/* The Interactive 3D Card Studio (Foldable Jharokha Door Unboxer) */}
         <Interactive3DStudio onAddToSampleKit={handleAddToSampleKit} />
 
         {/* Sovereign Materiality & Craft Atelier */}
@@ -86,7 +113,7 @@ export function App() {
         {/* 4 Sovereign Epochs Pinned Heritage Cards Stack */}
         <StackedHeritageCards />
 
-        {/* Complete 4,000+ Filterable Catalog */}
+        {/* Complete 4,000+ Filterable Catalog with Spotlight Cards */}
         <CatalogExplorer
           onAddToSampleKit={handleAddToSampleKit}
           currency={currency}
