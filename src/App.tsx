@@ -26,6 +26,8 @@ import { SampleKitDrawer } from "./components/SampleKitDrawer";
 import { FloemaBlueprintOverlay } from "./components/FloemaBlueprintOverlay";
 import { ElasticDivider } from "./components/annnimate/ElasticDivider";
 import { ProcessRail } from "./components/annnimate/ProcessRail";
+import { SpyltScrollVideoSection } from "./components/SpyltScrollVideoSection";
+import { FloemaArchitecturalSection } from "./components/FloemaArchitecturalSection";
 import { InteractiveCardCustomizer } from "./components/InteractiveCardCustomizer";
 import { ShopPage } from "./components/ShopPage";
 import { ProductDetailPage } from "./components/ProductDetailPage";
@@ -200,12 +202,20 @@ export function App() {
             {/* Section 06: An Immersive Design Studio with Annnimate Process Rail */}
             <ProcessRail onOpenCustomizer={() => navigateTo("customizer")} />
 
+            {/* Floema Architectural CAD Tolerances & Metallurgy Section */}
+            <FloemaArchitecturalSection onOpenCustomizer={() => navigateTo("customizer")} />
+
             {/* Floema Architectural Exploded Specimen Explorer */}
             <FloemaCollectionsRail
               onSelectCategory={(tradition) => {
                 setSelectedCategoryFilter(tradition);
                 navigateTo("shop");
               }}
+            />
+
+            {/* Spylt Kinetic Video Scrubber & Artisan Craft Showcase */}
+            <SpyltScrollVideoSection
+              onCustomizeClick={() => navigateTo("customizer")}
             />
 
             {/* Section Divider */}

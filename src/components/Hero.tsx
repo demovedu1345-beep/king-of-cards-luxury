@@ -204,6 +204,19 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick, onCustom
         + PERSPECTIVE: 1200PX • SCALE: 1:1
       </div>
 
+      {/* Dynamic Ambient Background Video (Spylt/Floema) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden -z-20 opacity-20">
+        <video
+          src="/videos/hero-bg.mp4"
+          autoPlay
+          playsInline
+          muted
+          loop
+          className="w-full h-full object-cover mix-blend-multiply filter contrast-125"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#faf8f5]/60 via-transparent to-[#faf8f5]" />
+      </div>
+
       {/* Animated gradient mesh background blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
         <div className="gradient-orb-1 absolute top-1/4 left-1/4 w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-gold-300/20 via-gold-200/10 to-transparent blur-[120px]" />

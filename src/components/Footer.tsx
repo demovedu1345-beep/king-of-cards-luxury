@@ -2,8 +2,27 @@ import { Crown, Mail, Phone, MapPin, Download, ArrowRight, ShieldCheck, Send } f
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#F5F1E9] border-t border-[#B49A68]/30 pt-20 pb-12 text-[#77716B] overflow-hidden select-none">
+    <footer className="relative bg-[#211F20] border-t border-[#B49A68]/40 pt-16 pb-12 text-[#DCD5CA] overflow-hidden select-none">
       
+      {/* Spylt Organic Header Dip Transition */}
+      <img
+        src="/images/footer-dip.png"
+        alt=""
+        className="w-full object-cover -translate-y-16 absolute top-0 left-0 right-0 pointer-events-none opacity-40 mix-blend-screen"
+      />
+
+      {/* Spylt Fluid Splash Background Video */}
+      <div className="absolute top-0 right-0 w-[550px] h-[550px] pointer-events-none opacity-20 overflow-hidden mix-blend-lighten">
+        <video
+          src="/videos/splash.mp4"
+          autoPlay
+          playsInline
+          muted
+          loop
+          className="w-full h-full object-contain"
+        />
+      </div>
+
       {/* Background radial gold glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-80 bg-[#B49A68]/15 rounded-full blur-[140px] pointer-events-none" />
 
@@ -17,7 +36,7 @@ export function Footer() {
         
         {/* Spylt-Inspired Massive Monumental Footer Headline */}
         <div className="overflow-hidden py-10 text-center border-b border-[#B49A68]/40 mb-16">
-          <h2 className="font-display text-5xl sm:text-8xl md:text-9xl font-black uppercase tracking-tight text-[#1F1B19] leading-none">
+          <h2 className="font-display text-5xl sm:text-8xl md:text-9xl font-black uppercase tracking-tight text-[#F5F1E9] leading-none">
             #ANGRAITYLUXURY
           </h2>
           <p className="font-serif italic text-sm sm:text-base text-[#B49A68] mt-3 tracking-widest uppercase font-semibold">
@@ -26,15 +45,15 @@ export function Footer() {
         </div>
 
         {/* Top Newsletter & Gazette Strip */}
-        <div className="pearl-card rounded-3xl p-8 sm:p-12 bg-white border border-[#B49A68]/40 mb-16 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-xl">
+        <div className="rounded-3xl p-8 sm:p-12 bg-[#1F1B19]/90 border border-[#B49A68]/40 mb-16 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
           <div className="text-left">
-            <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#783747] font-bold block mb-1">
+            <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#B49A68] font-bold block mb-1">
               The Sovereign Gazette • Complimentary Edition
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#1F1B19]">
+            <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#F5F1E9]">
               Receive The 2026 Haute Wedding Trend Report
             </h3>
-            <p className="text-xs sm:text-sm text-[#77716B] mt-1 max-w-xl">
+            <p className="text-xs sm:text-sm text-[#DCD5CA]/70 mt-1 max-w-xl">
               Curated by our master paper sommeliers: color palettes, auspicious muhurtham calendars, and invitation etiquette.
             </p>
           </div>
@@ -51,12 +70,12 @@ export function Footer() {
                 type="email"
                 required
                 placeholder="Enter your private email..."
-                className="w-full bg-[#F5F1E9]/70 border border-[#B49A68]/40 rounded-full px-5 py-3.5 text-xs text-[#1F1B19] placeholder-[#77716B] focus:outline-none focus:border-[#B49A68] focus:bg-white shadow-inner font-mono"
+                className="w-full bg-black/40 border border-[#B49A68]/40 rounded-full px-5 py-3.5 text-xs text-[#F5F1E9] placeholder-[#77716B] focus:outline-none focus:border-[#B49A68] shadow-inner font-mono"
               />
             </div>
             <button
               type="submit"
-              className="shimmer-btn squeeze-btn px-7 py-3.5 rounded-full bg-[#1F1B19] hover:bg-[#B49A68] text-[#F5F1E9] hover:text-[#1F1B19] font-bold text-xs uppercase tracking-wider flex items-center gap-2 flex-shrink-0 shadow-md transition-all"
+              className="shimmer-btn squeeze-btn px-7 py-3.5 rounded-full bg-[#B49A68] hover:bg-[#F5F1E9] text-[#1F1B19] font-bold text-xs uppercase tracking-wider flex items-center gap-2 flex-shrink-0 shadow-md transition-all"
             >
               <span>Join</span>
               <ArrowRight className="w-4 h-4" />
