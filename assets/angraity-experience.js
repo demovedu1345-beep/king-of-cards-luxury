@@ -1,6 +1,5 @@
 // KING OF CARDS — Haute Wedding Cards & Bespoke Stationery Atelier Companion Experience
-// Integrates floating navigation, interactive 3D card tilt customizer, real-time foil & paper rendering,
-// and zero-payment VIP proof reservation flow.
+// Real products, interactive 3D card customizer, flagship store showcases, zero-payment proof flow.
 
 (function () {
   'use strict';
@@ -13,15 +12,140 @@
     root.id = 'angraity-root';
     document.body.appendChild(root);
 
+    // Products catalog from King of Cards
+    const products = [
+      {
+        id: 'KNLW202559',
+        name: 'Maroon Royal Scroll & Box Set',
+        category: 'Boxed Scroll Invitations',
+        price: '₹1,450 / $18.00',
+        img: './images/brown-drink.webp',
+        desc: 'Padded velvet presentation box with 24k gold foil scroll, royal silk tassel, and calligraphy insert.',
+        foil: '#D4AF37',
+        foilName: '24k Pure Gold',
+        seal: '#783747',
+        sealName: 'Royal Ruby Burgundy',
+        paperClass: 'dark',
+        paperName: 'Silk-Lined Padded Box Set',
+        paperBg: '#1E1C1A'
+      },
+      {
+        id: 'KNLW202574',
+        name: 'Cream Book Style Luxury Wedding Invitation',
+        category: 'Hardbound Book Suites',
+        price: '₹980 / $12.50',
+        img: './images/hero-img.png',
+        desc: 'Hardbound ivory book opening with gilded monogram crest, double insert pages, and satin ribbon pull.',
+        foil: '#D4AF37',
+        foilName: '24k Pure Gold',
+        seal: '#B49A68',
+        sealName: 'Atelier Gold',
+        paperClass: 'arch',
+        paperName: '900 GSM Archival Gilded Board',
+        paperBg: '#FDFBF7'
+      },
+      {
+        id: 'KNLW202573',
+        name: 'White Peacock Door Style Gatefold',
+        category: 'Door Style Gatefolds',
+        price: '₹780 / $9.80',
+        img: './images/white-drink.webp',
+        desc: 'Intricate peacock gatefold doors with laser filigree, embossed gold foil frame, and pearl shimmer envelope.',
+        foil: '#CFB53B',
+        foilName: 'Champagne Luster',
+        seal: '#1C4436',
+        sealName: 'Emerald Forest',
+        paperClass: 'bevel',
+        paperName: '1000 GSM Laser-Cut Board',
+        paperBg: '#FAF8F5'
+      },
+      {
+        id: 'KNLW202569',
+        name: 'Royal Ruby Balaji Padded Suite',
+        category: 'Traditional Padded Cards',
+        price: '₹850 / $10.75',
+        img: './images/red-drink.webp',
+        desc: 'Deep crimson heavy padded card with sacred Balaji motif, multi-color insert folios, and antique gold debossing.',
+        foil: '#D4AF37',
+        foilName: '24k Pure Gold',
+        seal: '#783747',
+        sealName: 'Royal Ruby Burgundy',
+        paperClass: 'arch',
+        paperName: '900 GSM Archival Gilded Board',
+        paperBg: '#FDFBF7'
+      },
+      {
+        id: 'KNLW202576',
+        name: 'Royal Sapphire Booklet Style Invitation',
+        category: 'Multi-Panel Booklets',
+        price: '₹920 / $11.50',
+        img: './images/blue-drink.webp',
+        desc: 'Royal navy sapphire tri-fold booklet with embossed gold foil mandala, RSVP card, and wax-sealed envelope.',
+        foil: '#BCC6CC',
+        foilName: 'Platinum Silver',
+        seal: '#1A1A1A',
+        sealName: 'Velvet Noir',
+        paperClass: 'deckle',
+        paperName: '600 GSM Handmade Deckle',
+        paperBg: '#F7F3EB'
+      },
+      {
+        id: 'KNLW202562',
+        name: 'Gold Premium Door Style Luxury Box Set',
+        category: 'Metallic Luxury Boxes',
+        price: '₹1,850 / $23.00',
+        img: './images/orange-drink.webp',
+        desc: 'Heavy 24k metallic gold door box with magnetic closure, silk-lined card tray, and monogrammed wax seal.',
+        foil: '#D4AF37',
+        foilName: '24k Pure Gold',
+        seal: '#B49A68',
+        sealName: 'Atelier Gold',
+        paperClass: 'dark',
+        paperName: 'Silk-Lined Padded Box Set',
+        paperBg: '#1E1C1A'
+      },
+      {
+        id: 'KNAM4902',
+        name: 'Noir Obsidian Laser-Cut Keepsake',
+        category: 'Architectural Laser Cut',
+        price: '₹720 / $9.00',
+        img: './images/black-drink.webp',
+        desc: 'Ultra-matte noir obsidian cardstock with delicate bridal silhouette cutouts and pure gold foil underlay.',
+        foil: '#D4AF37',
+        foilName: '24k Pure Gold',
+        seal: '#1A1A1A',
+        sealName: 'Velvet Noir',
+        paperClass: 'dark',
+        paperName: 'Silk-Lined Padded Box Set',
+        paperBg: '#1E1C1A'
+      },
+      {
+        id: 'KNLW202557',
+        name: 'Maroon Floral Luxury Invitation Box',
+        category: 'Floral Presentation Boxes',
+        price: '₹1,650 / $21.00',
+        img: './images/footer-drink.png',
+        desc: 'Handcrafted floral motif box with velvet card padding, gilded envelope liner, and personalized wax seal.',
+        foil: '#B76E79',
+        foilName: 'Rose Copper',
+        seal: '#783747',
+        sealName: 'Royal Ruby Burgundy',
+        paperClass: 'arch',
+        paperName: '900 GSM Archival Gilded Board',
+        paperBg: '#FDFBF7'
+      }
+    ];
+
     // State
     const state = {
+      activeTab: 'customizer', // 'customizer' | 'catalog' | 'stores'
       monogram: 'P & R',
       names: 'Priya & Rohan',
       details: 'Cordially invite you to celebrate their wedding ceremony\nSaturday, November 28, 2026\nThe Leela Palace • Bengaluru',
       foil: { name: '24k Pure Gold', color: '#D4AF37', border: 'rgba(212, 175, 55, 0.5)' },
       paper: { name: '900 GSM Archival Gilded Board', class: 'arch', bg: '#FDFBF7' },
       seal: { name: 'Royal Ruby Burgundy', color: '#783747' },
-      isDrawerOpen: false,
+      selectedProduct: products[0]
     };
 
     // Inject HTML Markup
@@ -30,7 +154,8 @@
       <header class="ang-luxury-header" id="angHeader">
         <nav class="ang-nav-links">
           <a class="ang-nav-link" id="navLinkSuites" href="#suites">Signature Cards</a>
-          <a class="ang-nav-link" id="navLinkCraft" href="#craft">Craftsmanship & Specs</a>
+          <a class="ang-nav-link" id="navLinkCraft" href="#craft">Craftsmanship</a>
+          <a class="ang-nav-link" id="navLinkStores" href="#stores">Flagship Stores</a>
           <a class="ang-nav-link" href="./floema/" title="Explore Architectural & Spatial Exhibition" style="display: inline-flex; align-items: center; gap: 0.35rem; color: #D4AF37;">
             <span>Architectural Studio</span>
             <span style="font-size: 0.65rem; background: rgba(212, 175, 55, 0.2); border: 1px solid rgba(212, 175, 55, 0.4); padding: 0.15rem 0.4rem; border-radius: 9999px;">3D CAD</span>
@@ -40,22 +165,30 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
-          Card Customizer
+          Card Atelier
         </button>
       </header>
 
-      <!-- Customizer Drawer Backdrop & Panel -->
+      <!-- Customizer & Catalog Drawer -->
       <div class="ang-drawer-backdrop" id="drawerBackdrop">
         <aside class="ang-customizer-drawer" id="customizerDrawer">
           <div class="ang-drawer-header">
             <div>
-              <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: #B49A68; font-weight: 600;">King of Cards • Bespoke Workshop</div>
-              <h2 class="ang-drawer-title" style="margin: 0.25rem 0 0 0;">Interactive Card Proofing</h2>
+              <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: #B49A68; font-weight: 600;">King of Cards • Official Atelier</div>
+              <h2 class="ang-drawer-title" id="drawerMainTitle" style="margin: 0.25rem 0 0 0;">Interactive Card Proofing</h2>
             </div>
             <button class="ang-drawer-close" id="closeDrawerBtn" aria-label="Close Customizer">✕</button>
           </div>
 
-          <div class="ang-drawer-body">
+          <!-- Drawer Navigation Tabs -->
+          <div class="ang-drawer-tabs">
+            <button class="ang-drawer-tab active" data-tab="customizer" id="tabBtnCustomizer">3D Customizer</button>
+            <button class="ang-drawer-tab" data-tab="catalog" id="tabBtnCatalog">Product Catalog (8)</button>
+            <button class="ang-drawer-tab" data-tab="stores" id="tabBtnStores">Showrooms & Stores</button>
+          </div>
+
+          <!-- Tab Content: 3D Customizer -->
+          <div class="ang-drawer-body" id="tabContentCustomizer">
             <!-- 3D Interactive Card Preview Stage -->
             <div class="ang-card-preview-stage">
               <div class="ang-card-preview arch" id="cardPreview" style="--card-foil-color: ${state.foil.color}; --card-seal-color: ${state.seal.color};">
@@ -163,6 +296,75 @@
             </div>
           </div>
 
+          <!-- Tab Content: Catalog Showcase -->
+          <div class="ang-drawer-body" id="tabContentCatalog" style="display: none;">
+            <div style="font-size: 0.85rem; color: #A9A29A; margin-bottom: 0.5rem; line-height: 1.5;">
+              Explore King of Cards' curated luxury wedding invitations. Select any design to customize your bespoke physical proof.
+            </div>
+            <div class="ang-catalog-grid" id="catalogGrid">
+              ${products.map(p => `
+                <div class="ang-product-card" data-product-id="${p.id}">
+                  <img src="${p.img}" alt="${p.name}" class="ang-product-thumb">
+                  <div class="ang-product-code">${p.id}</div>
+                  <div class="ang-product-title">${p.name}</div>
+                  <div style="font-size: 0.7rem; color: #77716B;">${p.category}</div>
+                  <div class="ang-product-price">
+                    <span>${p.price}</span>
+                    <span style="color: #D4AF37; font-size: 0.7rem; font-weight: 700;">CUSTOMIZE →</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Tab Content: Flagship Showrooms -->
+          <div class="ang-drawer-body" id="tabContentStores" style="display: none;">
+            <div style="font-size: 0.85rem; color: #A9A29A; margin-bottom: 1rem; line-height: 1.5;">
+              Visit King of Cards' luxury experience centers across major metro locations or connect with our international wedding concierge.
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="ang-store-card">
+                <div class="ang-store-city">Bengaluru Flagship Boutique</div>
+                <div class="ang-store-addr">
+                  17, 1st Cross, Near State Bank of India, Chamrajpet, Bengaluru, Karnataka 560018<br>
+                  <strong style="color: #D4AF37;">Phone:</strong> +91 80 2661 5865 • Open Mon-Sun 10:30 AM - 8:30 PM
+                </div>
+              </div>
+
+              <div class="ang-store-card">
+                <div class="ang-store-city">Bengaluru Commercial Street Studio</div>
+                <div class="ang-store-addr">
+                  1st Floor, Commercial Street, Tasker Town, Shivaji Nagar, Bengaluru, Karnataka 560001<br>
+                  <strong style="color: #D4AF37;">Phone:</strong> +91 80 4123 7890 • Open Mon-Sun 11:00 AM - 9:00 PM
+                </div>
+              </div>
+
+              <div class="ang-store-card">
+                <div class="ang-store-city">Hyderabad Luxury Atelier</div>
+                <div class="ang-store-addr">
+                  Plot No. 42, Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033<br>
+                  <strong style="color: #D4AF37;">Phone:</strong> +91 40 2355 4901 • Private VIP appointments available
+                </div>
+              </div>
+
+              <div class="ang-store-card">
+                <div class="ang-store-city">Mumbai Design Concierge</div>
+                <div class="ang-store-addr">
+                  Ground Floor, Linking Road, Near Bandra West, Mumbai, Maharashtra 400050<br>
+                  <strong style="color: #D4AF37;">Phone:</strong> +91 22 2640 1820 • Destination wedding curation
+                </div>
+              </div>
+
+              <div class="ang-store-card">
+                <div class="ang-store-city">USA International Showroom (New Jersey)</div>
+                <div class="ang-store-addr">
+                  Oak Tree Road, Suite 204, Edison, New Jersey 08820, USA<br>
+                  <strong style="color: #D4AF37;">Phone:</strong> +1 (732) 555-0198 • Global doorstep shipping
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Drawer Footer -->
           <div class="ang-drawer-footer">
             <button class="ang-btn-proof" id="requestProofBtn">
@@ -208,9 +410,18 @@
 
     // Elements
     const drawerBackdrop = document.getElementById('drawerBackdrop');
-    const customizerDrawer = document.getElementById('customizerDrawer');
     const openCustomizerBtn = document.getElementById('openCustomizerBtn');
     const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawerMainTitle = document.getElementById('drawerMainTitle');
+
+    const tabBtnCustomizer = document.getElementById('tabBtnCustomizer');
+    const tabBtnCatalog = document.getElementById('tabBtnCatalog');
+    const tabBtnStores = document.getElementById('tabBtnStores');
+
+    const tabContentCustomizer = document.getElementById('tabContentCustomizer');
+    const tabContentCatalog = document.getElementById('tabContentCatalog');
+    const tabContentStores = document.getElementById('tabContentStores');
+
     const cardPreview = document.getElementById('cardPreview');
     const previewMonogram = document.getElementById('previewMonogram');
     const previewNames = document.getElementById('previewNames');
@@ -244,20 +455,44 @@
       }, 3000);
     }
 
-    // Toggle Drawer
-    function openDrawer() {
-      state.isDrawerOpen = true;
+    // Tab Switching
+    function setTab(tabName) {
+      state.activeTab = tabName;
+      [tabBtnCustomizer, tabBtnCatalog, tabBtnStores].forEach(b => b.classList.remove('active'));
+      [tabContentCustomizer, tabContentCatalog, tabContentStores].forEach(c => c.style.display = 'none');
+
+      if (tabName === 'customizer') {
+        tabBtnCustomizer.classList.add('active');
+        tabContentCustomizer.style.display = 'flex';
+        drawerMainTitle.textContent = 'Interactive Card Proofing';
+      } else if (tabName === 'catalog') {
+        tabBtnCatalog.classList.add('active');
+        tabContentCatalog.style.display = 'block';
+        drawerMainTitle.textContent = 'Luxury Card Catalog';
+      } else if (tabName === 'stores') {
+        tabBtnStores.classList.add('active');
+        tabContentStores.style.display = 'block';
+        drawerMainTitle.textContent = 'Flagship Showrooms';
+      }
+    }
+
+    tabBtnCustomizer.addEventListener('click', () => setTab('customizer'));
+    tabBtnCatalog.addEventListener('click', () => setTab('catalog'));
+    tabBtnStores.addEventListener('click', () => setTab('stores'));
+
+    // Drawer Open / Close
+    function openDrawer(tab = 'customizer') {
+      setTab(tab);
       drawerBackdrop.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
     function closeDrawer() {
-      state.isDrawerOpen = false;
       drawerBackdrop.classList.remove('active');
       document.body.style.overflow = '';
     }
 
-    openCustomizerBtn.addEventListener('click', openDrawer);
+    openCustomizerBtn.addEventListener('click', () => openDrawer('customizer'));
     closeDrawerBtn.addEventListener('click', closeDrawer);
     drawerBackdrop.addEventListener('click', (e) => {
       if (e.target === drawerBackdrop) closeDrawer();
@@ -328,7 +563,6 @@
           bg: card.getAttribute('data-paper-bg'),
         };
 
-        // Reset classes
         cardPreview.classList.remove('arch', 'deckle', 'dark', 'bevel');
         if (state.paper.class) {
           cardPreview.classList.add(state.paper.class);
@@ -366,6 +600,32 @@
         cardPreview.style.setProperty('--card-seal-color', state.seal.color);
         previewSeal.style.backgroundColor = state.seal.color;
         showToast(`Wax Seal: ${state.seal.name}`);
+      });
+    });
+
+    // Product Card Selection in Catalog
+    const productCards = document.querySelectorAll('.ang-product-card');
+    productCards.forEach((pCard) => {
+      pCard.addEventListener('click', () => {
+        const pId = pCard.getAttribute('data-product-id');
+        const prod = products.find(p => p.id === pId);
+        if (prod) {
+          state.selectedProduct = prod;
+          state.foil = { name: prod.foilName, color: prod.foil };
+          state.paper = { name: prod.paperName, class: prod.paperClass, bg: prod.paperBg };
+          state.seal = { name: prod.sealName, color: prod.seal };
+
+          // Update preview
+          cardPreview.style.setProperty('--card-foil-color', prod.foil);
+          cardPreview.style.setProperty('--card-seal-color', prod.seal);
+          previewSeal.style.backgroundColor = prod.seal;
+          cardPreview.classList.remove('arch', 'deckle', 'dark', 'bevel');
+          if (prod.paperClass) cardPreview.classList.add(prod.paperClass);
+          cardPreview.style.backgroundColor = prod.paperBg;
+
+          setTab('customizer');
+          showToast(`Loaded ${prod.name} into customizer`);
+        }
       });
     });
 
@@ -423,6 +683,11 @@
       window.scrollTo({ top: window.innerHeight * 3.5, behavior: 'smooth' });
     });
 
+    document.getElementById('navLinkStores').addEventListener('click', (e) => {
+      e.preventDefault();
+      openDrawer('stores');
+    });
+
     // Connect CTAs in cloned UI
     document.addEventListener('click', (e) => {
       const target = e.target.closest('button, a');
@@ -433,7 +698,7 @@
         document.getElementById('navLinkSuites').click();
       } else if (text.includes('find in stores') || text.includes('order sample') || text.includes('customise')) {
         e.preventDefault();
-        openDrawer();
+        openDrawer('catalog');
       }
     });
 
