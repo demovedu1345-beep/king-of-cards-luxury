@@ -1,0 +1,421 @@
+/* ANGRAITY — Haute Stationery & Fine Print Atelier Companion Styling */
+
+:root {
+  --ang-ivory: #F5F1E9;
+  --ang-parchment: #EAE2D5;
+  --ang-ink: #1F1B19;
+  --ang-grey: #77716B;
+  --ang-gold: #B49A68;
+  --ang-gold-glow: rgba(180, 154, 104, 0.4);
+  --ang-burgundy: #783747;
+  --ang-dark: #161516;
+}
+
+/* Floating Luxury Atelier Nav */
+.ang-luxury-header {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(31, 27, 25, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.5rem 0.75rem 0.5rem 1.25rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ang-luxury-header:hover {
+  border-color: rgba(180, 154, 104, 0.45);
+  box-shadow: 0 14px 40px rgba(180, 154, 104, 0.2);
+}
+
+.ang-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ang-nav-link {
+  color: #EAE2D5;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.ang-nav-link:hover {
+  color: #D4AF37;
+}
+
+.ang-btn-customise {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #D4AF37, #B49A68);
+  color: #1F1B19;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.ang-btn-customise:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.45);
+}
+
+.ang-btn-customise:active {
+  transform: scale(0.96);
+}
+
+/* Customizer Drawer / Slide-Over */
+.ang-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 9, 8, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.ang-drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ang-customizer-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 580px;
+  background: #191817;
+  border-left: 1px solid rgba(180, 154, 104, 0.3);
+  z-index: 1000;
+  box-shadow: -15px 0 50px rgba(0, 0, 0, 0.6);
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  color: #F5F1E9;
+  overflow: hidden;
+}
+
+.ang-drawer-backdrop.active .ang-customizer-drawer {
+  transform: translateX(0);
+}
+
+.ang-drawer-header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ang-drawer-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+  color: #F5F1E9;
+}
+
+.ang-drawer-close {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #EAE2D5;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ang-drawer-close:hover {
+  border-color: #B49A68;
+  color: #D4AF37;
+  transform: rotate(90deg);
+}
+
+.ang-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 3D Preview Card */
+.ang-card-preview-stage {
+  perspective: 1000px;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.ang-card-preview {
+  width: 320px;
+  height: 440px;
+  background: #FDFBF7;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(180, 154, 104, 0.25);
+  padding: 2.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  color: #1F1B19;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ang-card-preview:hover {
+  transform: translateY(-4px) rotateX(4deg) rotateY(-4deg);
+  box-shadow: 0 35px 65px -15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(180, 154, 104, 0.3);
+}
+
+.ang-card-preview.arch {
+  border-top-left-radius: 160px;
+  border-top-right-radius: 160px;
+}
+
+.ang-foil-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(212, 175, 55, 0.4) 38%,
+    transparent 50%
+  );
+  animation: angFoilSweep 6s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes angFoilSweep {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+.ang-card-monogram {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--card-foil-color, #B49A68);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.ang-card-eyebrow {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #77716B;
+}
+
+.ang-card-names {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.85rem;
+  line-height: 1.15;
+  color: #1F1B19;
+  margin: 1rem 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ang-card-details {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: #4A4643;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ang-card-seal {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--card-seal-color, #783747);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 2px 3px rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F5F1E9;
+  font-size: 1.1rem;
+}
+
+/* Customizer Form Controls */
+.ang-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ang-field-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #B49A68;
+  font-weight: 600;
+}
+
+.ang-input-text {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #F5F1E9;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.ang-input-text:focus {
+  outline: none;
+  border-color: #B49A68;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(180, 154, 104, 0.2);
+}
+
+.ang-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.ang-option-card {
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+  color: #DCD5CA;
+  font-size: 0.8125rem;
+}
+
+.ang-option-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(180, 154, 104, 0.4);
+}
+
+.ang-option-card.active {
+  background: rgba(180, 154, 104, 0.15);
+  border-color: #B49A68;
+  color: #F5F1E9;
+  font-weight: 600;
+}
+
+.ang-swatch-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.ang-drawer-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 1rem;
+}
+
+.ang-btn-proof {
+  flex: 1;
+  background: linear-gradient(135deg, #D4AF37, #B49A68);
+  color: #1F1B19;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.875rem 1.5rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+  transition: all 0.2s ease;
+}
+
+.ang-btn-proof:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
+}
+
+/* Toast Notice */
+.ang-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #1F1B19;
+  border: 1px solid #B49A68;
+  color: #F5F1E9;
+  padding: 1rem 1.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  font-size: 0.875rem;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ang-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .ang-luxury-header {
+    top: auto;
+    bottom: 1.5rem;
+    right: 50%;
+    transform: translateX(50%);
+    width: calc(100% - 2rem);
+    justify-content: space-between;
+  }
+  .ang-nav-links {
+    display: none;
+  }
+  .ang-customizer-drawer {
+    max-width: 100%;
+  }
+}
