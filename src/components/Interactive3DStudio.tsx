@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Sparkles, Layers, Sliders, Check, Eye, Package, RotateCcw } from "lucide-react";
+import { triggerFlyToCart } from "../utils/flyToCart";
 
 interface StudioProps {
   onAddToSampleKit: (item: any) => void;
@@ -69,17 +70,27 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
   const [doorsOpen, setDoorsOpen] = useState(false);
   const [addedToast, setAddedToast] = useState(false);
 
-  const handleAddSample = () => {
-    onAddToSampleKit({
+  const handleAddSample = (el?: HTMLElement) => {
+    const item = {
       id: selectedModel.id,
       sku: selectedModel.sku,
       name: `${selectedModel.name} (${activeFoil.name})`,
       priceINR: selectedModel.priceINR,
       finish: activeFoil.name,
       imageUrl: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80",
-    });
-    setAddedToast(true);
-    setTimeout(() => setAddedToast(false), 2500);
+    };
+
+    if (el) {
+      triggerFlyToCart(el, item.imageUrl, () => {
+        onAddToSampleKit(item);
+        setAddedToast(true);
+        setTimeout(() => setAddedToast(false), 2500);
+      });
+    } else {
+      onAddToSampleKit(item);
+      setAddedToast(true);
+      setTimeout(() => setAddedToast(false), 2500);
+    }
   };
 
   return (
@@ -319,7 +330,7 @@ export function Interactive3DStudio({ onAddToSampleKit }: StudioProps) {
               </button>
 
               <button
-                onClick={handleAddSample}
+                onClick={(e) => handleAddSample(e.currentTarget)}
                 className="squeeze-btn px-7 py-3 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-charcoal-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2.5 shadow-md shadow-gold-500/20 hover:shadow-gold-500/35"
               >
                 {addedToast ? (

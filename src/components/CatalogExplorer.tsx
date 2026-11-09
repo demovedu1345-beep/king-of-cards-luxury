@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Search, Filter, Sparkles, Check, Eye, Package, ArrowUpDown } from "lucide-react";
 import { PRODUCTS, type Product, TRADITIONS, FORMATS } from "../data/mockProducts";
 import { SpotlightCard } from "./SpotlightCard";
+import { triggerFlyToCart } from "../utils/flyToCart";
 
 interface CatalogProps {
   onAddToSampleKit: (product: Product) => void;
@@ -66,10 +67,18 @@ export function CatalogExplorer({
     });
   }, [searchTerm, selectedTradition, selectedFormat, sortBy]);
 
-  const handleAdd = (p: Product) => {
-    onAddToSampleKit(p);
-    setToastMessage(`Added ${p.name} to Sample Kit!`);
-    setTimeout(() => setToastMessage(null), 2500);
+  const handleAdd = (p: Product, el?: HTMLElement) => {
+    if (el) {
+      triggerFlyToCart(el, p.imageUrl, () => {
+        onAddToSampleKit(p);
+        setToastMessage(`Added ${p.name} to Sample Kit!`);
+        setTimeout(() => setToastMessage(null), 2500);
+      });
+    } else {
+      onAddToSampleKit(p);
+      setToastMessage(`Added ${p.name} to Sample Kit!`);
+      setTimeout(() => setToastMessage(null), 2500);
+    }
   };
 
   return (
@@ -252,7 +261,7 @@ export function CatalogExplorer({
                     </div>
 
                     <button
-                      onClick={() => handleAdd(p)}
+                      onClick={(e) => handleAdd(p, e.currentTarget)}
                       className="squeeze-btn px-4 py-2 rounded-full border border-gold-400 bg-gold-50 hover:bg-gold-500 text-gold-900 hover:text-charcoal-950 text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 transition-all shadow-sm"
                     >
                       <Package className="w-3.5 h-3.5" />
@@ -321,8 +330,9 @@ export function CatalogExplorer({
                   {formatPrice(previewProduct.priceINR)} <span className="text-xs text-charcoal-500 font-mono font-normal">/ unit</span>
                 </span>
                 <button
-                  onClick={() => {
-                    handleAdd(previewProduct);
+                  onClick={(e) => {
+                    const btn = e.currentTarget;
+                    handleAdd(previewProduct, btn);
                     setPreviewProduct(null);
                   }}
                   className="squeeze-btn px-6 py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-charcoal-950 font-bold text-xs tracking-wider uppercase flex items-center gap-2 shadow-md shadow-gold-500/20"

@@ -16,6 +16,7 @@ import {
 import confetti from "canvas-confetti";
 import { PRODUCTS, type Product } from "../data/mockProducts";
 import { SpotlightCard } from "./SpotlightCard";
+import { triggerFlyToCart } from "../utils/flyToCart";
 
 interface ProductCarousel3DProps {
   onAddToSampleKit: (product: Product) => void;
@@ -142,16 +143,18 @@ export function ProductCarousel3D({
     setActivePhotoView("primary");
   };
 
-  const handleAddSample = (product: Product) => {
-    onAddToSampleKit(product);
-    setAddedToast(true);
-    confetti({
-      particleCount: 50,
-      spread: 60,
-      origin: { y: 0.7 },
-      colors: ["#be9932", "#113e28", "#ffffff"],
-    });
-    setTimeout(() => setAddedToast(false), 2400);
+  const handleAddSample = (product: Product, el?: HTMLElement) => {
+    if (el) {
+      triggerFlyToCart(el, product.imageUrl, () => {
+        onAddToSampleKit(product);
+        setAddedToast(true);
+        setTimeout(() => setAddedToast(false), 2400);
+      });
+    } else {
+      onAddToSampleKit(product);
+      setAddedToast(true);
+      setTimeout(() => setAddedToast(false), 2400);
+    }
   };
 
   return (
@@ -531,7 +534,7 @@ export function ProductCarousel3D({
                 </a>
 
                 <button
-                  onClick={() => handleAddSample(selectedProduct)}
+                  onClick={(e) => handleAddSample(selectedProduct, e.currentTarget)}
                   className="shimmer-btn squeeze-btn flex-1 sm:flex-initial px-7 py-3 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-charcoal-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-gold-500/25 hover:shadow-gold-500/40"
                 >
                   {addedToast ? (

@@ -148,6 +148,7 @@ export function Navbar({
 
             {/* Sample Kit Bag Trigger Button */}
             <button
+              id="navbar-sample-kit-btn"
               onClick={onOpenSampleKit}
               className="squeeze-btn relative flex items-center gap-2.5 px-4 py-2 rounded-full border border-gold-400/40 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-charcoal-950 font-bold text-xs tracking-wider uppercase shadow-md shadow-gold-500/15 hover:shadow-gold-500/30 transition-all"
             >

@@ -20,12 +20,24 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
   const [rotateY, setRotateY] = useState(0);
   const [glintPos, setGlintPos] = useState({ x: 50, y: 50 });
   const [cardFlipped, setCardFlipped] = useState(false);
+  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
 
   const heroSectionRef = useRef<HTMLDivElement>(null);
   const heroStageRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const ribbonBannerRef = useRef<HTMLDivElement>(null);
   const titleCharsRef = useRef<HTMLDivElement>(null);
+
+  // Multi-layer mouse parallax tracking
+  const handleSectionMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const { clientX, clientY } = e;
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    setMouseOffset({
+      x: (clientX - centerX) / centerX,
+      y: (clientY - centerY) / centerY,
+    });
+  };
 
   // Spylt & Floema GSAP Orchestration:
   // 1. Spylt ClipPath expanding ribbon banner
@@ -134,8 +146,52 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
     <section
       id="hero"
       ref={heroSectionRef}
+      onMouseMove={handleSectionMouseMove}
       className="relative min-h-[98vh] pt-36 pb-20 flex items-center justify-center overflow-hidden bg-ivory-radial"
     >
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* MULTI-LAYER STEREOSCOPIC FOREGROUND PARALLAX ELEMENTS       */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* Floating 3D Royal Wax Seal (Top-Left Foreground Layer) */}
+      <div
+        className="pointer-events-none absolute top-28 left-8 sm:left-20 z-30 hidden md:flex items-center gap-2.5 transition-transform duration-300 ease-out"
+        style={{
+          transform: `translate3d(${mouseOffset.x * -32}px, ${mouseOffset.y * -26}px, 0)`,
+        }}
+      >
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-royal-crimson to-rose-950 border-2 border-gold-300 shadow-2xl flex items-center justify-center text-gold-200 font-serif font-extrabold text-sm rotate-12">
+          K
+        </div>
+        <div className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-gold-400/40 text-[9px] font-mono uppercase tracking-wider text-charcoal-800 shadow-sm">
+          Pure French Beeswax
+        </div>
+      </div>
+
+      {/* Floating 24K Botanical Golden Emblem (Bottom-Right Foreground Layer) */}
+      <div
+        className="pointer-events-none absolute bottom-24 right-10 sm:right-28 z-30 hidden md:flex items-center gap-2 transition-transform duration-300 ease-out"
+        style={{
+          transform: `translate3d(${mouseOffset.x * 38}px, ${mouseOffset.y * 32}px, 0)`,
+        }}
+      >
+        <div className="w-10 h-10 rounded-full bg-gold-100 border border-gold-400 flex items-center justify-center text-gold-700 shadow-lg rotate-[-15deg]">
+          <Sparkles className="w-5 h-5 text-gold-600 animate-pulse" />
+        </div>
+        <span className="px-2.5 py-1 rounded-md bg-white/95 border border-gold-300 text-[9px] font-mono uppercase text-gold-900 font-bold shadow-sm">
+          24K Hot Stamped
+        </span>
+      </div>
+
+      {/* Floating Gold Foil Flake (Mid-Left Foreground Layer) */}
+      <div
+        className="pointer-events-none absolute top-1/2 left-6 z-20 hidden lg:block transition-transform duration-500 ease-out"
+        style={{
+          transform: `translate3d(${mouseOffset.x * -45}px, ${mouseOffset.y * 30}px, 0)`,
+        }}
+      >
+        <div className="w-6 h-6 rotate-45 border-2 border-gold-400 bg-gold-200/40 backdrop-blur-sm shadow-md animate-pulse" />
+      </div>
+
       {/* Floema Architectural Blueprint Crosshairs */}
       <div className="absolute top-6 left-8 font-mono text-[9px] uppercase tracking-[0.25em] text-gold-700/60 pointer-events-none hidden sm:flex items-center gap-2">
         <span>+</span>

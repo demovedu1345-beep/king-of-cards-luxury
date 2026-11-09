@@ -12,6 +12,7 @@ import { CuratedShowcase } from "./components/CuratedShowcase";
 import { GradientDivider } from "./components/GradientDivider";
 import { ProductCarousel3D } from "./components/ProductCarousel3D";
 import { FloemaCollectionsRail } from "./components/FloemaCollectionsRail";
+import { ScrollControlled3DExperience } from "./components/ScrollControlled3DExperience";
 import { Interactive3DStudio } from "./components/Interactive3DStudio";
 import { CraftsmanshipAtelier } from "./components/CraftsmanshipAtelier";
 import { StackedHeritageCards } from "./components/StackedHeritageCards";
@@ -108,6 +109,15 @@ export function App() {
 
         {/* Floema Architectural Layer Exploded Specimen Explorer */}
         <FloemaCollectionsRail onSelectCategory={handleSelectCategoryFromShowcase} />
+
+        {/* Section Divider */}
+        <GradientDivider showSparkles />
+
+        {/* Monumental NAMESAKE-Style Scroll-Controlled 3D Product Journey */}
+        <ScrollControlled3DExperience
+          onAddToSampleKit={handleAddToSampleKit}
+          currency={currency}
+        />
 
         {/* Section Divider */}
         <GradientDivider showSparkles />
