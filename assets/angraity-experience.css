@@ -1522,11 +1522,11 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, 
 /* Panoramic Cards Showcase in Hero (Directly matching user uploaded image) */
 .ang-hero-panoramic-wrap {
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  max-width: 1080px;
+  width: 96vw;
+  max-width: 1360px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -1536,11 +1536,12 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, 
 
 .ang-hero-panoramic-wrap img {
   width: 100%;
-  max-width: 980px;
+  max-width: 1320px;
   height: auto;
   object-fit: contain;
-  transition: transform 0.35s var(--default-spring), filter 0.3s ease;
-  filter: drop-shadow(0 20px 45px rgba(82, 49, 34, 0.35));
+  transition: transform 0.4s var(--default-spring), filter 0.4s ease;
+  filter: drop-shadow(0 25px 50px rgba(60, 30, 20, 0.38));
+  cursor: pointer;
 }
 
 .ang-hero-panoramic-wrap img:hover {
