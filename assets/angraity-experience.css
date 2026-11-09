@@ -23,13 +23,13 @@
 }
 
 /* Tactile Squeeze Physics (Aligned with Cloned Buttons) */
-button, .ang-btn, .ang-quick-pill, .ang-filter-btn {
+button, .ang-btn, .ang-quick-pill, .ang-filter-btn, .ang-hero-cat-pill, .ang-video-opt-btn {
   user-select: none;
   cursor: pointer;
   transition: transform 0.2s var(--default-spring), background-color 0.2s ease, border-color 0.2s ease;
 }
 
-button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
+button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, .ang-hero-cat-pill:active, .ang-video-opt-btn:active {
   transform: scale(0.95) !important;
 }
 
@@ -102,10 +102,10 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
 }
 
 /* ==========================================================================
-   2. HERO PAGE INJECTIONS (CARDS & ANNOUNCEMENT MATCHING SPYLT HERO)
+   2. HERO PAGE: FULL OF CARDS (WEDDING, GIFTING, SCROLLS, BOXES)
    ========================================================================== */
 
-/* Top Royal Banner Ribbon (Matches Spylt Rotated Text Banner) */
+/* Top Royal Banner Ribbon */
 .ang-hero-top-banner {
   position: absolute;
   top: 1.5rem;
@@ -129,96 +129,107 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
   pointer-events: auto;
 }
 
-/* Floating Hero Cards (Exactly like Spylt .vd-card / .hero-text-scroll) */
+/* Floating Hero Cards (4 Corners/Sides) */
 .ang-hero-floating-card {
   position: absolute;
   z-index: 25;
-  width: 260px;
+  width: 185px;
   background-color: var(--color-card-bg);
   border: 0.35vw solid var(--color-milk);
-  border-radius: 1.75rem;
-  padding: 1rem;
-  box-shadow: 0 20px 45px rgba(82, 49, 34, 0.25);
+  border-radius: 1.25rem;
+  padding: 0.65rem;
+  box-shadow: 0 16px 38px rgba(82, 49, 34, 0.22);
   cursor: pointer;
   pointer-events: auto;
   transition: transform 0.35s var(--default-spring), box-shadow 0.3s ease;
 }
 
-.ang-hero-floating-card.left {
-  left: 3rem;
-  top: 38%;
-  transform: translateY(-50%) rotate(-3deg);
+.ang-hero-floating-card.left-top {
+  left: 1.5rem;
+  top: 23%;
+  transform: translateY(-50%) rotate(-4deg);
 }
 
-.ang-hero-floating-card.left:hover {
-  transform: translateY(-54%) rotate(-1deg) scale(1.04);
-  box-shadow: 0 25px 50px rgba(82, 49, 34, 0.35);
+.ang-hero-floating-card.left-bottom {
+  left: 1.5rem;
+  top: 64%;
+  transform: translateY(-50%) rotate(-2deg);
 }
 
-.ang-hero-floating-card.right {
-  right: 3rem;
-  top: 42%;
-  transform: translateY(-50%) rotate(3deg);
+.ang-hero-floating-card.right-top {
+  right: 1.5rem;
+  top: 23%;
+  transform: translateY(-50%) rotate(4deg);
 }
 
-.ang-hero-floating-card.right:hover {
-  transform: translateY(-54%) rotate(1deg) scale(1.04);
-  box-shadow: 0 25px 50px rgba(82, 49, 34, 0.35);
+.ang-hero-floating-card.right-bottom {
+  right: 1.5rem;
+  top: 64%;
+  transform: translateY(-50%) rotate(2deg);
+}
+
+.ang-hero-floating-card:hover {
+  transform: translateY(-54%) rotate(0deg) scale(1.06);
+  box-shadow: 0 24px 50px rgba(82, 49, 34, 0.35);
+  z-index: 40;
 }
 
 .ang-hero-card-img-wrap {
   width: 100%;
-  height: 140px;
+  height: 95px;
   background-color: #f4e5cf;
-  border-radius: 1rem;
+  border-radius: 0.85rem;
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.35rem;
 }
 
 .ang-hero-card-img-wrap img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(82, 49, 34, 0.3));
+  filter: drop-shadow(0 6px 12px rgba(82, 49, 34, 0.25));
 }
 
 .ang-hero-card-badge {
   position: absolute;
-  top: 0.45rem;
-  left: 0.45rem;
+  top: 0.35rem;
+  left: 0.35rem;
   background-color: var(--color-red-brown);
   color: var(--color-milk);
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  padding: 0.2rem 0.6rem;
+  padding: 0.12rem 0.45rem;
   border-radius: var(--radius-pill);
 }
 
 .ang-hero-card-code {
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   color: var(--color-mid-brown);
   font-weight: 700;
-  margin-top: 0.65rem;
+  margin-top: 0.4rem;
 }
 
 .ang-hero-card-title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1rem;
   color: var(--color-dark-brown);
   line-height: 1.05;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.03em;
-  margin: 0.2rem 0 0.5rem 0;
+  margin: 0.12rem 0 0.35rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ang-hero-card-foot {
@@ -226,13 +237,13 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
   align-items: center;
   justify-content: space-between;
   border-top: 2px solid #e8ddca;
-  padding-top: 0.5rem;
-  margin-top: 0.5rem;
+  padding-top: 0.35rem;
+  margin-top: 0.35rem;
 }
 
 .ang-hero-card-price {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   color: var(--color-red-brown);
   font-weight: 700;
 }
@@ -241,18 +252,159 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
   background-color: var(--color-light-brown);
   color: var(--color-dark-brown);
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0.3rem 0.75rem;
+  padding: 0.2rem 0.55rem;
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-dark-brown);
+}
+
+/* Center Card Fan-Out Deck (Directly inspired by user image) */
+.ang-hero-fanout-deck {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  pointer-events: auto;
+  width: auto;
+  max-width: 96vw;
+}
+
+.ang-fanout-banner {
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  border: 3px solid var(--color-milk);
+  border-radius: 0.6rem;
+  padding: 0.55rem 1.15rem;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+  box-shadow: 0 10px 25px rgba(82, 49, 34, 0.25);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ang-fanout-cards-cluster {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+}
+
+.ang-hero-fan-card {
+  width: 118px;
+  height: 168px;
+  background-color: var(--color-card-bg);
+  border: 0.35vw solid var(--color-milk);
+  border-radius: 1.15rem;
+  padding: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 14px 32px rgba(82, 49, 34, 0.3);
+  cursor: pointer;
+  margin: 0 -1rem;
+  transition: transform 0.35s var(--default-spring), z-index 0.1s ease, box-shadow 0.3s ease;
+  transform-origin: bottom center;
+}
+
+.ang-hero-fan-card:hover {
+  transform: translateY(-28px) scale(1.2) !important;
+  z-index: 50 !important;
+  box-shadow: 0 30px 60px rgba(82, 49, 34, 0.5);
+}
+
+.ang-hero-fan-card img {
+  width: 100%;
+  height: 98px;
+  object-fit: contain;
+  background-color: #f4e5cf;
+  border-radius: 0.75rem;
+  padding: 0.2rem;
+}
+
+.ang-hero-fan-card-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  line-height: 1;
+  text-align: center;
+  margin-top: 0.2rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ang-hero-fan-card-price {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-red-brown);
+  text-align: center;
+}
+
+.ang-fanout-note {
+  font-family: var(--font-paragraph);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--color-dark-brown);
+  font-weight: 600;
+  max-width: 215px;
+  background: rgba(250, 234, 222, 0.92);
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.95rem;
+  border: 2px solid var(--color-card-border);
+  box-shadow: 0 8px 20px rgba(82, 49, 34, 0.15);
+  flex-shrink: 0;
+}
+
+/* Category Filter Pills on Hero */
+.ang-hero-categories-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+  z-index: 25;
+  position: relative;
+}
+
+.ang-hero-cat-pill {
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  padding: 0.32rem 0.8rem;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.ang-hero-cat-pill:hover {
+  background-color: var(--color-light-brown);
+  transform: translateY(-2px);
 }
 
 /* Bottom Quickbar */
 .ang-hero-quickbar {
   position: absolute;
-  bottom: 2rem;
+  bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 30;
@@ -290,7 +442,60 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
 }
 
 /* ==========================================================================
-   3. PINNED HORIZONTAL RUNWAY SHOWCASE (MATCHES SPYLT .VD-CARD THEME)
+   3. VIDEO SECTION: FACTORY TOUR VIDEO & INTERACTIVE VIDEO SWITCHER
+   ========================================================================== */
+.ang-video-switcher-bar {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: rgba(250, 234, 222, 0.95);
+  border: 3px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 0.85rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.ang-video-switcher-label {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  letter-spacing: -0.02em;
+  padding-left: 0.5rem;
+}
+
+.ang-video-opt-btn {
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  letter-spacing: -0.02em;
+  transition: all 0.2s ease;
+}
+
+.ang-video-opt-btn:hover {
+  background-color: var(--color-light-brown);
+}
+
+.ang-video-opt-btn.active {
+  background-color: var(--color-red-brown);
+  border-color: var(--color-red-brown);
+  color: var(--color-milk);
+}
+
+/* ==========================================================================
+   4. PINNED HORIZONTAL RUNWAY SHOWCASE (MATCHES SPYLT .VD-CARD THEME)
    ========================================================================== */
 .ang-runway-section {
   position: relative;
@@ -576,7 +781,7 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
 }
 
 /* ==========================================================================
-   4. ALL 20 PRODUCTS ARCHIVE (MATCHES SPYLT .BENEFIT-SECTION / DARK BLACK)
+   5. ALL 20 PRODUCTS ARCHIVE (MATCHES SPYLT .BENEFIT-SECTION / DARK BLACK)
    ========================================================================== */
 .ang-all-products-section {
   position: relative;
@@ -650,6 +855,9 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
   .ang-hero-floating-card {
     display: none;
   }
+  .ang-hero-fanout-deck {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
@@ -660,6 +868,11 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
     display: none;
   }
   .ang-hero-quickbar {
+    width: calc(100% - 2rem);
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  .ang-video-switcher-bar {
     width: calc(100% - 2rem);
     overflow-x: auto;
     justify-content: flex-start;
@@ -778,7 +991,7 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
 }
 
 /* ==========================================================================
-   5. FLAGSHIP SHOWROOMS & ATELIER LOCATIONS (MATCHES SPYLT THEME)
+   6. FLAGSHIP SHOWROOMS & ATELIER LOCATIONS (MATCHES SPYLT THEME)
    ========================================================================== */
 .ang-showrooms-section {
   position: relative;
@@ -904,7 +1117,7 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
 }
 
 /* ==========================================================================
-   6. CUSTOMIZER DRAWER (BLENDED 100% INTO SPYLT WARM CREAM/BROWN PALETTE)
+   7. CUSTOMIZER DRAWER (BLENDED 100% INTO SPYLT WARM CREAM/BROWN PALETTE)
    ========================================================================== */
 .ang-drawer-backdrop {
   position: fixed;

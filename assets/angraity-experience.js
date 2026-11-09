@@ -640,6 +640,7 @@
 
     // Wire Hero Elements
     injectHeroElements();
+    injectVideoSwitcher();
 
     // Wire In-Flow Sections
     injectRunwayGallery();
@@ -650,7 +651,7 @@
     setupDrawerInteractions();
   }
 
-  // 3. Inject Hero Page Elements (Rotated Spylt Banners & Cards)
+    // 3. Inject Hero Page Elements (Rotated Spylt Banners, Categories, 4 Corner Floating Cards & Fan-Out Deck)
   function injectHeroElements() {
     const hero = document.querySelector('.hero-container');
     if (!hero) {
@@ -665,67 +666,274 @@
     topBanner.id = 'angHeroTopBanner';
     topBanner.className = 'ang-hero-top-banner';
     topBanner.innerHTML = `
-      <span>India's Premier Wedding Invitation Atelier • Est. 1995 • 50,000+ Celebrations</span>
+      <span>India's Premier Wedding & Gifting Cards Atelier • Est. 1995 • 50,000+ Celebrations</span>
     `;
     hero.appendChild(topBanner);
 
-    // Left Floating Card (Matches .vd-card / Spylt Card)
-    const leftCard = document.createElement('div');
-    leftCard.className = 'ang-hero-floating-card left';
-    const pLeft = royalProducts[0]; // Maroon Scroll
-    leftCard.innerHTML = `
+    // 4 Corner Floating Cards (Real Physical Cards on Left & Right)
+    // Left Top Card
+    const ltCard = document.createElement('div');
+    ltCard.className = 'ang-hero-floating-card left-top';
+    const pLT = royalProducts[0]; // Maroon Scroll Box
+    ltCard.innerHTML = `
       <div class="ang-hero-card-img-wrap">
-        <span class="ang-hero-card-badge">Bestseller</span>
-        <img src="${pLeft.img}" alt="${pLeft.name}">
+        <span class="ang-hero-card-badge">Royal Bestseller</span>
+        <img src="${pLT.img}" alt="${pLT.name}">
       </div>
       <div>
-        <div class="ang-hero-card-code">${pLeft.id}</div>
-        <div class="ang-hero-card-title">${pLeft.name}</div>
+        <div class="ang-hero-card-code">${pLT.id}</div>
+        <div class="ang-hero-card-title">${pLT.name}</div>
         <div class="ang-hero-card-foot">
-          <div class="ang-hero-card-price">${pLeft.inr}</div>
+          <div class="ang-hero-card-price">${pLT.inr}</div>
           <div class="ang-hero-card-action">Customize →</div>
         </div>
       </div>
     `;
-    leftCard.addEventListener('click', () => loadProductIntoCustomizer(pLeft));
-    hero.appendChild(leftCard);
+    ltCard.addEventListener('click', () => loadProductIntoCustomizer(pLT));
+    hero.appendChild(ltCard);
 
-    // Right Floating Card
-    const rightCard = document.createElement('div');
-    rightCard.className = 'ang-hero-floating-card right';
-    const pRight = royalProducts[2]; // Peacock Door Gatefold
-    rightCard.innerHTML = `
+    // Left Bottom Card
+    const lbCard = document.createElement('div');
+    lbCard.className = 'ang-hero-floating-card left-bottom';
+    const pLB = royalProducts.find(p => p.id === 'KNLW202562') || royalProducts[2]; // Gifting Box Set
+    lbCard.innerHTML = `
+      <div class="ang-hero-card-img-wrap">
+        <span class="ang-hero-card-badge">Gifting Favor</span>
+        <img src="${pLB.img}" alt="${pLB.name}">
+      </div>
+      <div>
+        <div class="ang-hero-card-code">${pLB.id}</div>
+        <div class="ang-hero-card-title">${pLB.name}</div>
+        <div class="ang-hero-card-foot">
+          <div class="ang-hero-card-price">${pLB.inr}</div>
+          <div class="ang-hero-card-action">Customize →</div>
+        </div>
+      </div>
+    `;
+    lbCard.addEventListener('click', () => loadProductIntoCustomizer(pLB));
+    hero.appendChild(lbCard);
+
+    // Right Top Card
+    const rtCard = document.createElement('div');
+    rtCard.className = 'ang-hero-floating-card right-top';
+    const pRT = royalProducts[2]; // Peacock Door Gatefold
+    rtCard.innerHTML = `
       <div class="ang-hero-card-img-wrap">
         <span class="ang-hero-card-badge">2026 Couture</span>
-        <img src="${pRight.img}" alt="${pRight.name}">
+        <img src="${pRT.img}" alt="${pRT.name}">
       </div>
       <div>
-        <div class="ang-hero-card-code">${pRight.id}</div>
-        <div class="ang-hero-card-title">${pRight.name}</div>
+        <div class="ang-hero-card-code">${pRT.id}</div>
+        <div class="ang-hero-card-title">${pRT.name}</div>
         <div class="ang-hero-card-foot">
-          <div class="ang-hero-card-price">${pRight.inr}</div>
+          <div class="ang-hero-card-price">${pRT.inr}</div>
           <div class="ang-hero-card-action">Customize →</div>
         </div>
       </div>
     `;
-    rightCard.addEventListener('click', () => loadProductIntoCustomizer(pRight));
-    hero.appendChild(rightCard);
+    rtCard.addEventListener('click', () => loadProductIntoCustomizer(pRT));
+    hero.appendChild(rtCard);
 
-    // Bottom Quickbar (Matches Spylt Pill Buttons)
-    const quickBar = document.createElement('div');
-    quickBar.className = 'ang-hero-quickbar';
-    quickBar.innerHTML = `
-      <a class="ang-quick-pill" href="#runway" id="pillRunway">Runway Gallery</a>
-      <a class="ang-quick-pill" href="#all-suites" id="pillSuites">All 20 Royal Suites</a>
-      <button class="ang-quick-pill" id="pillCustomizer">3D Card Customizer</button>
-      <a class="ang-quick-pill" href="#stores" id="pillShowrooms">Flagship Showrooms</a>
+    // Right Bottom Card
+    const rbCard = document.createElement('div');
+    rbCard.className = 'ang-hero-floating-card right-bottom';
+    const pRB = royalProducts[1]; // Ivory Book Style
+    rbCard.innerHTML = `
+      <div class="ang-hero-card-img-wrap">
+        <span class="ang-hero-card-badge">Hardbound</span>
+        <img src="${pRB.img}" alt="${pRB.name}">
+      </div>
+      <div>
+        <div class="ang-hero-card-code">${pRB.id}</div>
+        <div class="ang-hero-card-title">${pRB.name}</div>
+        <div class="ang-hero-card-foot">
+          <div class="ang-hero-card-price">${pRB.inr}</div>
+          <div class="ang-hero-card-action">Customize →</div>
+        </div>
+      </div>
     `;
-    hero.appendChild(quickBar);
+    rbCard.addEventListener('click', () => loadProductIntoCustomizer(pRB));
+    hero.appendChild(rbCard);
 
-    document.getElementById('pillCustomizer').addEventListener('click', () => openDrawer('customizer'));
+    // Hero Category Filters Bar (Below Hero CTA)
+    const heroContent = hero.querySelector('.hero-content');
+    if (heroContent && !document.getElementById('angHeroCategories')) {
+      const catBar = document.createElement('div');
+      catBar.id = 'angHeroCategories';
+      catBar.className = 'ang-hero-categories-bar';
+      catBar.innerHTML = `
+        <a href="#all-suites" class="ang-hero-cat-pill" data-cat="wedding">💌 Wedding Cards</a>
+        <a href="#all-suites" class="ang-hero-cat-pill" data-cat="boxed">🎁 Gifting & Boxes</a>
+        <a href="#all-suites" class="ang-hero-cat-pill" data-cat="scrolls">📜 Royal Boxed Scrolls</a>
+        <a href="#all-suites" class="ang-hero-cat-pill" data-cat="laser-cut">✂️ Laser-Cut Lace</a>
+        <a href="#all-suites" class="ang-hero-cat-pill" data-cat="sacred">🕉️ Sacred Motifs</a>
+        <a href="#all-suites" class="ang-hero-cat-pill" data-cat="books">💎 Hardbound Books</a>
+      `;
+      heroContent.appendChild(catBar);
+
+      catBar.querySelectorAll('.ang-hero-cat-pill').forEach(pill => {
+        pill.addEventListener('click', (e) => {
+          const cat = pill.getAttribute('data-cat');
+          const filterBtn = document.querySelector(`.ang-filter-btn[data-cat="${cat}"]`);
+          if (filterBtn) filterBtn.click();
+        });
+      });
+    }
+
+    // Majestic Center Fan-Out Card Deck (Directly Matching User Image)
+    if (!document.getElementById('angHeroFanout')) {
+      const fanoutDeck = document.createElement('div');
+      fanoutDeck.id = 'angHeroFanout';
+      fanoutDeck.className = 'ang-hero-fanout-deck';
+      fanoutDeck.innerHTML = `
+        <div class="ang-fanout-banner">CRAFTED TO PERFECTION</div>
+        <div class="ang-fanout-cards-cluster">
+          <div class="ang-hero-fan-card" style="transform: rotate(-10deg);" data-id="KNLW202575" title="Laser-Cut Floral Gatefold">
+            <img src="./images/cards/KNLW202575.png" alt="Laser-Cut Floral Gatefold">
+            <div class="ang-hero-fan-card-label">Laser-Cut Lace</div>
+            <div class="ang-hero-fan-card-price">₹820</div>
+          </div>
+          <div class="ang-hero-fan-card" style="transform: rotate(-5deg);" data-id="KNAM4902" title="Festive Scalloped Traditional">
+            <img src="./images/cards/KNAM4902.png" alt="Festive Scalloped Traditional">
+            <div class="ang-hero-fan-card-label">Festive Scalloped</div>
+            <div class="ang-hero-fan-card-price">₹650</div>
+          </div>
+          <div class="ang-hero-fan-card" style="transform: rotate(-1deg);" data-id="KNLW202559" title="Maroon Royal Scroll Box">
+            <img src="./images/cards/KNLW202559.png" alt="Maroon Royal Scroll Box">
+            <div class="ang-hero-fan-card-label">Maroon Scroll Box</div>
+            <div class="ang-hero-fan-card-price">₹1,450</div>
+          </div>
+          <div class="ang-hero-fan-card" style="transform: rotate(3deg);" data-id="KNLW202569" title="Crimson Silk Scroll">
+            <img src="./images/cards/KNLW202569.png" alt="Crimson Silk Scroll">
+            <div class="ang-hero-fan-card-label">Crimson Scroll</div>
+            <div class="ang-hero-fan-card-price">₹1,120</div>
+          </div>
+          <div class="ang-hero-fan-card" style="transform: rotate(7deg);" data-id="KNLW202574" title="Ivory Hardbound Book">
+            <img src="./images/cards/KNLW202574.png" alt="Ivory Hardbound Book">
+            <div class="ang-hero-fan-card-label">Ivory Book Suite</div>
+            <div class="ang-hero-fan-card-price">₹980</div>
+          </div>
+          <div class="ang-hero-fan-card" style="transform: rotate(12deg);" data-id="KNLW202573" title="Peacock Door Gatefold">
+            <img src="./images/cards/KNLW202573.png" alt="Peacock Door Gatefold">
+            <div class="ang-hero-fan-card-label">Peacock Gatefold</div>
+            <div class="ang-hero-fan-card-price">₹780</div>
+          </div>
+        </div>
+        <div class="ang-fanout-note">
+          Every King of Cards masterpiece is tailored on 600–900 GSM archival board, finished with museum-grade hot foil debossing, silk-lined box presentations, and hand-embossed seals.
+        </div>
+      `;
+      hero.appendChild(fanoutDeck);
+
+      fanoutDeck.querySelectorAll('.ang-hero-fan-card').forEach((cardEl) => {
+        cardEl.addEventListener('click', () => {
+          const id = cardEl.getAttribute('data-id');
+          const prod = royalProducts.find(p => p.id === id) || royalProducts[0];
+          loadProductIntoCustomizer(prod);
+        });
+      });
+    }
+
+    // Quickbar removed to prevent overlap with Fan-Out Deck
   }
 
   // 4. Inject Pinned Horizontal Runway Gallery (Matches Spylt .flavor-section and .vd-card)
+    // 3b. Inject Video Section Switcher & Factory Tour Controller
+  function injectVideoSwitcher() {
+    const pinSection = document.querySelector('.vd-pin-section');
+    if (!pinSection) {
+      setTimeout(injectVideoSwitcher, 300);
+      return;
+    }
+
+    if (document.getElementById('angVideoSwitcher')) return;
+
+    pinSection.style.position = 'relative';
+
+    const video = pinSection.querySelector('video');
+
+    const videoOptions = [
+      {
+        id: 'factory',
+        icon: '🏭',
+        label: 'Factory Tour & Machinery',
+        title: 'King of Cards 30,000 sq.ft Manufacturing Facility, Heidelberg Offset Presses & Automation',
+        src: 'https://kingofcards.in/cdn/shop/videos/c/vp/60c4f12fb60b468aa984dd4ac76cc3a3/60c4f12fb60b468aa984dd4ac76cc3a3.HD-1080p-7.2Mbps-85600308.mp4'
+      },
+      {
+        id: 'foil',
+        icon: '✨',
+        label: 'Artisan Hot-Foil & Printing',
+        title: 'Artisan 24k Gold Foil Stamping, Thermal Debossing & Intricate Laser Filigree',
+        src: 'https://kingofcards.in/cdn/shop/videos/c/vp/2e24160c048e42fdaf966eb4c233b4b7/2e24160c048e42fdaf966eb4c233b4b7.HD-1080p-7.2Mbps-86569869.mp4'
+      },
+      {
+        id: 'unboxing',
+        icon: '📦',
+        label: 'Royal Boxed Invitation Unboxing',
+        title: 'Royal Velvet Presentation Boxes, Satin Silk Liners & Heirloom Keepsakes',
+        src: 'https://kingofcards.in/cdn/shop/videos/c/vp/ec30576357314c1594a5cf5243037752/ec30576357314c1594a5cf5243037752.HD-1080p-7.2Mbps-86569868.mp4'
+      },
+      {
+        id: 'scrolls',
+        icon: '📜',
+        label: 'Sacred Scrolls & Stories',
+        title: 'Heirloom Sacred Farman Scrolls & Real Couples Celebrations Worldwide',
+        src: 'https://kingofcards.in/cdn/shop/videos/c/vp/f395edd86e4e48c4bcba0ed8a4cc72d2/f395edd86e4e48c4bcba0ed8a4cc72d2.HD-1080p-7.2Mbps-86569867.mp4'
+      }
+    ];
+
+    // Top Live Info Pill Badge
+    const infoBadge = document.createElement('div');
+    infoBadge.id = 'angVideoInfoBadge';
+    infoBadge.className = 'ang-video-info-badge';
+    infoBadge.innerHTML = `
+      <span class="pulse-dot"></span>
+      <span id="angVideoInfoTitle">${videoOptions[0].title}</span>
+    `;
+    pinSection.appendChild(infoBadge);
+
+    // Switcher Bar
+    const bar = document.createElement('div');
+    bar.id = 'angVideoSwitcher';
+    bar.className = 'ang-video-switcher-bar';
+    bar.innerHTML = `
+      <span class="ang-video-switcher-label">🎥 Video Tour:</span>
+      ${videoOptions.map((opt, i) => `
+        <button class="ang-video-opt-btn ${i === 0 ? 'active' : ''}" data-idx="${i}">
+          ${opt.icon} ${opt.label}
+        </button>
+      `).join('')}
+    `;
+    pinSection.appendChild(bar);
+
+    // Click handling
+    bar.querySelectorAll('.ang-video-opt-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-idx'), 10);
+        const opt = videoOptions[idx];
+
+        bar.querySelectorAll('.ang-video-opt-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const infoTitle = document.getElementById('angVideoInfoTitle');
+        if (infoTitle) infoTitle.textContent = opt.title;
+
+        if (video) {
+          video.src = opt.src;
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        }
+
+        if (window.showToast) {
+          window.showToast('Now Playing: ' + opt.label);
+        }
+      });
+    });
+  }
+
+
   function injectRunwayGallery() {
     if (document.getElementById('royal-horizontal-showcase')) return;
 
