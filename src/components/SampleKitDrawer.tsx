@@ -9,6 +9,7 @@ interface DrawerProps {
   onRemoveItem: (id: string) => void;
   onClear: () => void;
   currency: string;
+  onProceedToCheckout?: () => void;
 }
 
 export function SampleKitDrawer({
@@ -18,6 +19,7 @@ export function SampleKitDrawer({
   onRemoveItem,
   onClear,
   currency,
+  onProceedToCheckout,
 }: DrawerProps) {
   const [ordered, setOrdered] = useState(false);
 
@@ -141,10 +143,17 @@ export function SampleKitDrawer({
               </div>
             ) : (
               <button
-                onClick={handleOrder}
+                onClick={() => {
+                  if (onProceedToCheckout) {
+                    onClose();
+                    onProceedToCheckout();
+                  } else {
+                    handleOrder();
+                  }
+                }}
                 className="squeeze-btn w-full py-4 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-charcoal-950 font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-xl shadow-gold-500/25"
               >
-                <span>Dispatch My Sample Kit</span>
+                <span>Proceed to VIP Dispatch (No Payment)</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             )}

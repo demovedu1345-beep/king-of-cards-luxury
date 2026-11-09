@@ -13,9 +13,10 @@ interface HeroProps {
   onExploreClick: () => void;
   onStudioClick: () => void;
   onSampleBoxClick: () => void;
+  onCustomizerClick?: () => void;
 }
 
-export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroProps) {
+export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick, onCustomizerClick }: HeroProps) {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [glintPos, setGlintPos] = useState({ x: 50, y: 50 });
@@ -284,25 +285,35 @@ export function Hero({ onExploreClick, onStudioClick, onSampleBoxClick }: HeroPr
                 pullStrength={0.25}
                 className="shimmer-btn w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-charcoal-950 font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-3 shadow-xl shadow-gold-500/25 hover:shadow-gold-500/40"
               >
-                <span>Explore Haute Atelier</span>
+                <span>Explore Collections</span>
                 <ArrowRight className="w-4 h-4" />
               </MagneticButton>
 
+              {onCustomizerClick && (
+                <MagneticButton
+                  onClick={onCustomizerClick}
+                  pullStrength={0.2}
+                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#783747] text-white font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2.5 shadow-xl shadow-[#783747]/25 hover:bg-[#5e2b37]"
+                >
+                  <Sparkles className="w-4 h-4 text-gold-300 animate-pulse" />
+                  <span>Design Your Own Card</span>
+                </MagneticButton>
+              )}
+
               <MagneticButton
                 onClick={onStudioClick}
-                pullStrength={0.2}
-                className="w-full sm:w-auto px-7 py-4 rounded-full border border-gold-400/50 bg-white/80 hover:bg-white text-gold-900 font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2.5 shadow-sm backdrop-blur-md"
+                pullStrength={0.15}
+                className="w-full sm:w-auto px-6 py-4 rounded-full border border-gold-300 bg-gold-50/70 hover:bg-gold-100 text-charcoal-800 font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2"
               >
-                <Sparkles className="w-4 h-4 text-gold-600" />
-                <span>3D Card Studio</span>
+                <span>3D Virtual Studio</span>
               </MagneticButton>
 
               <MagneticButton
                 onClick={onSampleBoxClick}
                 pullStrength={0.15}
-                className="w-full sm:w-auto px-6 py-4 rounded-full border border-gold-300 bg-gold-50/70 hover:bg-gold-100 text-charcoal-800 font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-4 rounded-full border border-gold-400 bg-white hover:bg-gold-50 text-gold-900 font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-sm"
               >
-                <span>Free Sample Box</span>
+                <span>Sample Kit</span>
               </MagneticButton>
             </div>
 

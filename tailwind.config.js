@@ -7,6 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        angraity: {
+          ivory: '#F5F1E9',
+          parchment: '#EAE2D5',
+          ink: '#1F1B19',
+          warmgrey: '#77716B',
+          gold: '#B49A68',
+          burgundy: '#783747',
+          neutral: '#DCD5CA',
+          dark: '#211F20',
+        },
         ivory: {
           50: '#fdfdfc',
           100: '#faf8f5',
