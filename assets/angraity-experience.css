@@ -1,14 +1,57 @@
-/* ANGRAITY — Haute Stationery & Fine Print Atelier Companion Styling */
+/* KING OF CARDS — Haute Wedding Cards & Bespoke Stationery Atelier Companion Styling */
+/* Designed in accordance with Ultra-Tier Anti-Slop Motion Doctrine, Lenis, and Emil Kowalski Tactile Physics */
 
 :root {
   --ang-ivory: #F5F1E9;
   --ang-parchment: #EAE2D5;
   --ang-ink: #1F1B19;
   --ang-grey: #77716B;
-  --ang-gold: #B49A68;
-  --ang-gold-glow: rgba(180, 154, 104, 0.4);
+  --ang-gold: #D4AF37;
+  --ang-gold-dim: #B49A68;
+  --ang-gold-glow: rgba(212, 175, 55, 0.35);
   --ang-burgundy: #783747;
-  --ang-dark: #161516;
+  --ang-dark: #0A0908;
+  --ang-dark-card: #131211;
+  --ang-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom Minimal Luxury Cursor */
+.ang-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--ang-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease, transform 0.1s ease-out;
+}
+
+.ang-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s var(--ang-ease-spring), height 0.25s var(--ang-ease-spring), border-color 0.2s ease;
+}
+
+/* Tactile Squeeze Physics (Emil Kowalski Style) */
+button, .ang-btn, .ang-nav-link, .ang-product-card, .ang-runway-card {
+  user-select: none;
+}
+
+button:active, .ang-btn:active {
+  transform: scale(0.95) !important;
+  transition: transform 0.1s var(--ang-ease-spring) !important;
 }
 
 /* Floating Luxury Atelier Nav */
@@ -20,20 +63,20 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(31, 27, 25, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(19, 18, 17, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.25);
   padding: 0.5rem 0.75rem 0.5rem 1.25rem;
   border-radius: 9999px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s var(--ang-ease-spring);
 }
 
 .ang-luxury-header:hover {
-  border-color: rgba(180, 154, 104, 0.45);
-  box-shadow: 0 14px 40px rgba(180, 154, 104, 0.2);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 14px 40px rgba(212, 175, 55, 0.25);
 }
 
 .ang-nav-links {
@@ -54,7 +97,7 @@
 }
 
 .ang-nav-link:hover {
-  color: #D4AF37;
+  color: var(--ang-gold);
 }
 
 .ang-btn-customise {
@@ -62,7 +105,7 @@
   align-items: center;
   gap: 0.5rem;
   background: linear-gradient(135deg, #D4AF37, #B49A68);
-  color: #1F1B19;
+  color: #0A0908;
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -71,19 +114,846 @@
   border-radius: 9999px;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  transition: transform 0.2s var(--ang-ease-spring), box-shadow 0.2s ease;
 }
 
 .ang-btn-customise:hover {
   transform: scale(1.04);
-  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.45);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
 }
 
-.ang-btn-customise:active {
-  transform: scale(0.96);
+/* ==========================================================================
+   HERO PAGE ENHANCEMENTS: LUXURY CARD ATELIER FROM THE VERY FIRST FRAME
+   ========================================================================== */
+
+/* Top Royal Banner Ribbon */
+.ang-hero-top-banner {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 1rem;
+  background: rgba(18, 17, 16, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F5F1E9;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+  transition: all 0.3s var(--ang-ease-spring);
 }
 
-/* Customizer Drawer / Slide-Over */
+.ang-hero-top-banner:hover {
+  border-color: var(--ang-gold);
+  background: rgba(18, 17, 16, 0.9);
+}
+
+.ang-hero-top-banner .crown-icon {
+  color: var(--ang-gold);
+  font-size: 0.9rem;
+}
+
+/* Hero Floating Spotlight Cards */
+.ang-hero-floating-card {
+  position: absolute;
+  z-index: 25;
+  width: 250px;
+  background: rgba(18, 17, 16, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s var(--ang-ease-spring), border-color 0.3s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.ang-hero-floating-card:hover {
+  border-color: var(--ang-gold);
+  box-shadow: 0 25px 60px rgba(212, 175, 55, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.ang-hero-floating-card.left {
+  left: 3rem;
+  top: 35%;
+  transform: translateY(-50%) rotate(-3deg);
+}
+
+.ang-hero-floating-card.left:hover {
+  transform: translateY(-54%) rotate(-1deg) scale(1.03);
+}
+
+.ang-hero-floating-card.right {
+  right: 3rem;
+  top: 40%;
+  transform: translateY(-50%) rotate(3deg);
+}
+
+.ang-hero-floating-card.right:hover {
+  transform: translateY(-54%) rotate(1deg) scale(1.03);
+}
+
+.ang-hero-card-img-wrap {
+  width: 100%;
+  height: 140px;
+  background: radial-gradient(circle at center, #252320 0%, #131211 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.ang-hero-card-img-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
+  transition: transform 0.5s var(--ang-ease-spring);
+}
+
+.ang-hero-floating-card:hover .ang-hero-card-img-wrap img {
+  transform: scale(1.08) translateY(-3px);
+}
+
+.ang-hero-card-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: rgba(212, 175, 55, 0.9);
+  color: #0A0908;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.ang-hero-card-content {
+  margin-top: 0.75rem;
+}
+
+.ang-hero-card-code {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ang-gold);
+  font-weight: 600;
+}
+
+.ang-hero-card-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.15rem;
+  color: #F5F1E9;
+  line-height: 1.2;
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.ang-hero-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.ang-hero-card-price {
+  font-size: 0.85rem;
+  color: #D4AF37;
+  font-weight: 700;
+}
+
+.ang-hero-card-action {
+  font-size: 0.7rem;
+  color: #EAE2D5;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Hero Bottom Quick Actions Bar */
+.ang-hero-quickbar {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(18, 17, 16, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 9999px;
+  padding: 0.4rem 0.6rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
+.ang-quick-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  color: #EAE2D5;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s var(--ang-ease-spring);
+}
+
+.ang-quick-pill:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.5);
+  color: var(--ang-gold);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   HORIZONTAL SCROLLING SHOWCASE: PINNED RUNWAY GALLERY
+   ========================================================================== */
+.ang-runway-section {
+  position: relative;
+  background: radial-gradient(circle at 50% 20%, #1A1816 0%, #0A0908 70%);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 6rem 0 7rem 0;
+  overflow: hidden;
+  color: #F5F1E9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.ang-runway-header {
+  max-width: 1300px;
+  margin: 0 auto 3rem auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.ang-sub-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 9999px;
+  color: var(--ang-gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.ang-runway-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: #F5F1E9;
+  line-height: 1.05;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+.ang-runway-subtitle {
+  font-size: 1.05rem;
+  color: #A9A29A;
+  max-width: 680px;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+}
+
+.ang-runway-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ang-runway-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #F5F1E9;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s var(--ang-ease-spring);
+}
+
+.ang-runway-arrow:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--ang-gold);
+  color: var(--ang-gold);
+  transform: scale(1.08);
+}
+
+.ang-runway-drag-hint {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #77716B;
+}
+
+.ang-runway-track-wrap {
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1.5rem 2rem 2.5rem 2rem;
+  cursor: grab;
+}
+
+.ang-runway-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.ang-runway-track-wrap:active {
+  cursor: grabbing;
+}
+
+.ang-runway-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  padding: 0 1rem;
+}
+
+/* Horizontal Runway Spotlight Card */
+.ang-runway-card {
+  width: 320px;
+  min-width: 320px;
+  background: rgba(19, 18, 17, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 20px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s var(--ang-ease-spring), border-color 0.3s ease, box-shadow 0.4s ease;
+}
+
+.ang-runway-card:hover {
+  border-color: rgba(212, 175, 55, 0.7);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.ang-runway-card-img {
+  width: 100%;
+  height: 220px;
+  background: radial-gradient(circle at center, #22201D 0%, #121110 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.ang-runway-card-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.7));
+  transition: transform 0.6s var(--ang-ease-spring);
+}
+
+.ang-runway-card:hover .ang-runway-card-img img {
+  transform: scale(1.1) translateY(-4px);
+}
+
+.ang-runway-card-tag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(212, 175, 55, 0.9);
+  color: #0A0908;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.ang-runway-card-category {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ang-gold);
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.ang-runway-card-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.35rem;
+  color: #F5F1E9;
+  line-height: 1.2;
+  margin: 0.35rem 0 0.5rem 0;
+  min-height: 3.2rem;
+}
+
+.ang-runway-card-paper {
+  font-size: 0.75rem;
+  color: #A9A29A;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.ang-runway-card-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ang-runway-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ang-runway-price-inr {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #F5F1E9;
+}
+
+.ang-runway-price-usd {
+  font-size: 0.85rem;
+  color: #B49A68;
+}
+
+.ang-runway-btn-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.ang-btn-custom {
+  background: linear-gradient(135deg, #D4AF37, #B49A68);
+  color: #0A0908;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6rem 0.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s var(--ang-ease-spring), filter 0.2s ease;
+}
+
+.ang-btn-custom:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.ang-btn-sample {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #EAE2D5;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.ang-btn-sample:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--ang-gold);
+}
+
+/* ==========================================================================
+   COMPREHENSIVE ROYAL PRODUCT SECTION: ALL 20 KING OF CARDS SUITES
+   ========================================================================== */
+.ang-all-products-section {
+  position: relative;
+  background: #0A0908;
+  padding: 7rem 2rem;
+  color: #F5F1E9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ang-products-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ang-products-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.ang-category-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.ang-filter-btn {
+  padding: 0.6rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  color: #A9A29A;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s var(--ang-ease-spring);
+}
+
+.ang-filter-btn:hover {
+  color: #F5F1E9;
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.ang-filter-btn.active {
+  background: linear-gradient(135deg, #D4AF37, #B49A68);
+  border-color: #D4AF37;
+  color: #0A0908;
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+}
+
+.ang-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .ang-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .ang-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ang-hero-floating-card {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .ang-products-grid {
+    grid-template-columns: 1fr;
+  }
+  .ang-hero-top-banner {
+    display: none;
+  }
+  .ang-hero-quickbar {
+    width: calc(100% - 2rem);
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+}
+
+/* Individual Grid Card */
+.ang-grid-card {
+  background: rgba(19, 18, 17, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s var(--ang-ease-spring);
+  position: relative;
+  overflow: hidden;
+}
+
+.ang-grid-card:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  background: rgba(25, 24, 22, 0.85);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+.ang-grid-card-img {
+  width: 100%;
+  height: 200px;
+  background: radial-gradient(circle at center, #22201D 0%, #121110 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  position: relative;
+}
+
+.ang-grid-card-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
+  transition: transform 0.5s var(--ang-ease-spring);
+}
+
+.ang-grid-card:hover .ang-grid-card-img img {
+  transform: scale(1.08);
+}
+
+.ang-grid-card-sku {
+  font-size: 0.65rem;
+  color: var(--ang-gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.ang-grid-card-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.25rem;
+  color: #F5F1E9;
+  line-height: 1.2;
+  margin: 0.25rem 0 0.5rem 0;
+  min-height: 3rem;
+}
+
+.ang-grid-card-desc {
+  font-size: 0.75rem;
+  color: #9A938A;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ang-grid-card-foot {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ang-grid-card-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #D4AF37;
+}
+
+.ang-grid-card-btn {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #F5F1E9;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ang-grid-card-btn:hover {
+  background: linear-gradient(135deg, #D4AF37, #B49A68);
+  color: #0A0908;
+  border-color: #D4AF37;
+}
+
+/* ==========================================================================
+   FLAGSHIP SHOWROOMS & ATELIER LOCATIONS SECTION
+   ========================================================================== */
+.ang-showrooms-section {
+  position: relative;
+  background: radial-gradient(circle at 50% 10%, #1C1A18 0%, #0A0908 80%);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 7rem 2rem;
+  color: #F5F1E9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.ang-showrooms-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ang-showrooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1100px) {
+  .ang-showrooms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .ang-showrooms-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ang-showroom-box {
+  background: rgba(22, 20, 19, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 18px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: all 0.35s var(--ang-ease-spring);
+  position: relative;
+}
+
+.ang-showroom-box:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+.ang-showroom-badge {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ang-gold);
+  font-weight: 700;
+}
+
+.ang-showroom-city {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.6rem;
+  color: #F5F1E9;
+  line-height: 1.15;
+}
+
+.ang-showroom-address {
+  font-size: 0.85rem;
+  color: #A9A29A;
+  line-height: 1.55;
+}
+
+.ang-showroom-details {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #D2CDC4;
+}
+
+.ang-showroom-details strong {
+  color: #F5F1E9;
+}
+
+.ang-showroom-foot {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ang-showroom-link {
+  color: var(--ang-gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s ease;
+}
+
+.ang-showroom-link:hover {
+  color: #F5F1E9;
+}
+
+.ang-showroom-book-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #F5F1E9;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ang-showroom-book-btn:hover {
+  background: var(--ang-gold);
+  color: #0A0908;
+  border-color: var(--ang-gold);
+}
+
+/* ==========================================================================
+   CUSTOMIZER DRAWER, TOAST & MODAL STYLES (PRESERVED & EXPANDED)
+   ========================================================================== */
 .ang-drawer-backdrop {
   position: fixed;
   inset: 0;
@@ -102,22 +972,22 @@
 }
 
 .ang-customizer-drawer {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   width: 100%;
   max-width: 580px;
-  background: #191817;
-  border-left: 1px solid rgba(180, 154, 104, 0.3);
-  z-index: 1000;
-  box-shadow: -15px 0 50px rgba(0, 0, 0, 0.6);
-  transform: translateX(100%);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #131211;
+  border-left: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.45s var(--ang-ease-spring);
   color: #F5F1E9;
-  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  z-index: 1000;
 }
 
 .ang-drawer-backdrop.active .ang-customizer-drawer {
@@ -126,27 +996,27 @@
 
 .ang-drawer-header {
   padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #181716;
 }
 
 .ang-drawer-title {
   font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.75rem;
-  letter-spacing: 0.02em;
+  font-size: 1.85rem;
   color: #F5F1E9;
+  margin: 0;
 }
 
 .ang-drawer-close {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: #EAE2D5;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  font-size: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -155,278 +1025,15 @@
 }
 
 .ang-drawer-close:hover {
-  border-color: #B49A68;
-  color: #D4AF37;
-  transform: rotate(90deg);
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--ang-gold);
 }
 
-.ang-drawer-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-/* 3D Preview Card */
-.ang-card-preview-stage {
-  perspective: 1000px;
-  padding: 1rem 0;
-  display: flex;
-  justify-content: center;
-}
-
-.ang-card-preview {
-  width: 320px;
-  height: 440px;
-  background: #FDFBF7;
-  border-radius: 16px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(180, 154, 104, 0.25);
-  padding: 2.5rem 1.75rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  color: #1F1B19;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.ang-card-preview:hover {
-  transform: translateY(-4px) rotateX(4deg) rotateY(-4deg);
-  box-shadow: 0 35px 65px -15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(180, 154, 104, 0.3);
-}
-
-.ang-card-preview.arch {
-  border-top-left-radius: 160px;
-  border-top-right-radius: 160px;
-}
-
-.ang-foil-shimmer {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(
-    115deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.3) 30%,
-    rgba(212, 175, 55, 0.4) 38%,
-    transparent 50%
-  );
-  animation: angFoilSweep 6s infinite ease-in-out;
-  pointer-events: none;
-}
-
-@keyframes angFoilSweep {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(100%); }
-  100% { transform: translateX(100%); }
-}
-
-.ang-card-monogram {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--card-foil-color, #B49A68);
-  letter-spacing: 0.1em;
-  margin-bottom: 0.5rem;
-}
-
-.ang-card-eyebrow {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: #77716B;
-}
-
-.ang-card-names {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.85rem;
-  line-height: 1.15;
-  color: #1F1B19;
-  margin: 1rem 0;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.ang-card-details {
-  font-size: 0.75rem;
-  line-height: 1.6;
-  color: #4A4643;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.ang-card-seal {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--card-seal-color, #783747);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 2px 3px rgba(255, 255, 255, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #F5F1E9;
-  font-size: 1.1rem;
-}
-
-/* Customizer Form Controls */
-.ang-field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.ang-field-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #B49A68;
-  font-weight: 600;
-}
-
-.ang-input-text {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #F5F1E9;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
-}
-
-.ang-input-text:focus {
-  outline: none;
-  border-color: #B49A68;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 3px rgba(180, 154, 104, 0.2);
-}
-
-.ang-options-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-}
-
-.ang-option-card {
-  padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  transition: all 0.2s ease;
-  color: #DCD5CA;
-  font-size: 0.8125rem;
-}
-
-.ang-option-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(180, 154, 104, 0.4);
-}
-
-.ang-option-card.active {
-  background: rgba(180, 154, 104, 0.15);
-  border-color: #B49A68;
-  color: #F5F1E9;
-  font-weight: 600;
-}
-
-.ang-swatch-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  flex-shrink: 0;
-}
-
-.ang-drawer-footer {
-  padding: 1.5rem 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  gap: 1rem;
-}
-
-.ang-btn-proof {
-  flex: 1;
-  background: linear-gradient(135deg, #D4AF37, #B49A68);
-  color: #1F1B19;
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.875rem 1.5rem;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
-  transition: all 0.2s ease;
-}
-
-.ang-btn-proof:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
-}
-
-/* Toast Notice */
-.ang-toast {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  background: #1F1B19;
-  border: 1px solid #B49A68;
-  color: #F5F1E9;
-  padding: 1rem 1.75rem;
-  border-radius: 9999px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-  font-size: 0.875rem;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ang-toast.show {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-@media (max-width: 768px) {
-  .ang-luxury-header {
-    top: auto;
-    bottom: 1.5rem;
-    right: 50%;
-    transform: translateX(50%);
-    width: calc(100% - 2rem);
-    justify-content: space-between;
-  }
-  .ang-nav-links {
-    display: none;
-  }
-  .ang-customizer-drawer {
-    max-width: 100%;
-  }
-}
-
-
-/* Catalog & Store Showcase Tabs in Drawer */
 .ang-drawer-tabs {
   display: flex;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0 1.5rem;
-  background: rgba(22, 20, 19, 0.95);
+  background: #161514;
 }
 
 .ang-drawer-tab {
@@ -444,92 +1051,259 @@
 }
 
 .ang-drawer-tab:hover {
-  color: #D4AF37;
+  color: var(--ang-gold);
 }
 
 .ang-drawer-tab.active {
   color: #F5F1E9;
-  border-bottom-color: #D4AF37;
+  border-bottom-color: var(--ang-gold);
 }
 
-.ang-catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
-
-.ang-product-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 1rem;
+.ang-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+  gap: 2rem;
 }
 
-.ang-product-card:hover {
-  border-color: rgba(212, 175, 55, 0.5);
-  background: rgba(255, 255, 255, 0.06);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+/* 3D Interactive Card Preview Stage */
+.ang-card-preview-stage {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
 }
 
-.ang-product-thumb {
+.ang-card-preview {
   width: 100%;
-  height: 140px;
-  object-fit: contain;
-  background: #191817;
-  border-radius: 8px;
-  padding: 0.5rem;
+  max-width: 380px;
+  min-height: 480px;
+  background: #FDFBF7;
+  color: #1F1B19;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s var(--ang-ease-spring), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
 }
 
-.ang-product-code {
-  font-size: 0.65rem;
+.ang-card-preview.dark {
+  background: #191817;
+  color: #F5F1E9;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.ang-card-preview.arch {
+  border-top-left-radius: 180px;
+  border-top-right-radius: 180px;
+}
+
+.ang-card-preview.deckle {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(180, 154, 104, 0.2);
+}
+
+.ang-foil-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.ang-card-monogram {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  text-align: center;
+  color: var(--card-foil-color, #D4AF37);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.ang-card-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #77716B;
+  font-weight: 500;
+}
+
+.ang-card-names {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 2.25rem;
+  text-align: center;
+  line-height: 1.15;
+  margin: 1.5rem 0 1rem 0;
+  color: var(--card-foil-color, #D4AF37);
+}
+
+.ang-card-details {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-align: center;
+  color: #4A4643;
+  white-space: pre-line;
+}
+
+.ang-card-preview.dark .ang-card-details {
+  color: #D2CDC4;
+}
+
+.ang-card-seal-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.ang-wax-seal {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--card-seal-color, #783747);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.25), inset 0 -3px 5px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Customizer Options Controls */
+.ang-option-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ang-option-label {
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #D4AF37;
-  font-weight: 600;
+  color: var(--ang-gold);
+  font-weight: 700;
 }
 
-.ang-product-title {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.1rem;
-  color: #F5F1E9;
-  line-height: 1.2;
+.ang-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
 }
 
-.ang-product-price {
-  font-size: 0.8rem;
-  color: #EAE2D5;
-  font-weight: 600;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto;
-}
-
-.ang-store-card {
-  background: rgba(255, 255, 255, 0.03);
+.ang-option-card {
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
-  padding: 1.25rem;
+  padding: 0.85rem;
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.25s var(--ang-ease-spring);
 }
 
-.ang-store-city {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.25rem;
-  color: #D4AF37;
+.ang-option-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.ang-store-addr {
+.ang-option-card.active {
+  border-color: var(--ang-gold);
+  background: rgba(212, 175, 55, 0.15);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.ang-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.ang-option-name {
   font-size: 0.8rem;
-  color: #A9A29A;
-  line-height: 1.5;
+  font-weight: 600;
+  color: #F5F1E9;
+}
+
+.ang-input-field {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #F5F1E9;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.ang-input-field:focus {
+  border-color: var(--ang-gold);
+}
+
+.ang-drawer-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #181716;
+}
+
+.ang-btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #D4AF37, #B49A68);
+  color: #0A0908;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.5rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s var(--ang-ease-spring), box-shadow 0.2s ease;
+}
+
+.ang-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* Toast Notification */
+.ang-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1A1816;
+  border: 1px solid var(--ang-gold);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  color: #F5F1E9;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s var(--ang-ease-spring);
+  z-index: 999999;
+}
+
+.ang-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
