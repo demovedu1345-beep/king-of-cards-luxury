@@ -1,6 +1,6 @@
 // KING OF CARDS — Haute Wedding Cards & Bespoke Stationery Atelier Companion Experience
-// Features: Lenis Smooth Momentum Scrolling, Pinned Horizontal Runway Showcase,
-// 20 Royal Product Suites with Live Filtering, 6 Flagship Showrooms, and 3D Customizer.
+// 100% Native Design Alignment with Cloned Spylt Architecture:
+// Antonio Display Typography, ProximaNova, Milk & Caramel Color Palette, and Spylt Pill Buttons.
 
 (function () {
   'use strict';
@@ -17,14 +17,12 @@
       usd: '$18.00',
       img: './images/cards/KNLW202559.png',
       tag: 'Bestseller Suite',
-      desc: 'Padded velvet presentation box with 24k gold foil scroll, royal silk tassel, and calligraphy insert.',
-      paper: 'Silk Velvet Rigid Box • 24K Gold Stamped Scroll',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'dark',
-      paperBg: '#1E1C1A'
+      desc: 'Padded velvet presentation box with gold foil scroll, royal silk tassel, and calligraphy insert.',
+      paper: 'Silk Velvet Rigid Box • Gold Stamped Scroll',
+      foil: '#7f3b2d',
+      foilName: 'Royal Red Foil',
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     },
     {
       id: 'KNLW202574',
@@ -38,12 +36,10 @@
       tag: 'Trending Couture',
       desc: 'Hardbound ivory book opening with gilded monogram crest, double insert pages, and satin ribbon pull.',
       paper: '900 GSM Archival Gilded Board • Satin Pull',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#B49A68',
-      sealName: 'Atelier Gold',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#523122',
+      foilName: 'Dark Chocolate Bronze',
+      seal: '#a26833',
+      sealName: 'Caramel Gold'
     },
     {
       id: 'KNLW202573',
@@ -57,12 +53,10 @@
       tag: 'Couture Gatefold',
       desc: 'Intricate peacock gatefold doors with laser filigree, embossed gold foil frame, and pearl shimmer envelope.',
       paper: '1000 GSM Laser-Cut Board • Metallic Shimmer',
-      foil: '#CFB53B',
-      foilName: 'Champagne Luster',
-      seal: '#1C4436',
-      sealName: 'Emerald Forest',
-      paperClass: 'bevel',
-      paperBg: '#FAF8F5'
+      foil: '#a26833',
+      foilName: 'Champagne Bronze',
+      seal: '#523122',
+      sealName: 'Classic Cocoa'
     },
     {
       id: 'KNLW202575',
@@ -76,12 +70,10 @@
       tag: 'Botanical Filigree',
       desc: 'Delicate laser-cut botanical vines opening to dual shimmer insert cards with raised thermal lettering.',
       paper: '350 GSM Ivory Pearlized Sheet • Die Cut Floral Arch',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#B49A68',
-      sealName: 'Atelier Gold',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#7f3b2d',
+      foilName: 'Royal Red Foil',
+      seal: '#a26833',
+      sealName: 'Caramel Gold'
     },
     {
       id: 'KNLW202577',
@@ -95,12 +87,10 @@
       tag: 'Divine Blessings',
       desc: 'Divine Radha Krishna portrait embossing with gold border highlights and festive wedding verse.',
       paper: 'Padded Archival Board • Radha Krishna Laser Relief',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#7f3b2d',
+      foilName: 'Royal Red Foil',
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     },
     {
       id: 'KNLW202579',
@@ -114,12 +104,10 @@
       tag: 'South Indian Classic',
       desc: 'Sacred Tirupati Balaji motif with multi-color traditional inserts and turmeric scented envelope.',
       paper: 'Embossed Gold Border • Saffron & Turmeric Folios',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#B49A68',
-      sealName: 'Atelier Gold',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#523122',
+      foilName: 'Dark Chocolate Bronze',
+      seal: '#a26833',
+      sealName: 'Caramel Gold'
     },
     {
       id: 'KNLW202580',
@@ -133,12 +121,10 @@
       tag: 'Kalyana Utsavam',
       desc: 'Rich sandalwood textured padded card depicting divine Shiva Parvathi Kalyana with gold foil borders.',
       paper: 'Heavy Padded Cardstock • Antique Bronze Stamping',
-      foil: '#B49A68',
+      foil: '#a26833',
       foilName: 'Antique Bronze',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'dark',
-      paperBg: '#211D19'
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     },
     {
       id: 'KNLW202581',
@@ -152,12 +138,10 @@
       tag: 'Shubh Muhurtham',
       desc: 'Auspicious embossed Ganesha medallion nestled on deep ivory padded board with gold foiled shloka.',
       paper: '800 GSM Padded Matte Board • Royal Red Envelope',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#7f3b2d',
+      foilName: 'Royal Red Foil',
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     },
     {
       id: 'KNLW202582',
@@ -171,12 +155,10 @@
       tag: 'Sage Pastels',
       desc: 'Modern pastel mint green card featuring sacred gold foil motifs and contrasting peach insert cards.',
       paper: 'Pastel Sage Metallic Texture • Multi-Panel Fold',
-      foil: '#CFB53B',
-      foilName: 'Champagne Luster',
-      seal: '#1C4436',
-      sealName: 'Emerald Forest',
-      paperClass: 'bevel',
-      paperBg: '#FAF8F5'
+      foil: '#523122',
+      foilName: 'Dark Chocolate Bronze',
+      seal: '#523122',
+      sealName: 'Classic Cocoa'
     },
     {
       id: 'KNLW202576',
@@ -190,12 +172,10 @@
       tag: 'Imperial Navy',
       desc: 'Royal sapphire booklet opening to 4 fold-out program panels, gold foil mandala, and ribbon fastener.',
       paper: 'Navy Sapphire Matte • Gilded Edge Mandala',
-      foil: '#BCC6CC',
-      foilName: 'Platinum Silver',
-      seal: '#1A1A1A',
-      sealName: 'Velvet Noir',
-      paperClass: 'deckle',
-      paperBg: '#F7F3EB'
+      foil: '#222123',
+      foilName: 'Obsidian Noir',
+      seal: '#222123',
+      sealName: 'Velvet Noir'
     },
     {
       id: 'KNLW202562',
@@ -208,13 +188,11 @@
       img: './images/cards/KNLW202562.png',
       tag: 'Masterpiece Box',
       desc: 'Double door opening luxury presentation box with magnetic lock, silk card tray, and monogram seal.',
-      paper: 'Heavy 24K Metallic Box • Silk Tray • Monogram Crest',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#B49A68',
-      sealName: 'Atelier Gold',
-      paperClass: 'dark',
-      paperBg: '#1E1C1A'
+      paper: 'Heavy Metallic Box • Silk Tray • Monogram Crest',
+      foil: '#a26833',
+      foilName: 'Caramel Gold',
+      seal: '#a26833',
+      sealName: 'Caramel Gold'
     },
     {
       id: 'KNLW202570',
@@ -228,12 +206,10 @@
       tag: 'Zari Embroidery',
       desc: 'Velvet lined maroon card with gold embroidered mantle design, Tirupati deities, and rich tassel.',
       paper: 'Velvet Padded Board • Intricate Mantapa Gold Foil',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'dark',
-      paperBg: '#1E1C1A'
+      foil: '#7f3b2d',
+      foilName: 'Royal Red Foil',
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     },
     {
       id: 'KNLW202569',
@@ -247,12 +223,10 @@
       tag: 'Sindoor Crimson',
       desc: 'Deep crimson heavy padded card with sacred Balaji motif, multi-color insert folios, and antique gold debossing.',
       paper: 'Multi-color Inserts • Embossed Balaji Padmavathi',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#7f3b2d',
+      foilName: 'Royal Red Foil',
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     },
     {
       id: 'KNLW202568',
@@ -266,12 +240,10 @@
       tag: 'Lotus Bloom',
       desc: 'Intricate blooming lotus gatefold flaps with rose gold foil accents and pearlized interior folios.',
       paper: 'Gatefold Lotus Opening • Rose Gold Foil Highlights',
-      foil: '#B76E79',
-      foilName: 'Rose Copper',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'bevel',
-      paperBg: '#FAF8F5'
+      foil: '#a26833',
+      foilName: 'Caramel Gold',
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     },
     {
       id: 'KNLW202566',
@@ -285,12 +257,10 @@
       tag: 'South Indian Heritage',
       desc: 'Traditional South Indian wedding booklet with illustrated program rituals, muhurtham times, and gold print.',
       paper: 'Sandal Scented Hardbound Book • Traditional Shloka',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#7f3b2d',
+      foilName: 'Royal Red Foil',
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     },
     {
       id: 'KNLW202567',
@@ -304,12 +274,10 @@
       tag: 'Royal Archway',
       desc: 'Architectural palace arch doorway with embossed gold columns and botanical jasmine garlands.',
       paper: 'Die-cut Arch Doorway • Botanical Embossing',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#B49A68',
-      sealName: 'Atelier Gold',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#523122',
+      foilName: 'Dark Chocolate Bronze',
+      seal: '#a26833',
+      sealName: 'Caramel Gold'
     },
     {
       id: 'KNAM4905',
@@ -323,12 +291,10 @@
       tag: 'Vintage Baarat',
       desc: 'Vintage ivory padded wedding card with majestic royal procession elephant motif in embossed gold.',
       paper: 'Textured Handmade Felt Board • Gold Embossed Elephant',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#B49A68',
-      sealName: 'Atelier Gold',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#523122',
+      foilName: 'Dark Chocolate Bronze',
+      seal: '#a26833',
+      sealName: 'Caramel Gold'
     },
     {
       id: 'KNMO9319',
@@ -342,12 +308,10 @@
       tag: 'Couple Portrait',
       desc: 'Sandalwood tinted padded card with elegant silhouette of the bride and groom taking sacred vows.',
       paper: 'Heavy 750 GSM Board • Couple Silhouette Cutout',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'dark',
-      paperBg: '#211D19'
+      foil: '#7f3b2d',
+      foilName: 'Royal Red Foil',
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     },
     {
       id: 'KNAM4902',
@@ -361,12 +325,10 @@
       tag: 'Lace Silhouette',
       desc: 'Midnight navy cardstock with ultra-fine laser lace cutting and shimmering champagne backing card.',
       paper: 'Intricate Bridal Couple Laser Lace • Gold Backer',
-      foil: '#D4AF37',
-      foilName: '24k Pure Gold',
-      seal: '#1A1A1A',
-      sealName: 'Velvet Noir',
-      paperClass: 'dark',
-      paperBg: '#1E1C1A'
+      foil: '#222123',
+      foilName: 'Obsidian Noir',
+      seal: '#222123',
+      sealName: 'Velvet Noir'
     },
     {
       id: 'KNLW202557',
@@ -380,12 +342,10 @@
       tag: 'Signature Velvet Box',
       desc: 'Handcrafted floral motif box with velvet card padding, gilded envelope liner, and personalized wax seal.',
       paper: 'Handcrafted Floral Velvet Box • Acrylic Monogram Plate',
-      foil: '#B76E79',
-      foilName: 'Rose Copper',
-      seal: '#783747',
-      sealName: 'Royal Ruby Burgundy',
-      paperClass: 'arch',
-      paperBg: '#FDFBF7'
+      foil: '#7f3b2d',
+      foilName: 'Royal Red Foil',
+      seal: '#7f3b2d',
+      sealName: 'Royal Ruby Burgundy'
     }
   ];
 
@@ -447,16 +407,16 @@
     monogram: 'P & R',
     names: 'Priya & Rohan',
     details: 'Cordially invite you to celebrate their wedding ceremony\nSaturday, November 28, 2026\nThe Leela Palace • Bengaluru',
-    foil: { name: '24k Pure Gold', color: '#D4AF37' },
-    paper: { name: '900 GSM Archival Gilded Board', class: 'arch', bg: '#FDFBF7' },
-    seal: { name: 'Royal Ruby Burgundy', color: '#783747' },
+    foil: { name: 'Royal Red Foil', color: '#7f3b2d' },
+    paper: { name: 'Padded Board Set' },
+    seal: { name: 'Royal Ruby Burgundy', color: '#7f3b2d' },
     selectedProduct: royalProducts[0]
   };
 
   function init() {
     if (document.getElementById('angraity-root')) return;
 
-    // 1. Lenis Smooth Momentum Scrolling
+    // 1. Lenis Smooth Momentum Scrolling (Preserved)
     if (window.Lenis) {
       try {
         const lenis = new window.Lenis({
@@ -473,89 +433,42 @@
         }
         requestAnimationFrame(raf);
         window.__lenis = lenis;
-        console.log('Lenis Smooth Momentum Scrolling initialized.');
       } catch (e) {
         console.warn('Lenis init warning:', e);
       }
     }
 
-    // 2. Custom Minimal Luxury Cursor
-    const cursorDot = document.createElement('div');
-    cursorDot.className = 'ang-cursor-dot';
-    const cursorRing = document.createElement('div');
-    cursorRing.className = 'ang-cursor-ring';
-    document.body.appendChild(cursorDot);
-    document.body.appendChild(cursorRing);
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let ringX = mouseX;
-    let ringY = mouseY;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursorDot.style.left = `${mouseX}px`;
-      cursorDot.style.top = `${mouseY}px`;
-    });
-
-    function renderCursor() {
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
-      cursorRing.style.left = `${ringX}px`;
-      cursorRing.style.top = `${ringY}px`;
-      requestAnimationFrame(renderCursor);
-    }
-    requestAnimationFrame(renderCursor);
-
-    // Interactive target expansion for cursor
-    document.addEventListener('mouseover', (e) => {
-      const target = e.target.closest('button, a, .ang-runway-card, .ang-grid-card, .ang-hero-floating-card');
-      if (target) {
-        cursorRing.style.width = '52px';
-        cursorRing.style.height = '52px';
-        cursorRing.style.borderColor = 'rgba(212, 175, 55, 0.9)';
-      } else {
-        cursorRing.style.width = '32px';
-        cursorRing.style.height = '32px';
-        cursorRing.style.borderColor = 'rgba(212, 175, 55, 0.5)';
-      }
-    });
-
-    // 3. Create Root Wrapper
+    // 2. Create Root Wrapper
     const root = document.createElement('div');
     root.id = 'angraity-root';
     document.body.appendChild(root);
 
-    // Inject Navigation Header, Drawer & Toast
+    // Inject Navigation Header, Drawer & Toast (Using Spylt Design Tokens)
     root.innerHTML = `
-      <!-- Floating King of Cards Atelier Header -->
+      <!-- Floating King of Cards Atelier Header (Styled like Spylt Pill Nav) -->
       <header class="ang-luxury-header" id="angHeader">
         <nav class="ang-nav-links">
-          <a class="ang-nav-link" id="navLinkRunway" href="#runway">Runway Gallery</a>
+          <a class="ang-nav-link" id="navLinkRunway" href="#runway">Runway Cards</a>
           <a class="ang-nav-link" id="navLinkAllCards" href="#all-suites">All 20 Suites</a>
           <a class="ang-nav-link" id="navLinkCraft" href="#craft">Artisan Craft</a>
           <a class="ang-nav-link" id="navLinkStores" href="#stores">Showrooms</a>
-          <a class="ang-nav-link" href="./floema/" title="Explore Architectural & Spatial Exhibition" style="display: inline-flex; align-items: center; gap: 0.35rem; color: #D4AF37;">
+          <a class="ang-nav-link" href="./floema/" title="Explore Architectural 3D Space" style="display: inline-flex; align-items: center; gap: 0.35rem; color: #a26833;">
             <span>3D Studio</span>
-            <span style="font-size: 0.65rem; background: rgba(212, 175, 55, 0.2); border: 1px solid rgba(212, 175, 55, 0.4); padding: 0.15rem 0.4rem; border-radius: 9999px;">CAD</span>
+            <span style="font-size: 0.75rem; background: #e3a458; color: #523122; padding: 0.1rem 0.5rem; border-radius: 9999px;">CAD</span>
           </a>
         </nav>
         <button class="ang-btn-customise" id="openCustomizerBtn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-          3D Card Atelier
+          Card Atelier
         </button>
       </header>
 
-      <!-- Customizer Drawer / Slide-Over -->
+      <!-- Customizer Drawer / Slide-Over (Harmonized with Spylt Milk Palette) -->
       <div class="ang-drawer-backdrop" id="drawerBackdrop">
         <aside class="ang-customizer-drawer" id="customizerDrawer">
           <div class="ang-drawer-header">
             <div>
-              <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: #B49A68; font-weight: 600;">King of Cards • Official Atelier</div>
-              <h2 class="ang-drawer-title" id="drawerMainTitle" style="margin: 0.25rem 0 0 0;">Interactive Card Proofing</h2>
+              <div style="font-family: var(--font-display); font-size: 0.85rem; text-transform: uppercase; letter-spacing: -0.02em; color: var(--color-mid-brown); font-weight: 700;">King of Cards • Official Atelier</div>
+              <h2 class="ang-drawer-title" id="drawerMainTitle">Interactive Card Proofing</h2>
             </div>
             <button class="ang-drawer-close" id="closeDrawerBtn" aria-label="Close Customizer">✕</button>
           </div>
@@ -570,8 +483,7 @@
           <!-- Tab 1: 3D Customizer -->
           <div class="ang-drawer-body" id="tabContentCustomizer">
             <div class="ang-card-preview-stage">
-              <div class="ang-card-preview arch" id="cardPreview" style="--card-foil-color: ${state.foil.color}; --card-seal-color: ${state.seal.color};">
-                <div class="ang-foil-shimmer"></div>
+              <div class="ang-card-preview" id="cardPreview" style="--card-foil-color: ${state.foil.color}; --card-seal-color: ${state.seal.color};">
                 <div>
                   <div class="ang-card-monogram" id="previewMonogram">${state.monogram}</div>
                   <div class="ang-card-eyebrow">Together with their families</div>
@@ -580,7 +492,7 @@
                   <div class="ang-card-names" id="previewNames">${state.names}</div>
                   <div class="ang-card-details" id="previewDetails">${state.details.replace(/\n/g, '<br>')}</div>
                 </div>
-                <div class="ang-card-seal-container">
+                <div>
                   <div class="ang-wax-seal" id="previewSeal">
                     <span id="previewSealLetter">P</span>
                   </div>
@@ -607,44 +519,21 @@
             <div class="ang-option-section">
               <label class="ang-option-label">Artisan Hot Foil Stamping</label>
               <div class="ang-option-grid" id="foilOptions">
-                <div class="ang-option-card active" data-foil-name="24k Pure Gold" data-foil-color="#D4AF37">
-                  <div class="ang-swatch" style="background: linear-gradient(135deg, #FFE57F, #D4AF37);"></div>
-                  <div class="ang-option-name">24k Pure Gold</div>
+                <div class="ang-option-card active" data-foil-name="Royal Red Foil" data-foil-color="#7f3b2d">
+                  <div class="ang-swatch" style="background: #7f3b2d;"></div>
+                  <div class="ang-option-name">Royal Red Foil</div>
                 </div>
-                <div class="ang-option-card" data-foil-name="Rose Copper" data-foil-color="#B76E79">
-                  <div class="ang-swatch" style="background: linear-gradient(135deg, #FAD0C4, #B76E79);"></div>
-                  <div class="ang-option-name">Rose Copper</div>
+                <div class="ang-option-card" data-foil-name="Caramel Gold" data-foil-color="#a26833">
+                  <div class="ang-swatch" style="background: #a26833;"></div>
+                  <div class="ang-option-name">Caramel Gold</div>
                 </div>
-                <div class="ang-option-card" data-foil-name="Champagne Luster" data-foil-color="#CFB53B">
-                  <div class="ang-swatch" style="background: linear-gradient(135deg, #FFF6D5, #CFB53B);"></div>
-                  <div class="ang-option-name">Champagne Luster</div>
+                <div class="ang-option-card" data-foil-name="Dark Chocolate Bronze" data-foil-color="#523122">
+                  <div class="ang-swatch" style="background: #523122;"></div>
+                  <div class="ang-option-name">Cocoa Bronze</div>
                 </div>
-                <div class="ang-option-card" data-foil-name="Platinum Silver" data-foil-color="#BCC6CC">
-                  <div class="ang-swatch" style="background: linear-gradient(135deg, #FFFFFF, #BCC6CC);"></div>
-                  <div class="ang-option-name">Platinum Silver</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Archival Paper Stock -->
-            <div class="ang-option-section">
-              <label class="ang-option-label">Archival Paper & Format</label>
-              <div class="ang-option-grid" id="paperOptions">
-                <div class="ang-option-card active" data-paper-name="900 GSM Archival Gilded Board" data-paper-class="arch" data-paper-bg="#FDFBF7">
-                  <div class="ang-swatch" style="background: #FDFBF7; border: 1px solid #D4AF37;"></div>
-                  <div class="ang-option-name">900 GSM Archival Arch</div>
-                </div>
-                <div class="ang-option-card" data-paper-name="600 GSM Handmade Deckle" data-paper-class="deckle" data-paper-bg="#F7F3EB">
-                  <div class="ang-swatch" style="background: #F7F3EB; border: 1px dashed #B49A68;"></div>
-                  <div class="ang-option-name">Handmade Deckle Edge</div>
-                </div>
-                <div class="ang-option-card" data-paper-name="Silk-Lined Padded Box Set" data-paper-class="dark" data-paper-bg="#1E1C1A">
-                  <div class="ang-swatch" style="background: #1E1C1A; border: 1px solid #D4AF37;"></div>
-                  <div class="ang-option-name">Velvet Padded Box</div>
-                </div>
-                <div class="ang-option-card" data-paper-name="1000 GSM Laser-Cut Board" data-paper-class="bevel" data-paper-bg="#FAF8F5">
-                  <div class="ang-swatch" style="background: #FAF8F5; border: 1px solid #E0D7C6;"></div>
-                  <div class="ang-option-name">Laser Cut Gatefold</div>
+                <div class="ang-option-card" data-foil-name="Obsidian Noir" data-foil-color="#222123">
+                  <div class="ang-swatch" style="background: #222123;"></div>
+                  <div class="ang-option-name">Obsidian Noir</div>
                 </div>
               </div>
             </div>
@@ -653,20 +542,20 @@
             <div class="ang-option-section">
               <label class="ang-option-label">Signature Monogram Wax Seal</label>
               <div class="ang-option-grid" id="sealOptions">
-                <div class="ang-option-card active" data-seal-name="Royal Ruby Burgundy" data-seal-color="#783747">
-                  <div class="ang-swatch" style="background: #783747;"></div>
+                <div class="ang-option-card active" data-seal-name="Royal Ruby Burgundy" data-seal-color="#7f3b2d">
+                  <div class="ang-swatch" style="background: #7f3b2d;"></div>
                   <div class="ang-option-name">Ruby Burgundy</div>
                 </div>
-                <div class="ang-option-card" data-seal-name="Atelier Gold" data-seal-color="#B49A68">
-                  <div class="ang-swatch" style="background: #B49A68;"></div>
-                  <div class="ang-option-name">Atelier Gold</div>
+                <div class="ang-option-card" data-seal-name="Caramel Gold" data-seal-color="#a26833">
+                  <div class="ang-swatch" style="background: #a26833;"></div>
+                  <div class="ang-option-name">Caramel Gold</div>
                 </div>
-                <div class="ang-option-card" data-seal-name="Emerald Forest" data-seal-color="#1C4436">
-                  <div class="ang-swatch" style="background: #1C4436;"></div>
-                  <div class="ang-option-name">Emerald Forest</div>
+                <div class="ang-option-card" data-seal-name="Classic Cocoa" data-seal-color="#523122">
+                  <div class="ang-swatch" style="background: #523122;"></div>
+                  <div class="ang-option-name">Classic Cocoa</div>
                 </div>
-                <div class="ang-option-card" data-seal-name="Velvet Noir" data-seal-color="#1A1A1A">
-                  <div class="ang-swatch" style="background: #1A1A1A;"></div>
+                <div class="ang-option-card" data-seal-name="Velvet Noir" data-seal-color="#222123">
+                  <div class="ang-swatch" style="background: #222123;"></div>
                   <div class="ang-option-name">Velvet Noir</div>
                 </div>
               </div>
@@ -675,7 +564,7 @@
 
           <!-- Tab 2: Catalog -->
           <div class="ang-drawer-body" id="tabContentCatalog" style="display: none;">
-            <div style="font-size: 0.8rem; color: #A9A29A; margin-bottom: 1rem;">
+            <div style="font-family: var(--font-paragraph); font-size: 0.95rem; color: var(--color-dark-brown); margin-bottom: 1rem;">
               Click any royal suite to immediately load into the 3D Customizer.
             </div>
             <div class="ang-catalog-grid" id="drawerCatalogGrid"></div>
@@ -683,7 +572,7 @@
 
           <!-- Tab 3: Flagship Stores -->
           <div class="ang-drawer-body" id="tabContentStores" style="display: none;">
-            <div style="font-size: 0.8rem; color: #A9A29A; margin-bottom: 1rem;">
+            <div style="font-family: var(--font-paragraph); font-size: 0.95rem; color: var(--color-dark-brown); margin-bottom: 1rem;">
               Visit King of Cards retail showrooms across India & USA for physical touch and tactile proofs.
             </div>
             <div style="display: flex; flex-direction: column; gap: 1rem;" id="drawerStoresList"></div>
@@ -692,10 +581,10 @@
           <!-- Drawer Footer -->
           <div class="ang-drawer-footer">
             <button class="ang-btn-primary" id="requestProofBtn">
-              Reserve VIP Sample Proof Box (Zero Payment)
+              Reserve Sample Proof Box (Zero Payment)
             </button>
-            <div style="font-size: 0.7rem; text-align: center; color: #77716B; margin-top: 0.5rem;">
-              Direct consultation with Senior Calligrapher • Free Worldwide Express Proofing
+            <div style="font-family: var(--font-paragraph); font-size: 0.8rem; text-align: center; color: var(--color-dark-brown); opacity: 0.8; margin-top: 0.5rem;">
+              Direct consultation with Senior Calligrapher • Free Express Proofing
             </div>
           </div>
         </aside>
@@ -703,17 +592,15 @@
 
       <!-- Proof Confirmation Modal -->
       <div class="ang-drawer-backdrop" id="modalBackdrop" style="display: flex; align-items: center; justify-content: center;">
-        <div style="background: #191817; border: 1px solid #D4AF37; border-radius: 20px; padding: 2.5rem; max-width: 500px; width: 90%; text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,0.8); position: relative;">
-          <div style="font-size: 2.5rem; color: #D4AF37; margin-bottom: 0.5rem;">👑</div>
-          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; color: #B49A68;">VIP Proof Reserved</div>
-          <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 2rem; color: #F5F1E9; margin: 0.5rem 0 1rem 0;">King of Cards Atelier</h3>
-          <p style="font-size: 0.875rem; color: #A9A29A; line-height: 1.6; margin-bottom: 1.5rem;">
-            Your bespoke wedding invitation specification has been reserved. Reference: <strong id="modalRef" style="color: #D4AF37;">#KOC-7821</strong>.
+        <div style="background-color: var(--color-card-bg); border: 0.4vw solid var(--color-dark-brown); border-radius: 2rem; padding: 2.5rem; max-width: 500px; width: 90%; text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,0.4); position: relative;">
+          <div style="font-family: var(--font-display); font-size: 1rem; text-transform: uppercase; color: var(--color-mid-brown); font-weight: 700;">VIP Proof Reserved</div>
+          <h3 style="font-family: var(--font-display); font-size: 2.5rem; color: var(--color-dark-brown); font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; margin: 0.5rem 0 1rem 0;">King of Cards Atelier</h3>
+          <p style="font-family: var(--font-paragraph); font-size: 1rem; color: var(--color-dark-brown); line-height: 1.5; margin-bottom: 1.5rem;">
+            Your bespoke wedding invitation specification has been reserved. Reference: <strong id="modalRef" style="color: var(--color-red-brown);">#KOC-7821</strong>.
           </p>
-          <div style="background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 1rem; text-align: left; font-size: 0.8rem; line-height: 1.6; color: #D2CDC4; margin-bottom: 1.5rem;">
+          <div style="background-color: var(--color-milk); border: 2px solid #e8ddca; border-radius: 1rem; padding: 1rem; text-align: left; font-family: var(--font-paragraph); font-size: 0.95rem; line-height: 1.6; color: var(--color-dark-brown); margin-bottom: 1.5rem;">
             <div><strong>Suite:</strong> <span id="modalNames">P & R — Priya & Rohan</span></div>
-            <div><strong>Hot Foil:</strong> <span id="modalFoil">24k Pure Gold</span></div>
-            <div><strong>Paper:</strong> <span id="modalPaper">900 GSM Archival Gilded Board</span></div>
+            <div><strong>Hot Foil:</strong> <span id="modalFoil">Royal Red Foil</span></div>
             <div><strong>Seal:</strong> <span id="modalSeal">Royal Ruby Burgundy</span></div>
           </div>
           <button class="ang-btn-primary" id="closeModalBtn">Return to Atelier</button>
@@ -722,7 +609,6 @@
 
       <!-- Toast Notification -->
       <div class="ang-toast" id="angToast">
-        <span style="color: #D4AF37;">✦</span>
         <span id="toastMsg">Updated card specifications</span>
       </div>
     `;
@@ -736,7 +622,7 @@
         <div class="ang-product-title">${p.name}</div>
         <div class="ang-product-price">
           <span>${p.price}</span>
-          <span style="color: #D4AF37;">Select →</span>
+          <span style="color: var(--color-red-brown);">Select →</span>
         </div>
       </div>
     `).join('');
@@ -747,8 +633,8 @@
       <div class="ang-store-card">
         <div class="ang-store-city">${s.city}</div>
         <div class="ang-store-addr">${s.address}</div>
-        <div style="font-size: 0.75rem; color: #D4AF37; margin-top: 0.25rem;">📞 ${s.phone}</div>
-        <div style="font-size: 0.75rem; color: #77716B;">🕒 ${s.hours}</div>
+        <div style="font-family: var(--font-paragraph); font-size: 0.85rem; color: var(--color-red-brown); font-weight: 700; margin-top: 0.25rem;">📞 ${s.phone}</div>
+        <div style="font-family: var(--font-paragraph); font-size: 0.85rem; color: var(--color-mid-brown);">🕒 ${s.hours}</div>
       </div>
     `).join('');
 
@@ -764,7 +650,7 @@
     setupDrawerInteractions();
   }
 
-  // 4. Inject Hero Page Elements (Cards, Badges, Quickbar)
+  // 3. Inject Hero Page Elements (Rotated Spylt Banners & Cards)
   function injectHeroElements() {
     const hero = document.querySelector('.hero-container');
     if (!hero) {
@@ -774,17 +660,16 @@
 
     if (document.getElementById('angHeroTopBanner')) return;
 
-    // Top Banner Ribbon
+    // Top Banner Ribbon (Matches Spylt Rotated Text Banner)
     const topBanner = document.createElement('div');
     topBanner.id = 'angHeroTopBanner';
     topBanner.className = 'ang-hero-top-banner';
     topBanner.innerHTML = `
-      <span class="crown-icon">👑</span>
       <span>India's Premier Wedding Invitation Atelier • Est. 1995 • 50,000+ Celebrations</span>
     `;
     hero.appendChild(topBanner);
 
-    // Left Floating Card
+    // Left Floating Card (Matches .vd-card / Spylt Card)
     const leftCard = document.createElement('div');
     leftCard.className = 'ang-hero-floating-card left';
     const pLeft = royalProducts[0]; // Maroon Scroll
@@ -793,12 +678,12 @@
         <span class="ang-hero-card-badge">Bestseller</span>
         <img src="${pLeft.img}" alt="${pLeft.name}">
       </div>
-      <div class="ang-hero-card-content">
+      <div>
         <div class="ang-hero-card-code">${pLeft.id}</div>
         <div class="ang-hero-card-title">${pLeft.name}</div>
         <div class="ang-hero-card-foot">
           <div class="ang-hero-card-price">${pLeft.inr}</div>
-          <div class="ang-hero-card-action">Customize ✦</div>
+          <div class="ang-hero-card-action">Customize →</div>
         </div>
       </div>
     `;
@@ -811,36 +696,36 @@
     const pRight = royalProducts[2]; // Peacock Door Gatefold
     rightCard.innerHTML = `
       <div class="ang-hero-card-img-wrap">
-        <span class="ang-hero-card-badge" style="background: #1C4436; color: #FFF;">2026 Couture</span>
+        <span class="ang-hero-card-badge">2026 Couture</span>
         <img src="${pRight.img}" alt="${pRight.name}">
       </div>
-      <div class="ang-hero-card-content">
+      <div>
         <div class="ang-hero-card-code">${pRight.id}</div>
         <div class="ang-hero-card-title">${pRight.name}</div>
         <div class="ang-hero-card-foot">
           <div class="ang-hero-card-price">${pRight.inr}</div>
-          <div class="ang-hero-card-action">Customize ✦</div>
+          <div class="ang-hero-card-action">Customize →</div>
         </div>
       </div>
     `;
     rightCard.addEventListener('click', () => loadProductIntoCustomizer(pRight));
     hero.appendChild(rightCard);
 
-    // Bottom Quickbar
+    // Bottom Quickbar (Matches Spylt Pill Buttons)
     const quickBar = document.createElement('div');
     quickBar.className = 'ang-hero-quickbar';
     quickBar.innerHTML = `
-      <a class="ang-quick-pill" href="#runway" id="pillRunway">✦ Runway Gallery</a>
-      <a class="ang-quick-pill" href="#all-suites" id="pillSuites">✦ All 20 Royal Suites</a>
-      <button class="ang-quick-pill" id="pillCustomizer">✦ 3D Card Customizer</button>
-      <a class="ang-quick-pill" href="#stores" id="pillShowrooms">✦ Flagship Showrooms</a>
+      <a class="ang-quick-pill" href="#runway" id="pillRunway">Runway Gallery</a>
+      <a class="ang-quick-pill" href="#all-suites" id="pillSuites">All 20 Royal Suites</a>
+      <button class="ang-quick-pill" id="pillCustomizer">3D Card Customizer</button>
+      <a class="ang-quick-pill" href="#stores" id="pillShowrooms">Flagship Showrooms</a>
     `;
     hero.appendChild(quickBar);
 
     document.getElementById('pillCustomizer').addEventListener('click', () => openDrawer('customizer'));
   }
 
-  // 5. Inject Pinned Horizontal Runway Gallery
+  // 4. Inject Pinned Horizontal Runway Gallery (Matches Spylt .flavor-section and .vd-card)
   function injectRunwayGallery() {
     if (document.getElementById('royal-horizontal-showcase')) return;
 
@@ -859,13 +744,13 @@
 
     runwaySec.innerHTML = `
       <div class="ang-runway-header" id="runway">
-        <div class="ang-sub-pill">RUNWAY SHOWCASE • 2026 BRIDAL COLLECTION</div>
-        <h2 class="ang-runway-title">The Haute Invitation Gallery</h2>
+        <div class="ang-spylt-badge">RUNWAY SHOWCASE • 2026 BRIDAL COLLECTION</div>
+        <h2 class="ang-runway-title">Haute Invitation Gallery</h2>
         <p class="ang-runway-subtitle">Glide horizontally across King of Cards' most celebrated couture invitation suites, hand-crafted with archival board and hot foil stamping.</p>
         <div class="ang-runway-controls">
           <button class="ang-runway-arrow" id="runwayPrev" aria-label="Previous Suites">‹</button>
           <button class="ang-runway-arrow" id="runwayNext" aria-label="Next Suites">›</button>
-          <span class="ang-runway-drag-hint">↔ Scroll or Drag to Glide Suites</span>
+          <span class="ang-runway-drag-hint">↔ Scroll or Drag to Glide</span>
         </div>
       </div>
       <div class="ang-runway-track-wrap" id="runwayTrackWrap">
@@ -885,7 +770,7 @@
                   <span class="ang-runway-price-usd">${p.usd}</span>
                 </div>
                 <div class="ang-runway-btn-row">
-                  <button class="ang-btn-custom btn-runway-custom" data-product-id="${p.id}">Customize 3D</button>
+                  <button class="ang-btn-custom btn-runway-custom" data-product-id="${p.id}">Customize</button>
                   <button class="ang-btn-sample btn-runway-sample" data-product-id="${p.id}">Sample Proof</button>
                 </div>
               </div>
@@ -931,20 +816,6 @@
         trackWrap.scrollLeft = scrollLeft - walk;
       });
 
-      // Spotlight glow following cursor on cards
-      const cards = runwaySec.querySelectorAll('.ang-runway-card');
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.background = `radial-gradient(350px circle at ${x}px ${y}px, rgba(212, 175, 55, 0.2), rgba(19, 18, 17, 0.85))`;
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.background = 'rgba(19, 18, 17, 0.85)';
-        });
-      });
-
       // Card customizer click
       runwaySec.querySelectorAll('.btn-runway-custom').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -969,7 +840,7 @@
     }
   }
 
-  // 6. Inject All 20 Royal Products Section
+  // 5. Inject All 20 Royal Products Section (Matches Spylt Black Theme)
   function injectAllProductsSection() {
     if (document.getElementById('atelier-all-products')) return;
 
@@ -986,12 +857,12 @@
     allSec.innerHTML = `
       <div class="ang-products-inner" id="all-suites">
         <div class="ang-products-header">
-          <div class="ang-sub-pill">THE COMPLETE ARCHIVE • ALL 20 ROYAL SUITES</div>
-          <h2 class="ang-runway-title">Official King of Cards Collection</h2>
-          <p class="ang-runway-subtitle">Every invitation suite is tailored with bespoke monograms, genuine 24K hot foil stamping, and archival Italian & handmade paper.</p>
+          <div class="ang-spylt-badge">THE COMPLETE ARCHIVE • ALL 20 ROYAL SUITES</div>
+          <h2 class="ang-runway-title" style="color: var(--color-milk);">Official King of Cards Collection</h2>
+          <p class="ang-runway-subtitle" style="color: var(--color-milk); opacity: 0.85;">Every invitation suite is tailored with bespoke monograms, genuine hot foil stamping, and archival paper.</p>
         </div>
 
-        <!-- Category Filters -->
+        <!-- Category Filters (Spylt Pill Style) -->
         <div class="ang-category-filter-bar" id="categoryFilterBar">
           <button class="ang-filter-btn active" data-filter="all">All Suites (20)</button>
           <button class="ang-filter-btn" data-filter="boxed">Boxed & Scroll (4)</button>
@@ -1038,7 +909,7 @@
     return list.map(p => `
       <div class="ang-grid-card" data-product-id="${p.id}">
         <div class="ang-grid-card-img">
-          <span style="position: absolute; top: 0.5rem; left: 0.5rem; background: rgba(212, 175, 55, 0.9); color: #0A0908; font-size: 0.6rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px;">${p.tag}</span>
+          <span style="position: absolute; top: 0.5rem; left: 0.5rem; background-color: var(--color-red-brown); color: var(--color-milk); font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: var(--radius-pill);">${p.tag}</span>
           <img src="${p.img}" alt="${p.name}">
         </div>
         <div class="ang-grid-card-sku">${p.id} • ${p.category}</div>
@@ -1047,7 +918,7 @@
         <div class="ang-grid-card-foot">
           <div>
             <div class="ang-grid-card-price">${p.inr}</div>
-            <div style="font-size: 0.75rem; color: #8C867E;">${p.usd} per suite</div>
+            <div style="font-family: var(--font-paragraph); font-size: 0.85rem; color: var(--color-milk); opacity: 0.6;">${p.usd} per suite</div>
           </div>
           <button class="ang-grid-card-btn btn-grid-custom" data-product-id="${p.id}">Customize →</button>
         </div>
@@ -1064,22 +935,9 @@
         if (prod) loadProductIntoCustomizer(prod);
       });
     });
-
-    // Spotlight cursor on grid cards
-    container.querySelectorAll('.ang-grid-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.background = `radial-gradient(350px circle at ${x}px ${y}px, rgba(212, 175, 55, 0.18), rgba(19, 18, 17, 0.85))`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.background = 'rgba(19, 18, 17, 0.7)';
-      });
-    });
   }
 
-  // 7. Inject Flagship Showrooms Section
+  // 6. Inject Flagship Showrooms Section (Matches Spylt Milk Palette)
   function injectShowroomsSection() {
     if (document.getElementById('atelier-showrooms-section')) return;
 
@@ -1096,9 +954,9 @@
     showroomSec.innerHTML = `
       <div class="ang-showrooms-inner" id="stores">
         <div class="ang-products-header">
-          <div class="ang-sub-pill">RETAIL PRESENCE • TOUCH & TACTILE EXPERIENCE</div>
-          <h2 class="ang-runway-title">Our Flagship Showrooms</h2>
-          <p class="ang-runway-subtitle">Experience our wedding invitation boxes, velvet scrolls, and hot foil finishes in person at our flagship boutiques across India and USA.</p>
+          <div class="ang-spylt-badge">RETAIL SHOWROOMS • TACTILE EXPERIENCE</div>
+          <h2 class="ang-runway-title">Our Flagship Boutiques</h2>
+          <p class="ang-runway-subtitle">Experience our wedding invitation boxes, velvet scrolls, and foil finishes in person at our flagship boutiques across India and USA.</p>
         </div>
 
         <div class="ang-showrooms-grid">
@@ -1127,7 +985,7 @@
     footerSection.parentNode.insertBefore(showroomSec, footerSection);
   }
 
-  // 8. Customizer Drawer Interactions
+  // 7. Customizer Drawer Interactions
   function setupDrawerInteractions() {
     const drawerBackdrop = document.getElementById('drawerBackdrop');
     const openCustomizerBtn = document.getElementById('openCustomizerBtn');
@@ -1158,7 +1016,6 @@
     const modalRef = document.getElementById('modalRef');
     const modalNames = document.getElementById('modalNames');
     const modalFoil = document.getElementById('modalFoil');
-    const modalPaper = document.getElementById('modalPaper');
     const modalSeal = document.getElementById('modalSeal');
 
     function setTab(tabName) {
@@ -1209,8 +1066,8 @@
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -12;
-      const rotateY = ((x - centerX) / centerX) * 12;
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
 
       cardPreview.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
     });
@@ -1250,23 +1107,6 @@
       });
     });
 
-    // Paper Options
-    document.querySelectorAll('#paperOptions .ang-option-card').forEach((card) => {
-      card.addEventListener('click', () => {
-        document.querySelectorAll('#paperOptions .ang-option-card').forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
-        state.paper = {
-          name: card.getAttribute('data-paper-name'),
-          class: card.getAttribute('data-paper-class'),
-          bg: card.getAttribute('data-paper-bg'),
-        };
-        cardPreview.classList.remove('arch', 'deckle', 'dark', 'bevel');
-        if (state.paper.class) cardPreview.classList.add(state.paper.class);
-        cardPreview.style.backgroundColor = state.paper.bg;
-        showToast(`Paper Format: ${state.paper.name}`);
-      });
-    });
-
     // Seal Options
     document.querySelectorAll('#sealOptions .ang-option-card').forEach((card) => {
       card.addEventListener('click', () => {
@@ -1299,7 +1139,6 @@
       modalRef.textContent = `#KOC-${randomId}`;
       modalNames.textContent = `${state.monogram} — ${state.names} (${state.selectedProduct.name})`;
       modalFoil.textContent = state.foil.name;
-      modalPaper.textContent = state.paper.name;
       modalSeal.textContent = state.seal.name;
 
       modalBackdrop.style.opacity = '1';
@@ -1341,7 +1180,6 @@
   window.loadProductIntoCustomizer = function (prod) {
     state.selectedProduct = prod;
     state.foil = { name: prod.foilName, color: prod.foil };
-    state.paper = { name: prod.paper, class: prod.paperClass, bg: prod.paperBg };
     state.seal = { name: prod.sealName, color: prod.seal };
 
     const cardPreview = document.getElementById('cardPreview');
@@ -1350,9 +1188,6 @@
     if (cardPreview) {
       cardPreview.style.setProperty('--card-foil-color', prod.foil);
       cardPreview.style.setProperty('--card-seal-color', prod.seal);
-      cardPreview.classList.remove('arch', 'deckle', 'dark', 'bevel');
-      if (prod.paperClass) cardPreview.classList.add(prod.paperClass);
-      cardPreview.style.backgroundColor = prod.paperBg;
     }
     if (previewSeal) {
       previewSeal.style.backgroundColor = prod.seal;

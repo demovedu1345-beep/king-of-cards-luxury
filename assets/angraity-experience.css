@@ -1,60 +1,41 @@
-/* KING OF CARDS — Haute Wedding Cards & Bespoke Stationery Atelier Companion Styling */
-/* Designed in accordance with Ultra-Tier Anti-Slop Motion Doctrine, Lenis, and Emil Kowalski Tactile Physics */
+/* ==========================================================================
+   KING OF CARDS — 100% NATIVE UI HARMONIZATION WITH CLONED SPYLT ARCHITECTURE
+   Strictly aligned with site tokens: Antonio Display, ProximaNova, Milk & Caramel Palette
+   ========================================================================== */
 
 :root {
-  --ang-ivory: #F5F1E9;
-  --ang-parchment: #EAE2D5;
-  --ang-ink: #1F1B19;
-  --ang-grey: #77716B;
-  --ang-gold: #D4AF37;
-  --ang-gold-dim: #B49A68;
-  --ang-gold-glow: rgba(212, 175, 55, 0.35);
-  --ang-burgundy: #783747;
-  --ang-dark: #0A0908;
-  --ang-dark-card: #131211;
-  --ang-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --color-black: #222123;
+  --color-white: #ffffff;
+  --color-main-bg: #232224;
+  --color-dark-brown: #523122;
+  --color-mid-brown: #a26833;
+  --color-light-brown: #e3a458;
+  --color-red-brown: #7f3b2d;
+  --color-yellow-brown: #a26833;
+  --color-milk-yellow: #e3d3bc;
+  --color-milk: #faeade;
+  --color-card-bg: #fdebd2;
+  --color-card-border: #e8ddca;
+  --font-display: "Antonio", sans-serif;
+  --font-paragraph: ProximaNova, sans-serif;
+  --radius-pill: 3.40282e38px;
+  --default-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Custom Minimal Luxury Cursor */
-.ang-cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 6px;
-  background: var(--ang-gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease, transform 0.1s ease-out;
-}
-
-.ang-cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s var(--ang-ease-spring), height 0.25s var(--ang-ease-spring), border-color 0.2s ease;
-}
-
-/* Tactile Squeeze Physics (Emil Kowalski Style) */
-button, .ang-btn, .ang-nav-link, .ang-product-card, .ang-runway-card {
+/* Tactile Squeeze Physics (Aligned with Cloned Buttons) */
+button, .ang-btn, .ang-quick-pill, .ang-filter-btn {
   user-select: none;
+  cursor: pointer;
+  transition: transform 0.2s var(--default-spring), background-color 0.2s ease, border-color 0.2s ease;
 }
 
-button:active, .ang-btn:active {
+button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active {
   transform: scale(0.95) !important;
-  transition: transform 0.1s var(--ang-ease-spring) !important;
 }
 
-/* Floating Luxury Atelier Nav */
+/* ==========================================================================
+   1. FLOATING LUXURY ATELIER HEADER (BLENDED WITH SPYLT PILL NAV)
+   ========================================================================== */
 .ang-luxury-header {
   position: fixed;
   top: 1.5rem;
@@ -62,71 +43,69 @@ button:active, .ang-btn:active {
   z-index: 100;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  background: rgba(19, 18, 17, 0.85);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  padding: 0.5rem 0.75rem 0.5rem 1.25rem;
-  border-radius: 9999px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  transition: all 0.4s var(--ang-ease-spring);
+  gap: 1.25rem;
+  background-color: var(--color-milk);
+  border: 3px solid var(--color-dark-brown);
+  padding: 0.45rem 0.65rem 0.45rem 1.5rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(82, 49, 34, 0.2);
+  font-family: var(--font-display);
+  transition: transform 0.3s var(--default-spring), box-shadow 0.3s ease;
 }
 
 .ang-luxury-header:hover {
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 14px 40px rgba(212, 175, 55, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(82, 49, 34, 0.3);
 }
 
 .ang-nav-links {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .ang-nav-link {
-  color: #EAE2D5;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  color: var(--color-dark-brown);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 0.2s ease;
+  transition: color 0.15s ease;
   cursor: pointer;
 }
 
 .ang-nav-link:hover {
-  color: var(--ang-gold);
+  color: var(--color-red-brown);
 }
 
 .ang-btn-customise {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #D4AF37, #B49A68);
-  color: #0A0908;
-  font-size: 0.8125rem;
+  gap: 0.45rem;
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  padding: 0.6rem 1.25rem;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s var(--ang-ease-spring), box-shadow 0.2s ease;
+  padding: 0.55rem 1.35rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-dark-brown);
+  box-shadow: 0 4px 12px rgba(82, 49, 34, 0.15);
 }
 
 .ang-btn-customise:hover {
-  transform: scale(1.04);
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+  background-color: #ebb36d;
+  transform: scale(1.03);
 }
 
 /* ==========================================================================
-   HERO PAGE ENHANCEMENTS: LUXURY CARD ATELIER FROM THE VERY FIRST FRAME
+   2. HERO PAGE INJECTIONS (CARDS & ANNOUNCEMENT MATCHING SPYLT HERO)
    ========================================================================== */
 
-/* Top Royal Banner Ribbon */
+/* Top Royal Banner Ribbon (Matches Spylt Rotated Text Banner) */
 .ang-hero-top-banner {
   position: absolute;
   top: 1.5rem;
@@ -135,79 +114,63 @@ button:active, .ang-btn:active {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.45rem 1rem;
-  background: rgba(18, 17, 16, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 9999px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-red-brown);
+  color: var(--color-milk);
+  border: 0.35vw solid var(--color-milk);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: #F5F1E9;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  rotate: -1deg;
+  box-shadow: 0 8px 25px rgba(127, 59, 45, 0.35);
   pointer-events: auto;
-  transition: all 0.3s var(--ang-ease-spring);
 }
 
-.ang-hero-top-banner:hover {
-  border-color: var(--ang-gold);
-  background: rgba(18, 17, 16, 0.9);
-}
-
-.ang-hero-top-banner .crown-icon {
-  color: var(--ang-gold);
-  font-size: 0.9rem;
-}
-
-/* Hero Floating Spotlight Cards */
+/* Floating Hero Cards (Exactly like Spylt .vd-card / .hero-text-scroll) */
 .ang-hero-floating-card {
   position: absolute;
   z-index: 25;
-  width: 250px;
-  background: rgba(18, 17, 16, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 16px;
+  width: 260px;
+  background-color: var(--color-card-bg);
+  border: 0.35vw solid var(--color-milk);
+  border-radius: 1.75rem;
   padding: 1rem;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  transition: transform 0.4s var(--ang-ease-spring), border-color 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0 20px 45px rgba(82, 49, 34, 0.25);
   cursor: pointer;
   pointer-events: auto;
-}
-
-.ang-hero-floating-card:hover {
-  border-color: var(--ang-gold);
-  box-shadow: 0 25px 60px rgba(212, 175, 55, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  transition: transform 0.35s var(--default-spring), box-shadow 0.3s ease;
 }
 
 .ang-hero-floating-card.left {
   left: 3rem;
-  top: 35%;
+  top: 38%;
   transform: translateY(-50%) rotate(-3deg);
 }
 
 .ang-hero-floating-card.left:hover {
-  transform: translateY(-54%) rotate(-1deg) scale(1.03);
+  transform: translateY(-54%) rotate(-1deg) scale(1.04);
+  box-shadow: 0 25px 50px rgba(82, 49, 34, 0.35);
 }
 
 .ang-hero-floating-card.right {
   right: 3rem;
-  top: 40%;
+  top: 42%;
   transform: translateY(-50%) rotate(3deg);
 }
 
 .ang-hero-floating-card.right:hover {
-  transform: translateY(-54%) rotate(1deg) scale(1.03);
+  transform: translateY(-54%) rotate(1deg) scale(1.04);
+  box-shadow: 0 25px 50px rgba(82, 49, 34, 0.35);
 }
 
 .ang-hero-card-img-wrap {
   width: 100%;
   height: 140px;
-  background: radial-gradient(circle at center, #252320 0%, #131211 100%);
-  border-radius: 10px;
+  background-color: #f4e5cf;
+  border-radius: 1rem;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -220,75 +183,73 @@ button:active, .ang-btn:active {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
-  transition: transform 0.5s var(--ang-ease-spring);
-}
-
-.ang-hero-floating-card:hover .ang-hero-card-img-wrap img {
-  transform: scale(1.08) translateY(-3px);
+  filter: drop-shadow(0 8px 16px rgba(82, 49, 34, 0.3));
 }
 
 .ang-hero-card-badge {
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  background: rgba(212, 175, 55, 0.9);
-  color: #0A0908;
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  top: 0.45rem;
+  left: 0.45rem;
+  background-color: var(--color-red-brown);
+  color: var(--color-milk);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-}
-
-.ang-hero-card-content {
-  margin-top: 0.75rem;
+  letter-spacing: -0.02em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
 }
 
 .ang-hero-card-code {
-  font-size: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ang-gold);
-  font-weight: 600;
+  color: var(--color-mid-brown);
+  font-weight: 700;
+  margin-top: 0.65rem;
 }
 
 .ang-hero-card-title {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.15rem;
-  color: #F5F1E9;
-  line-height: 1.2;
-  margin: 0.25rem 0 0.5rem 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-dark-brown);
+  line-height: 1.05;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin: 0.2rem 0 0.5rem 0;
 }
 
 .ang-hero-card-foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 2px solid #e8ddca;
   padding-top: 0.5rem;
   margin-top: 0.5rem;
 }
 
 .ang-hero-card-price {
-  font-size: 0.85rem;
-  color: #D4AF37;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-red-brown);
   font-weight: 700;
 }
 
 .ang-hero-card-action {
-  font-size: 0.7rem;
-  color: #EAE2D5;
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-dark-brown);
 }
 
-/* Hero Bottom Quick Actions Bar */
+/* Bottom Quickbar */
 .ang-hero-quickbar {
   position: absolute;
   bottom: 2rem;
@@ -298,57 +259,51 @@ button:active, .ang-btn:active {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(18, 17, 16, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: 9999px;
-  padding: 0.4rem 0.6rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background-color: var(--color-milk);
+  border: 3px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.65rem;
+  box-shadow: 0 10px 30px rgba(82, 49, 34, 0.25);
   pointer-events: auto;
 }
 
 .ang-quick-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 9999px;
-  color: #EAE2D5;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  gap: 0.35rem;
+  padding: 0.55rem 1.15rem;
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: -0.02em;
   text-decoration: none;
-  cursor: pointer;
-  transition: all 0.25s var(--ang-ease-spring);
 }
 
 .ang-quick-pill:hover {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: rgba(212, 175, 55, 0.5);
-  color: var(--ang-gold);
+  background-color: var(--color-light-brown);
   transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   HORIZONTAL SCROLLING SHOWCASE: PINNED RUNWAY GALLERY
+   3. PINNED HORIZONTAL RUNWAY SHOWCASE (MATCHES SPYLT .VD-CARD THEME)
    ========================================================================== */
 .ang-runway-section {
   position: relative;
-  background: radial-gradient(circle at 50% 20%, #1A1816 0%, #0A0908 70%);
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  background-color: var(--color-milk);
+  border-top: 0.5vw solid var(--color-milk);
+  border-bottom: 0.5vw solid var(--color-milk);
   padding: 6rem 0 7rem 0;
   overflow: hidden;
-  color: #F5F1E9;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-dark-brown);
 }
 
 .ang-runway-header {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto 3rem auto;
   padding: 0 2rem;
   display: flex;
@@ -359,36 +314,41 @@ button:active, .ang-btn:active {
   z-index: 10;
 }
 
-.ang-sub-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  background: rgba(212, 175, 55, 0.1);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 9999px;
-  color: var(--ang-gold);
-  font-size: 0.7rem;
+.ang-spylt-badge {
+  display: inline-block;
+  padding: 0.4rem 1.25rem;
+  background-color: var(--color-mid-brown);
+  color: #fce1cd;
+  border: 0.25vw solid var(--color-milk);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  rotate: -2deg;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 15px rgba(162, 104, 51, 0.25);
 }
 
 .ang-runway-title {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  color: #F5F1E9;
-  line-height: 1.05;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 8vw, 7.5rem);
+  color: var(--color-dark-brown);
+  line-height: 0.95;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
   margin: 0 0 1rem 0;
-  letter-spacing: -0.02em;
 }
 
 .ang-runway-subtitle {
-  font-size: 1.05rem;
-  color: #A9A29A;
-  max-width: 680px;
-  line-height: 1.6;
+  font-family: var(--font-paragraph);
+  font-size: 1.15rem;
+  color: var(--color-dark-brown);
+  opacity: 0.85;
+  max-width: 650px;
+  line-height: 1.45;
   margin: 0 0 2rem 0;
 }
 
@@ -399,32 +359,34 @@ button:active, .ang-btn:active {
 }
 
 .ang-runway-arrow {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: #F5F1E9;
-  font-size: 1.5rem;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-light-brown);
+  border: 3px solid var(--color-dark-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s var(--ang-ease-spring);
+  box-shadow: 0 4px 15px rgba(82, 49, 34, 0.2);
 }
 
 .ang-runway-arrow:hover {
-  background: rgba(212, 175, 55, 0.2);
-  border-color: var(--ang-gold);
-  color: var(--ang-gold);
+  background-color: #ebb36d;
   transform: scale(1.08);
 }
 
 .ang-runway-drag-hint {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   text-transform: uppercase;
-  color: #77716B;
+  letter-spacing: -0.02em;
+  color: var(--color-mid-brown);
+  font-weight: 700;
 }
 
 .ang-runway-track-wrap {
@@ -452,34 +414,31 @@ button:active, .ang-btn:active {
   padding: 0 1rem;
 }
 
-/* Horizontal Runway Spotlight Card */
+/* Horizontal Card (Styled exactly like Spylt .vd-card) */
 .ang-runway-card {
-  width: 320px;
-  min-width: 320px;
-  background: rgba(19, 18, 17, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: 20px;
+  width: 340px;
+  min-width: 340px;
+  background-color: var(--color-card-bg);
+  border: 0.4vw solid var(--color-milk);
+  border-radius: 2vw;
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
-  transition: transform 0.4s var(--ang-ease-spring), border-color 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0 18px 45px rgba(82, 49, 34, 0.2);
+  transition: transform 0.35s var(--default-spring), box-shadow 0.35s ease;
 }
 
 .ang-runway-card:hover {
-  border-color: rgba(212, 175, 55, 0.7);
   transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 25px 60px rgba(82, 49, 34, 0.3);
 }
 
 .ang-runway-card-img {
   width: 100%;
   height: 220px;
-  background: radial-gradient(circle at center, #22201D 0%, #121110 100%);
-  border-radius: 12px;
+  background-color: #f4e5cf;
+  border-radius: 1.2vw;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -492,56 +451,63 @@ button:active, .ang-btn:active {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.7));
-  transition: transform 0.6s var(--ang-ease-spring);
+  filter: drop-shadow(0 12px 25px rgba(82, 49, 34, 0.3));
+  transition: transform 0.4s var(--default-spring);
 }
 
 .ang-runway-card:hover .ang-runway-card-img img {
-  transform: scale(1.1) translateY(-4px);
+  transform: scale(1.08) translateY(-3px);
 }
 
 .ang-runway-card-tag {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
-  background: rgba(212, 175, 55, 0.9);
-  color: #0A0908;
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  background-color: var(--color-red-brown);
+  color: var(--color-milk);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
-  padding: 0.25rem 0.6rem;
-  border-radius: 9999px;
+  letter-spacing: -0.02em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  rotate: -2deg;
 }
 
 .ang-runway-card-category {
-  font-size: 0.7rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ang-gold);
-  font-weight: 600;
+  color: var(--color-mid-brown);
+  font-weight: 700;
   margin-top: 1rem;
 }
 
 .ang-runway-card-title {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.35rem;
-  color: #F5F1E9;
-  line-height: 1.2;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--color-dark-brown);
+  line-height: 1.05;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   margin: 0.35rem 0 0.5rem 0;
-  min-height: 3.2rem;
+  min-height: 3.5rem;
 }
 
 .ang-runway-card-paper {
-  font-size: 0.75rem;
-  color: #A9A29A;
+  font-family: var(--font-paragraph);
+  font-size: 0.9rem;
+  color: var(--color-dark-brown);
+  opacity: 0.75;
   line-height: 1.4;
   margin-bottom: 1rem;
 }
 
 .ang-runway-card-footer {
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 2px solid #e8ddca;
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
@@ -555,14 +521,18 @@ button:active, .ang-btn:active {
 }
 
 .ang-runway-price-inr {
-  font-size: 1.15rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #F5F1E9;
+  color: var(--color-red-brown);
+  letter-spacing: -0.03em;
 }
 
 .ang-runway-price-usd {
-  font-size: 0.85rem;
-  color: #B49A68;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-mid-brown);
+  font-weight: 700;
 }
 
 .ang-runway-btn-row {
@@ -572,55 +542,48 @@ button:active, .ang-btn:active {
 }
 
 .ang-btn-custom {
-  background: linear-gradient(135deg, #D4AF37, #B49A68);
-  color: #0A0908;
-  font-size: 0.75rem;
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.6rem 0.5rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+  padding: 0.65rem 0.5rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-dark-brown);
   text-align: center;
-  transition: transform 0.2s var(--ang-ease-spring), filter 0.2s ease;
 }
 
 .ang-btn-custom:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
+  background-color: #ebb36d;
 }
 
 .ang-btn-sample {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: #EAE2D5;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  background-color: transparent;
+  border: 2px solid var(--color-dark-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
   text-transform: uppercase;
-  padding: 0.6rem 0.5rem;
-  border-radius: 8px;
-  cursor: pointer;
+  padding: 0.65rem 0.5rem;
+  border-radius: var(--radius-pill);
   text-align: center;
-  transition: all 0.2s ease;
 }
 
 .ang-btn-sample:hover {
-  background: rgba(212, 175, 55, 0.15);
-  color: var(--ang-gold);
+  background-color: var(--color-milk);
 }
 
 /* ==========================================================================
-   COMPREHENSIVE ROYAL PRODUCT SECTION: ALL 20 KING OF CARDS SUITES
+   4. ALL 20 PRODUCTS ARCHIVE (MATCHES SPYLT .BENEFIT-SECTION / DARK BLACK)
    ========================================================================== */
 .ang-all-products-section {
   position: relative;
-  background: #0A0908;
+  background-color: var(--color-black);
   padding: 7rem 2rem;
-  color: #F5F1E9;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--color-milk);
+  border-top: 1px solid rgba(250, 234, 222, 0.1);
 }
 
 .ang-products-inner {
@@ -630,7 +593,7 @@ button:active, .ang-btn:active {
 
 .ang-products-header {
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 3rem auto;
 }
 
@@ -644,30 +607,28 @@ button:active, .ang-btn:active {
 }
 
 .ang-filter-btn {
-  padding: 0.6rem 1.25rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 9999px;
-  color: #A9A29A;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  padding: 0.65rem 1.5rem;
+  background-color: rgba(250, 234, 222, 0.1);
+  border: 2px solid rgba(250, 234, 222, 0.2);
+  border-radius: var(--radius-pill);
+  color: var(--color-milk);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
   text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s var(--ang-ease-spring);
+  letter-spacing: -0.02em;
 }
 
 .ang-filter-btn:hover {
-  color: #F5F1E9;
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: var(--color-light-brown);
+  color: var(--color-light-brown);
 }
 
 .ang-filter-btn.active {
-  background: linear-gradient(135deg, #D4AF37, #B49A68);
-  border-color: #D4AF37;
-  color: #0A0908;
-  font-weight: 700;
-  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+  background-color: var(--color-light-brown);
+  border-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  box-shadow: 0 4px 15px rgba(227, 164, 88, 0.35);
 }
 
 .ang-products-grid {
@@ -707,31 +668,27 @@ button:active, .ang-btn:active {
 
 /* Individual Grid Card */
 .ang-grid-card {
-  background: rgba(19, 18, 17, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
+  background-color: #2b2a2c;
+  border: 2px solid rgba(250, 234, 222, 0.15);
+  border-radius: 1.5rem;
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  transition: all 0.35s var(--ang-ease-spring);
+  transition: transform 0.35s var(--default-spring), border-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
 
 .ang-grid-card:hover {
-  border-color: rgba(212, 175, 55, 0.6);
-  background: rgba(25, 24, 22, 0.85);
+  border-color: var(--color-light-brown);
   transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
 }
 
 .ang-grid-card-img {
   width: 100%;
   height: 200px;
-  background: radial-gradient(circle at center, #22201D 0%, #121110 100%);
-  border-radius: 12px;
+  background-color: #353437;
+  border-radius: 1rem;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -744,8 +701,8 @@ button:active, .ang-btn:active {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
-  transition: transform 0.5s var(--ang-ease-spring);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
+  transition: transform 0.4s var(--default-spring);
 }
 
 .ang-grid-card:hover .ang-grid-card-img img {
@@ -753,26 +710,32 @@ button:active, .ang-btn:active {
 }
 
 .ang-grid-card-sku {
-  font-size: 0.65rem;
-  color: var(--ang-gold);
-  letter-spacing: 0.15em;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-light-brown);
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 1rem;
 }
 
 .ang-grid-card-title {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.25rem;
-  color: #F5F1E9;
-  line-height: 1.2;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-milk);
+  line-height: 1.05;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   margin: 0.25rem 0 0.5rem 0;
-  min-height: 3rem;
+  min-height: 3.2rem;
 }
 
 .ang-grid-card-desc {
-  font-size: 0.75rem;
-  color: #9A938A;
+  font-family: var(--font-paragraph);
+  font-size: 0.9rem;
+  color: var(--color-milk);
+  opacity: 0.7;
   line-height: 1.45;
   margin-bottom: 1rem;
   display: -webkit-box;
@@ -783,7 +746,7 @@ button:active, .ang-btn:active {
 
 .ang-grid-card-foot {
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(250, 234, 222, 0.12);
   padding-top: 0.85rem;
   display: flex;
   align-items: center;
@@ -791,41 +754,38 @@ button:active, .ang-btn:active {
 }
 
 .ang-grid-card-price {
-  font-size: 1.05rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
   font-weight: 700;
-  color: #D4AF37;
+  color: var(--color-light-brown);
+  letter-spacing: -0.02em;
 }
 
 .ang-grid-card-btn {
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  color: #F5F1E9;
-  font-size: 0.7rem;
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.45rem 0.85rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  border: none;
 }
 
 .ang-grid-card-btn:hover {
-  background: linear-gradient(135deg, #D4AF37, #B49A68);
-  color: #0A0908;
-  border-color: #D4AF37;
+  background-color: #ebb36d;
 }
 
 /* ==========================================================================
-   FLAGSHIP SHOWROOMS & ATELIER LOCATIONS SECTION
+   5. FLAGSHIP SHOWROOMS & ATELIER LOCATIONS (MATCHES SPYLT THEME)
    ========================================================================== */
 .ang-showrooms-section {
   position: relative;
-  background: radial-gradient(circle at 50% 10%, #1C1A18 0%, #0A0908 80%);
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  background-color: var(--color-milk);
+  border-top: 0.5vw solid var(--color-milk);
   padding: 7rem 2rem;
-  color: #F5F1E9;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-dark-brown);
 }
 
 .ang-showrooms-inner {
@@ -852,58 +812,58 @@ button:active, .ang-btn:active {
 }
 
 .ang-showroom-box {
-  background: rgba(22, 20, 19, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: 18px;
+  background-color: var(--color-card-bg);
+  border: 0.35vw solid #e8ddca;
+  border-radius: 1.75rem;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  transition: all 0.35s var(--ang-ease-spring);
-  position: relative;
+  box-shadow: 0 15px 40px rgba(82, 49, 34, 0.15);
+  transition: transform 0.35s var(--default-spring);
 }
 
 .ang-showroom-box:hover {
-  border-color: rgba(212, 175, 55, 0.6);
   transform: translateY(-5px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 175, 55, 0.15);
+  border-color: var(--color-dark-brown);
 }
 
 .ang-showroom-badge {
-  font-size: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ang-gold);
+  color: var(--color-red-brown);
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .ang-showroom-city {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.6rem;
-  color: #F5F1E9;
-  line-height: 1.15;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--color-dark-brown);
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
 }
 
 .ang-showroom-address {
-  font-size: 0.85rem;
-  color: #A9A29A;
-  line-height: 1.55;
+  font-family: var(--font-paragraph);
+  font-size: 0.95rem;
+  color: var(--color-dark-brown);
+  opacity: 0.85;
+  line-height: 1.5;
 }
 
 .ang-showroom-details {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 2px solid #e8ddca;
   padding-top: 0.85rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  font-size: 0.8rem;
-  color: #D2CDC4;
-}
-
-.ang-showroom-details strong {
-  color: #F5F1E9;
+  gap: 0.35rem;
+  font-family: var(--font-paragraph);
+  font-size: 0.9rem;
+  color: var(--color-dark-brown);
 }
 
 .ang-showroom-foot {
@@ -915,49 +875,41 @@ button:active, .ang-btn:active {
 }
 
 .ang-showroom-link {
-  color: var(--ang-gold);
-  font-size: 0.75rem;
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
+  letter-spacing: -0.02em;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  transition: color 0.2s ease;
 }
 
 .ang-showroom-link:hover {
-  color: #F5F1E9;
+  color: var(--color-red-brown);
 }
 
 .ang-showroom-book-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: #F5F1E9;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
   text-transform: uppercase;
-  padding: 0.45rem 0.85rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.ang-showroom-book-btn:hover {
-  background: var(--ang-gold);
-  color: #0A0908;
-  border-color: var(--ang-gold);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-dark-brown);
 }
 
 /* ==========================================================================
-   CUSTOMIZER DRAWER, TOAST & MODAL STYLES (PRESERVED & EXPANDED)
+   6. CUSTOMIZER DRAWER (BLENDED 100% INTO SPYLT WARM CREAM/BROWN PALETTE)
    ========================================================================== */
 .ang-drawer-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(10, 9, 8, 0.7);
+  background-color: rgba(34, 33, 35, 0.7);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 999;
@@ -978,15 +930,14 @@ button:active, .ang-btn:active {
   bottom: 0;
   width: 100%;
   max-width: 580px;
-  background: #131211;
-  border-left: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.6);
+  background-color: var(--color-milk);
+  border-left: 4px solid var(--color-dark-brown);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   transform: translateX(100%);
-  transition: transform 0.45s var(--ang-ease-spring);
-  color: #F5F1E9;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: transform 0.45s var(--default-spring);
+  color: var(--color-dark-brown);
   z-index: 1000;
 }
 
@@ -996,67 +947,67 @@ button:active, .ang-btn:active {
 
 .ang-drawer-header {
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 3px solid var(--color-dark-brown);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #181716;
+  background-color: #f5dfcb;
 }
 
 .ang-drawer-title {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.85rem;
-  color: #F5F1E9;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--color-dark-brown);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
   margin: 0;
 }
 
 .ang-drawer-close {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #EAE2D5;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  background-color: var(--color-milk);
+  border: 2px solid var(--color-dark-brown);
+  color: var(--color-dark-brown);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.ang-drawer-close:hover {
-  background: rgba(212, 175, 55, 0.2);
-  color: var(--ang-gold);
 }
 
 .ang-drawer-tabs {
   display: flex;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 2px solid #e8ddca;
   padding: 0 1.5rem;
-  background: #161514;
+  background-color: var(--color-card-bg);
 }
 
 .ang-drawer-tab {
   padding: 0.85rem 1.25rem;
-  font-size: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: #8C867E;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--color-mid-brown);
   background: transparent;
   border: none;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
 .ang-drawer-tab:hover {
-  color: var(--ang-gold);
+  color: var(--color-dark-brown);
 }
 
 .ang-drawer-tab.active {
-  color: #F5F1E9;
-  border-bottom-color: var(--ang-gold);
+  color: var(--color-dark-brown);
+  border-bottom-color: var(--color-dark-brown);
 }
 
 .ang-drawer-body {
@@ -1065,132 +1016,99 @@ button:active, .ang-btn:active {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.75rem;
 }
 
-/* 3D Interactive Card Preview Stage */
+/* Card Preview Stage in Drawer */
 .ang-card-preview-stage {
   perspective: 1200px;
   display: flex;
   justify-content: center;
-  padding: 1rem 0;
 }
 
 .ang-card-preview {
   width: 100%;
   max-width: 380px;
-  min-height: 480px;
-  background: #FDFBF7;
-  color: #1F1B19;
-  border-radius: 12px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  min-height: 440px;
+  background-color: var(--color-card-bg);
+  color: var(--color-dark-brown);
+  border: 0.4vw solid var(--color-dark-brown);
+  border-radius: 1.5rem;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 20px 45px rgba(82, 49, 34, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.2s var(--ang-ease-spring), box-shadow 0.3s ease;
-  transform-style: preserve-3d;
-}
-
-.ang-card-preview.dark {
-  background: #191817;
-  color: #F5F1E9;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-.ang-card-preview.arch {
-  border-top-left-radius: 180px;
-  border-top-right-radius: 180px;
-}
-
-.ang-card-preview.deckle {
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(180, 154, 104, 0.2);
-}
-
-.ang-foil-shimmer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
-  opacity: 0.15;
-  pointer-events: none;
+  text-align: center;
 }
 
 .ang-card-monogram {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 3.5rem;
-  line-height: 1;
-  text-align: center;
-  color: var(--card-foil-color, #D4AF37);
-  letter-spacing: 0.05em;
+  font-family: var(--font-display);
+  font-size: 3.8rem;
+  line-height: 0.95;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--card-foil-color, var(--color-dark-brown));
+  letter-spacing: -0.03em;
   margin-bottom: 0.5rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .ang-card-eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-family: var(--font-paragraph);
+  font-size: 0.85rem;
   text-transform: uppercase;
-  text-align: center;
-  color: #77716B;
-  font-weight: 500;
+  color: var(--color-mid-brown);
+  font-weight: 600;
 }
 
 .ang-card-names {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 2.25rem;
-  text-align: center;
-  line-height: 1.15;
-  margin: 1.5rem 0 1rem 0;
-  color: var(--card-foil-color, #D4AF37);
+  font-family: var(--font-display);
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 1.25rem 0 0.75rem 0;
+  color: var(--card-foil-color, var(--color-dark-brown));
 }
 
 .ang-card-details {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  text-align: center;
-  color: #4A4643;
-  white-space: pre-line;
-}
-
-.ang-card-preview.dark .ang-card-details {
-  color: #D2CDC4;
-}
-
-.ang-card-seal-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
+  font-family: var(--font-paragraph);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-dark-brown);
 }
 
 .ang-wax-seal {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: var(--card-seal-color, #783747);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.25), inset 0 -3px 5px rgba(0, 0, 0, 0.4);
-  display: flex;
+  background-color: var(--card-seal-color, var(--color-red-brown));
+  border: 3px solid var(--color-milk);
+  box-shadow: 0 4px 15px rgba(82, 49, 34, 0.35);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.85);
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 1.5rem;
+  color: var(--color-milk);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
   font-weight: 700;
+  margin: 1rem auto 0 auto;
 }
 
-/* Customizer Options Controls */
+/* Customizer Option Sections */
 .ang-option-section {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .ang-option-label {
-  font-size: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ang-gold);
+  letter-spacing: -0.02em;
+  color: var(--color-dark-brown);
   font-weight: 700;
 }
 
@@ -1201,109 +1119,187 @@ button:active, .ang-btn:active {
 }
 
 .ang-option-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  background-color: var(--color-card-bg);
+  border: 2px solid #e8ddca;
+  border-radius: 1rem;
   padding: 0.85rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  transition: all 0.25s var(--ang-ease-spring);
+  transition: all 0.2s ease;
 }
 
 .ang-option-card:hover {
-  border-color: rgba(212, 175, 55, 0.5);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-dark-brown);
 }
 
 .ang-option-card.active {
-  border-color: var(--ang-gold);
-  background: rgba(212, 175, 55, 0.15);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  border-color: var(--color-dark-brown);
+  background-color: #f7e0c4;
 }
 
 .ang-swatch {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--color-dark-brown);
 }
 
 .ang-option-name {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #F5F1E9;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
 }
 
 .ang-input-field {
   width: 100%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-dark-brown);
+  border-radius: 0.85rem;
   padding: 0.75rem 1rem;
-  color: #F5F1E9;
-  font-size: 0.9rem;
-  font-family: inherit;
+  color: var(--color-dark-brown);
+  font-family: var(--font-paragraph);
+  font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.ang-input-field:focus {
-  border-color: var(--ang-gold);
 }
 
 .ang-drawer-footer {
   padding: 1.5rem 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: #181716;
+  border-top: 3px solid var(--color-dark-brown);
+  background-color: #f5dfcb;
 }
 
 .ang-btn-primary {
   width: 100%;
-  background: linear-gradient(135deg, #D4AF37, #B49A68);
-  color: #0A0908;
-  font-size: 0.85rem;
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.9rem 1.5rem;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s var(--ang-ease-spring), box-shadow 0.2s ease;
+  letter-spacing: -0.02em;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-pill);
+  border: 3px solid var(--color-dark-brown);
+  box-shadow: 0 6px 20px rgba(82, 49, 34, 0.2);
 }
 
 .ang-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+  background-color: #ebb36d;
 }
 
-/* Toast Notification */
+/* Toast */
 .ang-toast {
   position: fixed;
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background: #1A1816;
-  border: 1px solid var(--ang-gold);
-  border-radius: 9999px;
-  padding: 0.75rem 1.5rem;
-  color: #F5F1E9;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background-color: var(--color-dark-brown);
+  color: var(--color-milk);
+  border: 3px solid var(--color-milk);
+  border-radius: var(--radius-pill);
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s var(--ang-ease-spring);
+  transition: all 0.3s var(--default-spring);
   z-index: 999999;
 }
 
 .ang-toast.show {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
-  pointer-events: auto;
+}
+
+/* Drawer Catalog & Store Cards */
+.ang-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.ang-product-card {
+  background-color: var(--color-card-bg);
+  border: 2px solid #e8ddca;
+  border-radius: 1.25rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.25s var(--default-spring), border-color 0.2s ease;
+}
+
+.ang-product-card:hover {
+  border-color: var(--color-dark-brown);
+  transform: translateY(-3px);
+}
+
+.ang-product-thumb {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+  background-color: #f4e5cf;
+  border-radius: 0.85rem;
+  padding: 0.4rem;
+}
+
+.ang-product-code {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-mid-brown);
+  font-weight: 700;
+}
+
+.ang-product-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  line-height: 1.05;
+}
+
+.ang-product-price {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-red-brown);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.ang-store-card {
+  background-color: var(--color-card-bg);
+  border: 2px solid #e8ddca;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ang-store-city {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+}
+
+.ang-store-addr {
+  font-family: var(--font-paragraph);
+  font-size: 0.9rem;
+  color: var(--color-dark-brown);
+  opacity: 0.85;
 }
