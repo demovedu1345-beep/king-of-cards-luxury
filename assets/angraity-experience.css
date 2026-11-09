@@ -1516,3 +1516,41 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, 
   color: var(--color-dark-brown);
   opacity: 0.85;
 }
+
+
+
+/* Panoramic Cards Showcase in Hero (Directly matching user uploaded image) */
+.ang-hero-panoramic-wrap {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1080px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 15;
+  pointer-events: auto;
+}
+
+.ang-hero-panoramic-wrap img {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.35s var(--default-spring), filter 0.3s ease;
+  filter: drop-shadow(0 20px 45px rgba(82, 49, 34, 0.35));
+}
+
+.ang-hero-panoramic-wrap img:hover {
+  transform: translateY(-8px) scale(1.02);
+  filter: drop-shadow(0 30px 60px rgba(82, 49, 34, 0.5));
+}
+
+@media (max-width: 900px) {
+  .ang-hero-panoramic-wrap {
+    bottom: 1rem;
+    max-width: 95vw;
+  }
+}

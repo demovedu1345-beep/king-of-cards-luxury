@@ -651,7 +651,7 @@
     setupDrawerInteractions();
   }
 
-    // 3. Inject Hero Page Elements (Rotated Spylt Banners, Categories, 4 Corner Floating Cards & Fan-Out Deck)
+        // 3. Inject Hero Page Elements (Rotated Ribbon, 4 Corner Floating Physical Cards & Category Bar)
   function injectHeroElements() {
     const hero = document.querySelector('.hero-container');
     if (!hero) {
@@ -670,11 +670,11 @@
     `;
     hero.appendChild(topBanner);
 
-    // 4 Corner Floating Cards (Real Physical Cards on Left & Right)
+    // 4 Corner Floating Physical Cards (Flanking Left & Right)
     // Left Top Card
     const ltCard = document.createElement('div');
     ltCard.className = 'ang-hero-floating-card left-top';
-    const pLT = royalProducts[0]; // Maroon Scroll Box
+    const pLT = royalProducts[0]; // Maroon Scroll Box Set
     ltCard.innerHTML = `
       <div class="ang-hero-card-img-wrap">
         <span class="ang-hero-card-badge">Royal Bestseller</span>
@@ -755,7 +755,7 @@
     rbCard.addEventListener('click', () => loadProductIntoCustomizer(pRB));
     hero.appendChild(rbCard);
 
-    // Hero Category Filters Bar (Below Hero CTA)
+    // Category Filter Pills Bar (Directly below Hero Button)
     const heroContent = hero.querySelector('.hero-content');
     if (heroContent && !document.getElementById('angHeroCategories')) {
       const catBar = document.createElement('div');
@@ -772,7 +772,7 @@
       heroContent.appendChild(catBar);
 
       catBar.querySelectorAll('.ang-hero-cat-pill').forEach(pill => {
-        pill.addEventListener('click', (e) => {
+        pill.addEventListener('click', () => {
           const cat = pill.getAttribute('data-cat');
           const filterBtn = document.querySelector(`.ang-filter-btn[data-cat="${cat}"]`);
           if (filterBtn) filterBtn.click();
@@ -780,65 +780,18 @@
       });
     }
 
-    // Majestic Center Fan-Out Card Deck (Directly Matching User Image)
-    if (!document.getElementById('angHeroFanout')) {
-      const fanoutDeck = document.createElement('div');
-      fanoutDeck.id = 'angHeroFanout';
-      fanoutDeck.className = 'ang-hero-fanout-deck';
-      fanoutDeck.innerHTML = `
-        <div class="ang-fanout-banner">CRAFTED TO PERFECTION</div>
-        <div class="ang-fanout-cards-cluster">
-          <div class="ang-hero-fan-card" style="transform: rotate(-10deg);" data-id="KNLW202575" title="Laser-Cut Floral Gatefold">
-            <img src="./images/cards/KNLW202575.png" alt="Laser-Cut Floral Gatefold">
-            <div class="ang-hero-fan-card-label">Laser-Cut Lace</div>
-            <div class="ang-hero-fan-card-price">₹820</div>
-          </div>
-          <div class="ang-hero-fan-card" style="transform: rotate(-5deg);" data-id="KNAM4902" title="Festive Scalloped Traditional">
-            <img src="./images/cards/KNAM4902.png" alt="Festive Scalloped Traditional">
-            <div class="ang-hero-fan-card-label">Festive Scalloped</div>
-            <div class="ang-hero-fan-card-price">₹650</div>
-          </div>
-          <div class="ang-hero-fan-card" style="transform: rotate(-1deg);" data-id="KNLW202559" title="Maroon Royal Scroll Box">
-            <img src="./images/cards/KNLW202559.png" alt="Maroon Royal Scroll Box">
-            <div class="ang-hero-fan-card-label">Maroon Scroll Box</div>
-            <div class="ang-hero-fan-card-price">₹1,450</div>
-          </div>
-          <div class="ang-hero-fan-card" style="transform: rotate(3deg);" data-id="KNLW202569" title="Crimson Silk Scroll">
-            <img src="./images/cards/KNLW202569.png" alt="Crimson Silk Scroll">
-            <div class="ang-hero-fan-card-label">Crimson Scroll</div>
-            <div class="ang-hero-fan-card-price">₹1,120</div>
-          </div>
-          <div class="ang-hero-fan-card" style="transform: rotate(7deg);" data-id="KNLW202574" title="Ivory Hardbound Book">
-            <img src="./images/cards/KNLW202574.png" alt="Ivory Hardbound Book">
-            <div class="ang-hero-fan-card-label">Ivory Book Suite</div>
-            <div class="ang-hero-fan-card-price">₹980</div>
-          </div>
-          <div class="ang-hero-fan-card" style="transform: rotate(12deg);" data-id="KNLW202573" title="Peacock Door Gatefold">
-            <img src="./images/cards/KNLW202573.png" alt="Peacock Door Gatefold">
-            <div class="ang-hero-fan-card-label">Peacock Gatefold</div>
-            <div class="ang-hero-fan-card-price">₹780</div>
-          </div>
-        </div>
-        <div class="ang-fanout-note">
-          Every King of Cards masterpiece is tailored on 600–900 GSM archival board, finished with museum-grade hot foil debossing, silk-lined box presentations, and hand-embossed seals.
-        </div>
+    // Ensure hero panoramic cards wrap exists
+    if (!hero.querySelector('.ang-hero-panoramic-wrap')) {
+      const panWrap = document.createElement('div');
+      panWrap.className = 'ang-hero-panoramic-wrap';
+      panWrap.innerHTML = `
+        <img src="./images/hero-cards-panoramic.png" alt="Kings of Cards Luxury Wedding Cards Collection" onclick="openDrawer('customizer')" title="Click to customize any card in our 3D Atelier">
       `;
-      hero.appendChild(fanoutDeck);
-
-      fanoutDeck.querySelectorAll('.ang-hero-fan-card').forEach((cardEl) => {
-        cardEl.addEventListener('click', () => {
-          const id = cardEl.getAttribute('data-id');
-          const prod = royalProducts.find(p => p.id === id) || royalProducts[0];
-          loadProductIntoCustomizer(prod);
-        });
-      });
+      hero.appendChild(panWrap);
     }
-
-    // Quickbar removed to prevent overlap with Fan-Out Deck
   }
 
-  // 4. Inject Pinned Horizontal Runway Gallery (Matches Spylt .flavor-section and .vd-card)
-    // 3b. Inject Video Section Switcher & Factory Tour Controller
+  // 3b. Inject Video Section Switcher & Factory Tour Controller
   function injectVideoSwitcher() {
     const pinSection = document.querySelector('.vd-pin-section');
     if (!pinSection) {
