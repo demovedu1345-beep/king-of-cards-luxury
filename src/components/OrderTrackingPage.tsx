@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Search, CheckCircle2, Clock } from "lucide-react";
 import { playTactileClick } from "../utils/soundEffects";
+import { SplitFlapBoard } from "./annnimate/SplitFlapBoard";
 
 interface TrackingProps {
   onBack: () => void;
@@ -65,7 +66,7 @@ export function OrderTrackingPage({ onBack, recentOrders = [] }: TrackingProps) 
         </div>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearch} className="max-w-md mx-auto mb-16 flex items-center gap-2">
+        <form onSubmit={handleSearch} className="max-w-md mx-auto mb-8 flex items-center gap-2">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-[#77716B] absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
@@ -83,6 +84,14 @@ export function OrderTrackingPage({ onBack, recentOrders = [] }: TrackingProps) 
             Track
           </button>
         </form>
+
+        {/* Mechanical Split-Flap Telemetry Board */}
+        <SplitFlapBoard
+          orderId={orderQuery}
+          clientName={recentOrders[0]?.clientName || "ROYAL CLIENT"}
+          stageName={LIFECYCLE_STAGES[currentStage - 1].title.toUpperCase()}
+          eta="3-5 DAYS"
+        />
 
         {/* Tracking Milestone Card */}
         <div className="pearl-card rounded-3xl p-6 sm:p-10 bg-white border border-[#B49A68]/35 shadow-2xl mb-12">

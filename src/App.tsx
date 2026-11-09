@@ -27,7 +27,9 @@ import { FloemaBlueprintOverlay } from "./components/FloemaBlueprintOverlay";
 import { ElasticDivider } from "./components/annnimate/ElasticDivider";
 import { ProcessRail } from "./components/annnimate/ProcessRail";
 import { SpyltScrollVideoSection } from "./components/SpyltScrollVideoSection";
+import { SpyltPinnedVideoSection } from "./components/SpyltPinnedVideoSection";
 import { FloemaArchitecturalSection } from "./components/FloemaArchitecturalSection";
+import { CurtainRevealSlider } from "./components/annnimate/CurtainRevealSlider";
 import { InteractiveCardCustomizer } from "./components/InteractiveCardCustomizer";
 import { ShopPage } from "./components/ShopPage";
 import { ProductDetailPage } from "./components/ProductDetailPage";
@@ -218,6 +220,11 @@ export function App() {
               onCustomizeClick={() => navigateTo("customizer")}
             />
 
+            {/* Spylt Pinned Unboxing Video Frame-by-Frame Scrub Section */}
+            <SpyltPinnedVideoSection
+              onOpenCustomizer={() => navigateTo("customizer")}
+            />
+
             {/* Section Divider */}
             <GradientDivider showSparkles />
 
@@ -238,6 +245,9 @@ export function App() {
 
             {/* Section 08: 4 Sovereign Epochs Pinned Heritage Cards Stack */}
             <StackedHeritageCards />
+
+            {/* Annnimate Luxury Curtain Split-Screen Material Reveal */}
+            <CurtainRevealSlider onExploreClick={() => navigateTo("shop")} />
 
             {/* Section 09: Complete 4,000+ Filterable Catalog with Spotlight Cards */}
             <CatalogExplorer
