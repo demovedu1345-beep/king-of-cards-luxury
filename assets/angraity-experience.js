@@ -15,7 +15,7 @@
       price: '₹1,450 / $18.00',
       inr: '₹1,450',
       usd: '$18.00',
-      img: './images/cards/KNLW202559.png',
+      img: './images/cards/KNLW202559.webp',
       tag: 'Bestseller Suite',
       desc: 'Padded velvet presentation box with gold foil scroll, royal silk tassel, and calligraphy insert.',
       paper: 'Silk Velvet Rigid Box • Gold Stamped Scroll',
@@ -32,7 +32,7 @@
       price: '₹980 / $12.50',
       inr: '₹980',
       usd: '$12.50',
-      img: './images/cards/KNLW202574.png',
+      img: './images/cards/KNLW202574.webp',
       tag: 'Trending Couture',
       desc: 'Hardbound ivory book opening with gilded monogram crest, double insert pages, and satin ribbon pull.',
       paper: '900 GSM Archival Gilded Board • Satin Pull',
@@ -49,7 +49,7 @@
       price: '₹780 / $9.80',
       inr: '₹780',
       usd: '$9.80',
-      img: './images/cards/KNLW202573.png',
+      img: './images/cards/KNLW202573.webp',
       tag: 'Couture Gatefold',
       desc: 'Intricate peacock gatefold doors with laser filigree, embossed gold foil frame, and pearl shimmer envelope.',
       paper: '1000 GSM Laser-Cut Board • Metallic Shimmer',
@@ -66,7 +66,7 @@
       price: '₹820 / $10.25',
       inr: '₹820',
       usd: '$10.25',
-      img: './images/cards/KNLW202575.png',
+      img: './images/cards/KNLW202575.webp',
       tag: 'Botanical Filigree',
       desc: 'Delicate laser-cut botanical vines opening to dual shimmer insert cards with raised thermal lettering.',
       paper: '350 GSM Ivory Pearlized Sheet • Die Cut Floral Arch',
@@ -83,7 +83,7 @@
       price: '₹890 / $11.00',
       inr: '₹890',
       usd: '$11.00',
-      img: './images/cards/KNLW202577.png',
+      img: './images/cards/KNLW202577.webp',
       tag: 'Divine Blessings',
       desc: 'Divine Radha Krishna portrait embossing with gold border highlights and festive wedding verse.',
       paper: 'Padded Archival Board • Radha Krishna Laser Relief',
@@ -100,7 +100,7 @@
       price: '₹880 / $11.00',
       inr: '₹880',
       usd: '$11.00',
-      img: './images/cards/KNLW202579.png',
+      img: './images/cards/KNLW202579.webp',
       tag: 'South Indian Classic',
       desc: 'Sacred Tirupati Balaji motif with multi-color traditional inserts and turmeric scented envelope.',
       paper: 'Embossed Gold Border • Saffron & Turmeric Folios',
@@ -117,7 +117,7 @@
       price: '₹790 / $9.90',
       inr: '₹790',
       usd: '$9.90',
-      img: './images/cards/KNLW202580.png',
+      img: './images/cards/KNLW202580.webp',
       tag: 'Kalyana Utsavam',
       desc: 'Rich sandalwood textured padded card depicting divine Shiva Parvathi Kalyana with gold foil borders.',
       paper: 'Heavy Padded Cardstock • Antique Bronze Stamping',
@@ -134,7 +134,7 @@
       price: '₹750 / $9.50',
       inr: '₹750',
       usd: '$9.50',
-      img: './images/cards/KNLW202581.png',
+      img: './images/cards/KNLW202581.webp',
       tag: 'Shubh Muhurtham',
       desc: 'Auspicious embossed Ganesha medallion nestled on deep ivory padded board with gold foiled shloka.',
       paper: '800 GSM Padded Matte Board • Royal Red Envelope',
@@ -151,7 +151,7 @@
       price: '₹860 / $10.80',
       inr: '₹860',
       usd: '$10.80',
-      img: './images/cards/KNLW202582.png',
+      img: './images/cards/KNLW202582.webp',
       tag: 'Sage Pastels',
       desc: 'Modern pastel mint green card featuring sacred gold foil motifs and contrasting peach insert cards.',
       paper: 'Pastel Sage Metallic Texture • Multi-Panel Fold',
@@ -168,7 +168,7 @@
       price: '₹920 / $11.50',
       inr: '₹920',
       usd: '$11.50',
-      img: './images/cards/KNLW202576.png',
+      img: './images/cards/KNLW202576.webp',
       tag: 'Imperial Navy',
       desc: 'Royal sapphire booklet opening to 4 fold-out program panels, gold foil mandala, and ribbon fastener.',
       paper: 'Navy Sapphire Matte • Gilded Edge Mandala',
@@ -185,7 +185,7 @@
       price: '₹1,850 / $23.00',
       inr: '₹1,850',
       usd: '$23.00',
-      img: './images/cards/KNLW202562.png',
+      img: './images/cards/KNLW202562.webp',
       tag: 'Masterpiece Box',
       desc: 'Double door opening luxury presentation box with magnetic lock, silk card tray, and monogram seal.',
       paper: 'Heavy Metallic Box • Silk Tray • Monogram Crest',
@@ -202,7 +202,7 @@
       price: '₹940 / $11.80',
       inr: '₹940',
       usd: '$11.80',
-      img: './images/cards/KNLW202570.png',
+      img: './images/cards/KNLW202570.webp',
       tag: 'Zari Embroidery',
       desc: 'Velvet lined maroon card with gold embroidered mantle design, Tirupati deities, and rich tassel.',
       paper: 'Velvet Padded Board • Intricate Mantapa Gold Foil',
@@ -219,7 +219,7 @@
       price: '₹850 / $10.75',
       inr: '₹850',
       usd: '$10.75',
-      img: './images/cards/KNLW202569.png',
+      img: './images/cards/KNLW202569.webp',
       tag: 'Sindoor Crimson',
       desc: 'Deep crimson heavy padded card with sacred Balaji motif, multi-color insert folios, and antique gold debossing.',
       paper: 'Multi-color Inserts • Embossed Balaji Padmavathi',
@@ -236,7 +236,7 @@
       price: '₹790 / $9.90',
       inr: '₹790',
       usd: '$9.90',
-      img: './images/cards/KNLW202568.png',
+      img: './images/cards/KNLW202568.webp',
       tag: 'Lotus Bloom',
       desc: 'Intricate blooming lotus gatefold flaps with rose gold foil accents and pearlized interior folios.',
       paper: 'Gatefold Lotus Opening • Rose Gold Foil Highlights',
@@ -253,7 +253,7 @@
       price: '₹880 / $11.00',
       inr: '₹880',
       usd: '$11.00',
-      img: './images/cards/KNLW202566.png',
+      img: './images/cards/KNLW202566.webp',
       tag: 'South Indian Heritage',
       desc: 'Traditional South Indian wedding booklet with illustrated program rituals, muhurtham times, and gold print.',
       paper: 'Sandal Scented Hardbound Book • Traditional Shloka',
@@ -270,7 +270,7 @@
       price: '₹810 / $10.15',
       inr: '₹810',
       usd: '$10.15',
-      img: './images/cards/KNLW202567.png',
+      img: './images/cards/KNLW202567.webp',
       tag: 'Royal Archway',
       desc: 'Architectural palace arch doorway with embossed gold columns and botanical jasmine garlands.',
       paper: 'Die-cut Arch Doorway • Botanical Embossing',
@@ -287,7 +287,7 @@
       price: '₹730 / $9.15',
       inr: '₹730',
       usd: '$9.15',
-      img: './images/cards/KNAM4905.png',
+      img: './images/cards/KNAM4905.webp',
       tag: 'Vintage Baarat',
       desc: 'Vintage ivory padded wedding card with majestic royal procession elephant motif in embossed gold.',
       paper: 'Textured Handmade Felt Board • Gold Embossed Elephant',
@@ -304,7 +304,7 @@
       price: '₹760 / $9.50',
       inr: '₹760',
       usd: '$9.50',
-      img: './images/cards/KNMO9319.png',
+      img: './images/cards/KNMO9319.webp',
       tag: 'Couple Portrait',
       desc: 'Sandalwood tinted padded card with elegant silhouette of the bride and groom taking sacred vows.',
       paper: 'Heavy 750 GSM Board • Couple Silhouette Cutout',
@@ -321,7 +321,7 @@
       price: '₹720 / $9.00',
       inr: '₹720',
       usd: '$9.00',
-      img: './images/cards/KNAM4902.png',
+      img: './images/cards/KNAM4902.webp',
       tag: 'Lace Silhouette',
       desc: 'Midnight navy cardstock with ultra-fine laser lace cutting and shimmering champagne backing card.',
       paper: 'Intricate Bridal Couple Laser Lace • Gold Backer',
@@ -338,7 +338,7 @@
       price: '₹1,650 / $21.00',
       inr: '₹1,650',
       usd: '$21.00',
-      img: './images/cards/KNLW202557.png',
+      img: './images/cards/KNLW202557.webp',
       tag: 'Signature Velvet Box',
       desc: 'Handcrafted floral motif box with velvet card padding, gilded envelope liner, and personalized wax seal.',
       paper: 'Handcrafted Floral Velvet Box • Acrylic Monogram Plate',
@@ -413,30 +413,35 @@
     selectedProduct: royalProducts[0]
   };
 
+  // 1. Native GSAP ScrollSmoother Bridge & ScrollTrigger Refresh Coordinator
+  let refreshTimer = null;
+  function scheduleScrollRefresh(delayMs = 200) {
+    clearTimeout(refreshTimer);
+    refreshTimer = setTimeout(() => {
+      try {
+        if (window.__spyltST) window.__spyltST.refresh(true);
+      } catch (e) {}
+    }, delayMs);
+  }
+
+  function smoothScrollToEl(el) {
+    if (!el) return;
+    try {
+      const smoother = window.__spyltSmootherInstance || (window.__spyltSmoother && window.__spyltSmoother.get());
+      if (smoother && typeof smoother.scrollTo === 'function') {
+        smoother.scrollTo(el, true, 'top top');
+        return;
+      }
+    } catch (e) {}
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  window.addEventListener('load', () => scheduleScrollRefresh(350));
+
   function init() {
     if (document.getElementById('angraity-root')) return;
 
-    // 1. Lenis Smooth Momentum Scrolling (Preserved)
-    if (window.Lenis) {
-      try {
-        const lenis = new window.Lenis({
-          duration: 1.2,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          orientation: 'vertical',
-          smoothWheel: true,
-          wheelMultiplier: 1.1,
-          touchMultiplier: 1.8,
-        });
-        function raf(time) {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-        window.__lenis = lenis;
-      } catch (e) {
-        console.warn('Lenis init warning:', e);
-      }
-    }
+
 
     // 2. Create Root Wrapper
     const root = document.createElement('div');
@@ -617,7 +622,7 @@
     const drawerCatalogGrid = document.getElementById('drawerCatalogGrid');
     drawerCatalogGrid.innerHTML = royalProducts.map(p => `
       <div class="ang-product-card" data-product-id="${p.id}">
-        <img class="ang-product-thumb" src="${p.img}" alt="${p.name}">
+        <img class="ang-product-thumb" src="${p.img}" alt="${p.name}" decoding="async">
         <div class="ang-product-code">${p.id}</div>
         <div class="ang-product-title">${p.name}</div>
         <div class="ang-product-price">
@@ -666,7 +671,7 @@
     topBanner.id = 'angHeroTopBanner';
     topBanner.className = 'ang-hero-top-banner';
     topBanner.innerHTML = `
-      <span>India's Premier Wedding & Gifting Cards Atelier • Est. 1995 • 50,000+ Celebrations</span>
+      <span>Est. 1995 • 50,000+ Royal Celebrations</span>
     `;
     hero.appendChild(topBanner);
 
@@ -678,7 +683,7 @@
     ltCard.innerHTML = `
       <div class="ang-hero-card-img-wrap">
         <span class="ang-hero-card-badge">Royal Bestseller</span>
-        <img src="${pLT.img}" alt="${pLT.name}">
+        <img src="${pLT.img}" alt="${pLT.name}" fetchpriority="high" decoding="sync">
       </div>
       <div>
         <div class="ang-hero-card-code">${pLT.id}</div>
@@ -699,7 +704,7 @@
     lbCard.innerHTML = `
       <div class="ang-hero-card-img-wrap">
         <span class="ang-hero-card-badge">Gifting Favor</span>
-        <img src="${pLB.img}" alt="${pLB.name}">
+        <img src="${pLB.img}" alt="${pLB.name}" fetchpriority="high" decoding="sync">
       </div>
       <div>
         <div class="ang-hero-card-code">${pLB.id}</div>
@@ -720,7 +725,7 @@
     rtCard.innerHTML = `
       <div class="ang-hero-card-img-wrap">
         <span class="ang-hero-card-badge">2026 Couture</span>
-        <img src="${pRT.img}" alt="${pRT.name}">
+        <img src="${pRT.img}" alt="${pRT.name}" fetchpriority="high" decoding="sync">
       </div>
       <div>
         <div class="ang-hero-card-code">${pRT.id}</div>
@@ -741,7 +746,7 @@
     rbCard.innerHTML = `
       <div class="ang-hero-card-img-wrap">
         <span class="ang-hero-card-badge">Hardbound</span>
-        <img src="${pRB.img}" alt="${pRB.name}">
+        <img src="${pRB.img}" alt="${pRB.name}" fetchpriority="high" decoding="sync">
       </div>
       <div>
         <div class="ang-hero-card-code">${pRB.id}</div>
@@ -771,13 +776,27 @@
       `;
       heroContent.appendChild(catBar);
 
+      const catMap = { wedding: 'all', boxed: 'boxed', scrolls: 'boxed', 'laser-cut': 'laser-cut', sacred: 'sacred', books: 'books' };
       catBar.querySelectorAll('.ang-hero-cat-pill').forEach(pill => {
-        pill.addEventListener('click', () => {
-          const cat = pill.getAttribute('data-cat');
-          const filterBtn = document.querySelector(`.ang-filter-btn[data-cat="${cat}"]`);
+        pill.addEventListener('click', (e) => {
+          e.preventDefault();
+          const rawCat = pill.getAttribute('data-cat');
+          const targetFilter = catMap[rawCat] || 'all';
+          const filterBtn = document.querySelector(`.ang-filter-btn[data-filter="${targetFilter}"]`);
           if (filterBtn) filterBtn.click();
+          const targetSec = document.getElementById('atelier-all-products');
+          smoothScrollToEl(targetSec);
         });
       });
+
+      const heroExploreBtn = hero.querySelector('.hero-button');
+      if (heroExploreBtn) {
+        heroExploreBtn.style.cursor = 'pointer';
+        heroExploreBtn.addEventListener('click', () => {
+          const showcase = document.getElementById('royal-horizontal-showcase') || document.getElementById('atelier-all-products');
+          smoothScrollToEl(showcase);
+        });
+      }
     }
 
     // Ensure hero panoramic cards wrap exists
@@ -785,7 +804,7 @@
       const panWrap = document.createElement('div');
       panWrap.className = 'ang-hero-panoramic-wrap';
       panWrap.innerHTML = `
-        <img src="./images/hero-cards-panoramic.png" alt="Kings of Cards Luxury Wedding Cards Collection" onclick="openDrawer('customizer')" title="Click to customize any card in our 3D Atelier">
+        <img src="./images/hero-cards-panoramic.webp" alt="Kings of Cards Luxury Wedding Cards Collection" fetchpriority="high" decoding="sync" onclick="openDrawer('customizer')" title="Click to customize any card in our 3D Atelier">
       `;
       hero.appendChild(panWrap);
     }
@@ -860,6 +879,39 @@
     `;
     pinSection.appendChild(bar);
 
+    // Viewport lazy-play so hero doesn't choke on 33MB video stream before images load
+    if (video) {
+      video.preload = 'metadata';
+      video.poster = './images/hero-cards-panoramic.webp';
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+            }
+          });
+        }, { rootMargin: '400px 0px' });
+        io.observe(pinSection);
+      }
+
+      const playBtn = pinSection.querySelector('.play-btn');
+      if (playBtn) {
+        playBtn.style.cursor = 'pointer';
+        playBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (video.paused) {
+            video.play().catch(() => {});
+            if (window.showToast) window.showToast('Playing King of Cards Factory Tour');
+          } else {
+            video.pause();
+            if (window.showToast) window.showToast('Paused Video Tour');
+          }
+        });
+      }
+    }
+
     // Click handling
     bar.querySelectorAll('.ang-video-opt-btn').forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -886,12 +938,11 @@
     });
   }
 
-
   function injectRunwayGallery() {
     if (document.getElementById('royal-horizontal-showcase')) return;
 
-    const flavorSection = document.querySelector('.flavor-section');
-    if (!flavorSection) {
+    const nutritionSection = document.querySelector('.nutrition-section');
+    if (!nutritionSection) {
       setTimeout(injectRunwayGallery, 300);
       return;
     }
@@ -920,7 +971,7 @@
             <div class="ang-runway-card" data-product-id="${p.id}">
               <div class="ang-runway-card-img">
                 <span class="ang-runway-card-tag">${p.tag}</span>
-                <img src="${p.img}" alt="${p.name}">
+                <img src="${p.img}" alt="${p.name}" decoding="async">
               </div>
               <div class="ang-runway-card-category">${p.category}</div>
               <div class="ang-runway-card-title">${p.name}</div>
@@ -942,7 +993,8 @@
     `;
 
     // Insert directly after flavorSection
-    flavorSection.parentNode.insertBefore(runwaySec, flavorSection.nextSibling);
+    nutritionSection.parentNode.insertBefore(runwaySec, nutritionSection);
+    scheduleScrollRefresh(250);
 
     // Track horizontal scrolling & arrow navigation
     const trackWrap = document.getElementById('runwayTrackWrap');
@@ -1005,8 +1057,8 @@
   function injectAllProductsSection() {
     if (document.getElementById('atelier-all-products')) return;
 
-    const benefitSection = document.querySelector('.benefit-section');
-    if (!benefitSection) {
+    const footerSection = document.querySelector('.footer-section');
+    if (!footerSection) {
       setTimeout(injectAllProductsSection, 300);
       return;
     }
@@ -1025,12 +1077,13 @@
 
         <!-- Category Filters (Spylt Pill Style) -->
         <div class="ang-category-filter-bar" id="categoryFilterBar">
-          <button class="ang-filter-btn active" data-filter="all">All Suites (20)</button>
-          <button class="ang-filter-btn" data-filter="boxed">Boxed & Scroll (4)</button>
-          <button class="ang-filter-btn" data-filter="door-style">Door Style Gatefolds (4)</button>
-          <button class="ang-filter-btn" data-filter="laser-cut">Laser-Cut & Filigree (3)</button>
-          <button class="ang-filter-btn" data-filter="padded">Padded Wedding Cards (5)</button>
-          <button class="ang-filter-btn" data-filter="sacred">Traditional Sacred Motifs (4)</button>
+          <button class="ang-filter-btn active" data-filter="all">All Suites (${royalProducts.length})</button>
+          <button class="ang-filter-btn" data-filter="boxed">Boxed & Scroll (${royalProducts.filter(p => p.categoryKey === 'boxed').length})</button>
+          <button class="ang-filter-btn" data-filter="books">Hardbound Books (${royalProducts.filter(p => p.categoryKey === 'books').length})</button>
+          <button class="ang-filter-btn" data-filter="door-style">Door Style Gatefolds (${royalProducts.filter(p => p.categoryKey === 'door-style').length})</button>
+          <button class="ang-filter-btn" data-filter="laser-cut">Laser-Cut & Filigree (${royalProducts.filter(p => p.categoryKey === 'laser-cut').length})</button>
+          <button class="ang-filter-btn" data-filter="padded">Padded Cards (${royalProducts.filter(p => p.categoryKey === 'padded').length})</button>
+          <button class="ang-filter-btn" data-filter="sacred">Sacred Motifs (${royalProducts.filter(p => p.categoryKey === 'sacred').length})</button>
         </div>
 
         <!-- 20 Products Grid -->
@@ -1041,7 +1094,9 @@
     `;
 
     // Insert directly after benefitSection
-    benefitSection.parentNode.insertBefore(allSec, benefitSection.nextSibling);
+    const showroomAnchor = document.getElementById("atelier-showrooms-section") || footerSection;
+    footerSection.parentNode.insertBefore(allSec, showroomAnchor);
+    scheduleScrollRefresh(250);
 
     // Filter bar wiring
     const filterBtns = allSec.querySelectorAll('.ang-filter-btn');
@@ -1059,6 +1114,7 @@
 
         gridContainer.innerHTML = renderProductsGrid(filtered);
         wireGridCardEvents(gridContainer);
+        scheduleScrollRefresh(150);
         showToast(`Filtered: ${btn.textContent}`);
       });
     });
@@ -1071,7 +1127,7 @@
       <div class="ang-grid-card" data-product-id="${p.id}">
         <div class="ang-grid-card-img">
           <span style="position: absolute; top: 0.5rem; left: 0.5rem; background-color: var(--color-red-brown); color: var(--color-milk); font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: var(--radius-pill);">${p.tag}</span>
-          <img src="${p.img}" alt="${p.name}">
+          <img src="${p.img}" alt="${p.name}" decoding="async">
         </div>
         <div class="ang-grid-card-sku">${p.id} • ${p.category}</div>
         <div class="ang-grid-card-title">${p.name}</div>
@@ -1144,6 +1200,7 @@
 
     // Insert directly before footerSection
     footerSection.parentNode.insertBefore(showroomSec, footerSection);
+    scheduleScrollRefresh(350);
   }
 
   // 7. Customizer Drawer Interactions
@@ -1314,26 +1371,25 @@
       showToast('Thank you — your sample card proof is reserved!');
     });
 
-    // Header Links
+    // Header Links (Smooth ScrollSmoother Gliding)
     document.getElementById('navLinkRunway').addEventListener('click', (e) => {
       e.preventDefault();
-      document.getElementById('royal-horizontal-showcase').scrollIntoView({ behavior: 'smooth' });
+      smoothScrollToEl(document.getElementById('royal-horizontal-showcase'));
     });
 
     document.getElementById('navLinkAllCards').addEventListener('click', (e) => {
       e.preventDefault();
-      document.getElementById('atelier-all-products').scrollIntoView({ behavior: 'smooth' });
+      smoothScrollToEl(document.getElementById('atelier-all-products'));
     });
 
     document.getElementById('navLinkCraft').addEventListener('click', (e) => {
       e.preventDefault();
-      const bSec = document.querySelector('.benefit-section');
-      if (bSec) bSec.scrollIntoView({ behavior: 'smooth' });
+      smoothScrollToEl(document.querySelector('.benefit-section'));
     });
 
     document.getElementById('navLinkStores').addEventListener('click', (e) => {
       e.preventDefault();
-      document.getElementById('atelier-showrooms-section').scrollIntoView({ behavior: 'smooth' });
+      smoothScrollToEl(document.getElementById('atelier-showrooms-section'));
     });
   }
 
