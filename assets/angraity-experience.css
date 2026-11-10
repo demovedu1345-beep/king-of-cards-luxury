@@ -668,6 +668,7 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, 
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
+  z-index: 5;
   background-color: var(--color-red-brown);
   color: var(--color-milk);
   font-family: var(--font-display);
@@ -908,6 +909,10 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, 
   justify-content: center;
   padding: 0.75rem;
   position: relative;
+}
+
+.ang-grid-card-img > span {
+  z-index: 5;
 }
 
 .ang-grid-card-img img {
@@ -1607,7 +1612,7 @@ html, body {
 /* Video Tour Live Info Pill Badge */
 .ang-video-info-badge {
   position: absolute;
-  bottom: 6.2rem;
+  bottom: 7.75rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 40;
