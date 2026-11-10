@@ -673,111 +673,134 @@
     setupDrawerInteractions();
   }
 
-        // 3. Inject Hero Page Elements (Rotated Ribbon, 4 Corner Floating Physical Cards & Category Bar)
+  // 3. Inject Hero Page Elements (24-Card Full Exhibition Wall, Ribbon & Category Bar)
   function injectHeroElements() {
     const hero = document.querySelector('.hero-container');
     if (!hero) {
-      setTimeout(injectHeroElements, 300);
+      setTimeout(injectHeroElements, 250);
       return;
     }
 
-    if (document.getElementById('angHeroTopBanner')) return;
+    // Top Banner Ribbon (Matches Editorial Rotated Stamp)
+    if (!document.getElementById('angHeroTopBanner')) {
+      const topBanner = document.createElement('div');
+      topBanner.id = 'angHeroTopBanner';
+      topBanner.className = 'ang-hero-top-banner';
+      topBanner.innerHTML = '<span>Est. 1995 • 50,000+ Royal Celebrations</span>';
+      hero.appendChild(topBanner);
+    }
 
-    // Top Banner Ribbon (Matches Spylt Rotated Text Banner)
-    const topBanner = document.createElement('div');
-    topBanner.id = 'angHeroTopBanner';
-    topBanner.className = 'ang-hero-top-banner';
-    topBanner.innerHTML = `
-      <span>Est. 1995 • 50,000+ Royal Celebrations</span>
-    `;
-    hero.appendChild(topBanner);
+    // Remove any legacy floating price/store cards if present
+    hero.querySelectorAll('.ang-hero-floating-card').forEach(el => el.remove());
 
-    // 4 Corner Floating Physical Cards (Flanking Left & Right)
-    // Left Top Card
-    const ltCard = document.createElement('div');
-    ltCard.className = 'ang-hero-floating-card left-top';
-    const pLT = royalProducts[0]; // Maroon Scroll Box Set
-    ltCard.innerHTML = `
-      <div class="ang-hero-card-img-wrap">
-        <span class="ang-hero-card-badge">Royal Bestseller</span>
-        <img src="${pLT.img}" alt="${pLT.name}" fetchpriority="high" decoding="sync">
-      </div>
-      <div>
-        <div class="ang-hero-card-code">${pLT.id}</div>
-        <div class="ang-hero-card-title">${pLT.name}</div>
-        <div class="ang-hero-card-foot">
-          <div class="ang-hero-card-price">${pLT.inr}</div>
-          <div class="ang-hero-card-action">Customize →</div>
-        </div>
-      </div>
-    `;
-    ltCard.addEventListener('click', () => loadProductIntoCustomizer(pLT));
-    hero.appendChild(ltCard);
+    // Build Dense Full-Hero 24-Cutout Exhibition Wall (Zero Price Tags)
+    if (!document.getElementById('angHeroCutoutsWall')) {
+      const wall = document.createElement('div');
+      wall.id = 'angHeroCutoutsWall';
+      wall.className = 'ang-hero-cutouts-wall';
+      wall.setAttribute('aria-label', 'Bespoke Wedding Card Cutouts Collage');
 
-    // Left Bottom Card
-    const lbCard = document.createElement('div');
-    lbCard.className = 'ang-hero-floating-card left-bottom';
-    const pLB = royalProducts.find(p => p.id === 'KNLW202562') || royalProducts[2]; // Gifting Box Set
-    lbCard.innerHTML = `
-      <div class="ang-hero-card-img-wrap">
-        <span class="ang-hero-card-badge">Gifting Favor</span>
-        <img src="${pLB.img}" alt="${pLB.name}" fetchpriority="high" decoding="sync">
-      </div>
-      <div>
-        <div class="ang-hero-card-code">${pLB.id}</div>
-        <div class="ang-hero-card-title">${pLB.name}</div>
-        <div class="ang-hero-card-foot">
-          <div class="ang-hero-card-price">${pLB.inr}</div>
-          <div class="ang-hero-card-action">Customize →</div>
-        </div>
-      </div>
-    `;
-    lbCard.addEventListener('click', () => loadProductIntoCustomizer(pLB));
-    hero.appendChild(lbCard);
+      const cutoutWallSpecs = [
+        // Row 1: Upper Corners, Outer Top Flanks & Behind Top Title Aura
+        { slot: 'slot-lt-outer', src: './images/cards/cutouts/KNLW202568.webp', alt: 'Lotus Mandala Laser-Cut Wedding Card', pid: 'KNLW202568' },
+        { slot: 'slot-lt-inner', src: './images/cards/cutouts/KNLW202557.webp', alt: 'Marigold Haldi Scallop Suite', pid: 'KNLW202557' },
+        { slot: 'slot-top-mid-l', src: './images/cards/cutouts/KNLW202575.webp', alt: 'Botanical Gold Foil Invitation', pid: 'KNLW202575' },
+        { slot: 'slot-top-center-l', src: './images/cards/cutouts/KNLW202574.webp', alt: 'Ivory Arch Hardbound Keepsake Book', pid: 'KNLW202574' },
+        { slot: 'slot-top-center-c', src: './images/cards/cutouts/KNLW202568.webp', alt: 'Pink Lotus Gatefold Wedding Invitation', pid: 'KNLW202568' },
+        { slot: 'slot-top-center-r', src: './images/cards/cutouts/KNLW202557.webp', alt: 'Saffron Haldi Ceremonial Suite', pid: 'KNLW202557' },
+        { slot: 'slot-top-mid-r', src: './images/cards/cutouts/KNLW202574.webp', alt: 'Ivory Arch Hardbound Wedding Book', pid: 'KNLW202574' },
+        { slot: 'slot-rt-inner', src: './images/cards/cutouts/KNLW-BLUE-PALACE.webp', alt: 'Sapphire Palace Elephants Wedding Suite', pid: 'KNLW202576' },
+        { slot: 'slot-rt-outer', src: './images/cards/cutouts/KNLW202566.webp', alt: 'Ruby Tirupati Balaji Wedding Invitation', pid: 'KNLW202566' },
 
-    // Right Top Card
-    const rtCard = document.createElement('div');
-    rtCard.className = 'ang-hero-floating-card right-top';
-    const pRT = royalProducts[2]; // Peacock Door Gatefold
-    rtCard.innerHTML = `
-      <div class="ang-hero-card-img-wrap">
-        <span class="ang-hero-card-badge">2026 Couture</span>
-        <img src="${pRT.img}" alt="${pRT.name}" fetchpriority="high" decoding="sync">
-      </div>
-      <div>
-        <div class="ang-hero-card-code">${pRT.id}</div>
-        <div class="ang-hero-card-title">${pRT.name}</div>
-        <div class="ang-hero-card-foot">
-          <div class="ang-hero-card-price">${pRT.inr}</div>
-          <div class="ang-hero-card-action">Customize →</div>
-        </div>
-      </div>
-    `;
-    rtCard.addEventListener('click', () => loadProductIntoCustomizer(pRT));
-    hero.appendChild(rtCard);
+        // Row 2: Mid Left & Right Wings + Inner Framing Behind Typography & Pills
+        { slot: 'slot-ml-outer', src: './images/cards/cutouts/KNLW202559.webp', alt: 'Maroon Velvet Royal Scroll Box', pid: 'KNLW202559' },
+        { slot: 'slot-ml-inner', src: './images/cards/cutouts/KNAM4902.webp', alt: 'Emerald Mughal Arch Cutout Card', pid: 'KNAM4902' },
+        { slot: 'slot-mid-halo-l', src: './images/cards/cutouts/KNLW-BLUE-PALACE.webp', alt: 'Royal Blue Palace Gatefold', pid: 'KNLW202576' },
+        { slot: 'slot-center-back-l', src: './images/cards/cutouts/KNLW202573.webp', alt: 'Peacock Silver Filigree Gatefold', pid: 'KNLW202573' },
+        { slot: 'slot-mid-core-c', src: './images/cards/cutouts/KNLW202568.webp', alt: 'Pink Lotus Mandala Wedding Gatefold', pid: 'KNLW202568' },
+        { slot: 'slot-center-back-r', src: './images/cards/cutouts/KNLW202562.webp', alt: 'Gilded Lattice Door Wedding Box', pid: 'KNLW202562' },
+        { slot: 'slot-mid-halo-r', src: './images/cards/cutouts/KNLW202566.webp', alt: 'Crimson Balaji Ceremonial Suite', pid: 'KNLW202566' },
+        { slot: 'slot-mr-inner', src: './images/cards/cutouts/KNLW202568.webp', alt: 'Rose Lotus Gatefold Suite', pid: 'KNLW202568' },
+        { slot: 'slot-mr-outer', src: './images/cards/cutouts/KNLW202573.webp', alt: 'White Peacock Monogram Door Card', pid: 'KNLW202573' },
 
-    // Right Bottom Card
-    const rbCard = document.createElement('div');
-    rbCard.className = 'ang-hero-floating-card right-bottom';
-    const pRB = royalProducts[1]; // Ivory Book Style
-    rbCard.innerHTML = `
-      <div class="ang-hero-card-img-wrap">
-        <span class="ang-hero-card-badge">Hardbound</span>
-        <img src="${pRB.img}" alt="${pRB.name}" fetchpriority="high" decoding="sync">
-      </div>
-      <div>
-        <div class="ang-hero-card-code">${pRB.id}</div>
-        <div class="ang-hero-card-title">${pRB.name}</div>
-        <div class="ang-hero-card-foot">
-          <div class="ang-hero-card-price">${pRB.inr}</div>
-          <div class="ang-hero-card-action">Customize →</div>
-        </div>
-      </div>
-    `;
-    rbCard.addEventListener('click', () => loadProductIntoCustomizer(pRB));
-    hero.appendChild(rbCard);
+        // Row 3: Lower Corners, Inner Mid-Bottom & Foreground Exhibition Spread
+        { slot: 'slot-bl-outer', src: './images/cards/cutouts/KNLW202557.webp', alt: 'Saffron Haldi Ceremonial Suite', pid: 'KNLW202557' },
+        { slot: 'slot-bl-inner', src: './images/cards/cutouts/KNAM4902.webp', alt: 'Royal Emerald Courtyard Wedding Suite', pid: 'KNAM4902' },
+        { slot: 'slot-mid-core-l', src: './images/cards/cutouts/KNLW202559.webp', alt: 'Velvet Scroll Royal Invitation Box', pid: 'KNLW202559' },
+        { slot: 'slot-mid-core-r', src: './images/cards/cutouts/KNLW202575.webp', alt: 'Botanical Gold Filigree Suite', pid: 'KNLW202575' },
+        { slot: 'slot-br-inner', src: './images/cards/cutouts/KNLW202574.webp', alt: 'Cream Hardbound Keepsake Wedding Album', pid: 'KNLW202574' },
+        { slot: 'slot-br-outer', src: './images/cards/cutouts/KNLW202562.webp', alt: 'Champagne Gold Monogram Box', pid: 'KNLW202562' }
+      ];
 
-    // Category Filter Pills Bar (Directly below Hero Button)
+      cutoutWallSpecs.forEach((spec, idx) => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = `ang-hero-cutout-item ${spec.slot}`;
+        item.style.setProperty('--deal-delay', `${Math.min(idx * 28, 420)}ms`);
+        item.setAttribute('aria-label', `Preview ${spec.alt} in Atelier`);
+        item.innerHTML = `<img src="${spec.src}" alt="${spec.alt}" fetchpriority="high" decoding="async">`;
+        item.addEventListener('click', () => {
+          const matched = royalProducts.find(p => p.id === spec.pid) || royalProducts[idx % royalProducts.length];
+          if (window.loadProductIntoCustomizer) {
+            window.loadProductIntoCustomizer(matched);
+          } else if (window.openDrawer) {
+            window.openDrawer('customizer');
+          }
+        });
+        wall.appendChild(item);
+      });
+
+      const heroContentEl = hero.querySelector('.hero-content');
+      if (heroContentEl) {
+        hero.insertBefore(wall, heroContentEl);
+      } else {
+        hero.appendChild(wall);
+      }
+
+      // Subtle desktop pointer parallax on cutout wall (GPU transform, reduced-motion safe)
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerWidth >= 1025) {
+        let rafId = 0;
+        let targetX = 0;
+        let targetY = 0;
+        hero.addEventListener('pointermove', (ev) => {
+          if (ev.pointerType !== 'mouse') return;
+          const rect = hero.getBoundingClientRect();
+          targetX = ((ev.clientX - rect.left) / rect.width - 0.5) * 18;
+          targetY = ((ev.clientY - rect.top) / rect.height - 0.5) * 12;
+          if (!rafId) {
+            rafId = requestAnimationFrame(() => {
+              rafId = 0;
+              wall.style.setProperty('--parallax-x', `${targetX.toFixed(2)}px`);
+              wall.style.setProperty('--parallax-y', `${targetY.toFixed(2)}px`);
+            });
+          }
+        }, { passive: true });
+      }
+    }
+
+    // Ensure Panoramic Spread Cutout Anchor exists on BOTH Desktop and Mobile
+    if (!hero.querySelector('.ang-hero-panoramic-wrap')) {
+      const panWrap = document.createElement('div');
+      panWrap.className = 'ang-hero-panoramic-wrap';
+      panWrap.innerHTML = '<img src="./images/hero-cards-panoramic.webp" alt="King of Cards Luxury Wedding Cards Collection" fetchpriority="high" decoding="async">';
+      const heroContentEl = hero.querySelector('.hero-content');
+      if (heroContentEl) {
+        hero.insertBefore(panWrap, heroContentEl);
+      } else {
+        hero.appendChild(panWrap);
+      }
+    }
+    const panImg = hero.querySelector('.ang-hero-panoramic-wrap img');
+    if (panImg && !panImg.dataset.wired) {
+      panImg.dataset.wired = '1';
+      panImg.style.cursor = 'pointer';
+      panImg.title = 'Click to customize any card in our 3D Atelier';
+      panImg.addEventListener('click', () => {
+        if (window.openDrawer) window.openDrawer('customizer');
+      });
+    }
+
+    // Category Filter Pills Bar (Inside Foreground Layer below Hero CTA)
     const heroContent = hero.querySelector('.hero-content');
     if (heroContent && !document.getElementById('angHeroCategories')) {
       const catBar = document.createElement('div');
@@ -805,34 +828,15 @@
           smoothScrollToEl(targetSec);
         });
       });
-
-      const heroExploreBtn = hero.querySelector('.hero-button');
-      if (heroExploreBtn) {
-        heroExploreBtn.style.cursor = 'pointer';
-        heroExploreBtn.addEventListener('click', () => {
-          const showcase = document.getElementById('royal-horizontal-showcase') || document.getElementById('atelier-all-products');
-          smoothScrollToEl(showcase);
-        });
-      }
     }
 
-    // Ensure hero panoramic cards wrap exists (avoid stacking on top of mobile React artwork)
-    const hasMobileHeroArt = !!hero.querySelector('img[src*="hero-img"]');
-    if (!hasMobileHeroArt && !hero.querySelector('.ang-hero-panoramic-wrap')) {
-      const panWrap = document.createElement('div');
-      panWrap.className = 'ang-hero-panoramic-wrap';
-      panWrap.innerHTML = `
-        <img src="./images/hero-cards-panoramic.webp" alt="Kings of Cards Luxury Wedding Cards Collection" fetchpriority="high" decoding="sync">
-      `;
-      hero.appendChild(panWrap);
-    }
-    const panImg = hero.querySelector('.ang-hero-panoramic-wrap img');
-    if (panImg && !panImg.dataset.wired) {
-      panImg.dataset.wired = '1';
-      panImg.style.cursor = 'pointer';
-      panImg.title = 'Click to customize any card in our 3D Atelier';
-      panImg.addEventListener('click', () => {
-        if (window.openDrawer) window.openDrawer('customizer');
+    const heroExploreBtn = hero.querySelector('.hero-button');
+    if (heroExploreBtn && !heroExploreBtn.dataset.wired) {
+      heroExploreBtn.dataset.wired = '1';
+      heroExploreBtn.style.cursor = 'pointer';
+      heroExploreBtn.addEventListener('click', () => {
+        const showcase = document.getElementById('royal-horizontal-showcase') || document.getElementById('atelier-all-products');
+        smoothScrollToEl(showcase);
       });
     }
   }
