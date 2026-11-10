@@ -1,4 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "echo Using prebuilt static King of Cards experience",
+  "outputDirectory": "vercel-dist"
 }

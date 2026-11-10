@@ -1,0 +1,1674 @@
+/* ==========================================================================
+   KING OF CARDS — 100% NATIVE UI HARMONIZATION WITH CLONED SPYLT ARCHITECTURE
+   Strictly aligned with site tokens: Antonio Display, ProximaNova, Milk & Caramel Palette
+   ========================================================================== */
+
+:root {
+  --color-black: #222123;
+  --color-white: #ffffff;
+  --color-main-bg: #232224;
+  --color-dark-brown: #523122;
+  --color-mid-brown: #a26833;
+  --color-light-brown: #e3a458;
+  --color-red-brown: #7f3b2d;
+  --color-yellow-brown: #a26833;
+  --color-milk-yellow: #e3d3bc;
+  --color-milk: #faeade;
+  --color-card-bg: #fdebd2;
+  --color-card-border: #e8ddca;
+  --font-display: "Antonio", sans-serif;
+  --font-paragraph: "ProximaNova", sans-serif;
+  --radius-pill: 3.40282e38px;
+  --default-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tactile Squeeze Physics (Aligned with Cloned Buttons) */
+button, .ang-btn, .ang-quick-pill, .ang-filter-btn, .ang-hero-cat-pill, .ang-video-opt-btn {
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.2s var(--default-spring), background-color 0.2s ease, border-color 0.2s ease;
+}
+
+button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, .ang-hero-cat-pill:active, .ang-video-opt-btn:active {
+  transform: scale(0.95) !important;
+}
+
+/* ==========================================================================
+   1. FLOATING LUXURY ATELIER HEADER (BLENDED WITH SPYLT PILL NAV)
+   ========================================================================== */
+.ang-luxury-header {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background-color: var(--color-milk);
+  border: 3px solid var(--color-dark-brown);
+  padding: 0.45rem 0.65rem 0.45rem 1.5rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(82, 49, 34, 0.2);
+  font-family: var(--font-display);
+  transition: transform 0.3s var(--default-spring), box-shadow 0.3s ease;
+}
+
+.ang-luxury-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(82, 49, 34, 0.3);
+}
+
+.ang-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.ang-nav-link {
+  color: var(--color-dark-brown);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.15s ease;
+  cursor: pointer;
+}
+
+.ang-nav-link:hover {
+  color: var(--color-red-brown);
+}
+
+.ang-btn-customise {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.35rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-dark-brown);
+  box-shadow: 0 4px 12px rgba(82, 49, 34, 0.15);
+}
+
+.ang-btn-customise:hover {
+  background-color: #ebb36d;
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   2. HERO PAGE: FULL OF CARDS (WEDDING, GIFTING, SCROLLS, BOXES)
+   ========================================================================== */
+
+/* Top Royal Banner Ribbon */
+.ang-hero-top-banner {
+  position: absolute;
+  top: 1.75rem;
+  left: 16.5rem;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.42rem 1.15rem;
+  background-color: var(--color-red-brown);
+  color: var(--color-milk);
+  border: 3px solid var(--color-milk);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  rotate: -1deg;
+  box-shadow: 0 8px 25px rgba(127, 59, 45, 0.35);
+  pointer-events: auto;
+}
+
+/* Floating Hero Cards (4 Corners/Sides) */
+.ang-hero-floating-card {
+  position: absolute;
+  z-index: 25;
+  width: 185px;
+  background-color: var(--color-card-bg);
+  border: 0.35vw solid var(--color-milk);
+  border-radius: 1.25rem;
+  padding: 0.65rem;
+  box-shadow: 0 16px 38px rgba(82, 49, 34, 0.22);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.35s var(--default-spring), box-shadow 0.3s ease;
+}
+
+.ang-hero-floating-card.left-top {
+  left: 1.5rem;
+  top: 23%;
+  transform: translateY(-50%) rotate(-4deg);
+}
+
+.ang-hero-floating-card.left-bottom {
+  left: 1.5rem;
+  top: 64%;
+  transform: translateY(-50%) rotate(-2deg);
+}
+
+.ang-hero-floating-card.right-top {
+  right: 1.5rem;
+  top: 23%;
+  transform: translateY(-50%) rotate(4deg);
+}
+
+.ang-hero-floating-card.right-bottom {
+  right: 1.5rem;
+  top: 64%;
+  transform: translateY(-50%) rotate(2deg);
+}
+
+.ang-hero-floating-card:hover {
+  transform: translateY(-54%) rotate(0deg) scale(1.06);
+  box-shadow: 0 24px 50px rgba(82, 49, 34, 0.35);
+  z-index: 40;
+}
+
+.ang-hero-card-img-wrap {
+  width: 100%;
+  height: 95px;
+  background-color: #f4e5cf;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+}
+
+.ang-hero-card-img-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(82, 49, 34, 0.25));
+}
+
+.ang-hero-card-badge {
+  position: absolute;
+  top: 0.35rem;
+  left: 0.35rem;
+  background-color: var(--color-red-brown);
+  color: var(--color-milk);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding: 0.12rem 0.45rem;
+  border-radius: var(--radius-pill);
+}
+
+.ang-hero-card-code {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-mid-brown);
+  font-weight: 700;
+  margin-top: 0.4rem;
+}
+
+.ang-hero-card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-dark-brown);
+  line-height: 1.05;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin: 0.12rem 0 0.35rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ang-hero-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid #e8ddca;
+  padding-top: 0.35rem;
+  margin-top: 0.35rem;
+}
+
+.ang-hero-card-price {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-red-brown);
+  font-weight: 700;
+}
+
+.ang-hero-card-action {
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-dark-brown);
+}
+
+/* Center Card Fan-Out Deck (Directly inspired by user image) */
+.ang-hero-fanout-deck {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  pointer-events: auto;
+  width: auto;
+  max-width: 96vw;
+}
+
+.ang-fanout-banner {
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  border: 3px solid var(--color-milk);
+  border-radius: 0.6rem;
+  padding: 0.55rem 1.15rem;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+  box-shadow: 0 10px 25px rgba(82, 49, 34, 0.25);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ang-fanout-cards-cluster {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+}
+
+.ang-hero-fan-card {
+  width: 118px;
+  height: 168px;
+  background-color: var(--color-card-bg);
+  border: 0.35vw solid var(--color-milk);
+  border-radius: 1.15rem;
+  padding: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 14px 32px rgba(82, 49, 34, 0.3);
+  cursor: pointer;
+  margin: 0 -1rem;
+  transition: transform 0.35s var(--default-spring), z-index 0.1s ease, box-shadow 0.3s ease;
+  transform-origin: bottom center;
+}
+
+.ang-hero-fan-card:hover {
+  transform: translateY(-28px) scale(1.2) !important;
+  z-index: 50 !important;
+  box-shadow: 0 30px 60px rgba(82, 49, 34, 0.5);
+}
+
+.ang-hero-fan-card img {
+  width: 100%;
+  height: 98px;
+  object-fit: contain;
+  background-color: #f4e5cf;
+  border-radius: 0.75rem;
+  padding: 0.2rem;
+}
+
+.ang-hero-fan-card-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  line-height: 1;
+  text-align: center;
+  margin-top: 0.2rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ang-hero-fan-card-price {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-red-brown);
+  text-align: center;
+}
+
+.ang-fanout-note {
+  font-family: var(--font-paragraph);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--color-dark-brown);
+  font-weight: 600;
+  max-width: 215px;
+  background: rgba(250, 234, 222, 0.92);
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.95rem;
+  border: 2px solid var(--color-card-border);
+  box-shadow: 0 8px 20px rgba(82, 49, 34, 0.15);
+  flex-shrink: 0;
+}
+
+/* Category Filter Pills on Hero */
+.ang-hero-categories-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+  z-index: 25;
+  position: relative;
+}
+
+.ang-hero-cat-pill {
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  padding: 0.32rem 0.8rem;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.ang-hero-cat-pill:hover {
+  background-color: var(--color-light-brown);
+  transform: translateY(-2px);
+}
+
+/* Bottom Quickbar */
+.ang-hero-quickbar {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-milk);
+  border: 3px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.65rem;
+  box-shadow: 0 10px 30px rgba(82, 49, 34, 0.25);
+  pointer-events: auto;
+}
+
+.ang-quick-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1.15rem;
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.ang-quick-pill:hover {
+  background-color: var(--color-light-brown);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. VIDEO SECTION: FACTORY TOUR VIDEO & INTERACTIVE VIDEO SWITCHER
+   ========================================================================== */
+.ang-video-switcher-bar {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: rgba(250, 234, 222, 0.95);
+  border: 3px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 0.85rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.ang-video-switcher-label {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  letter-spacing: -0.02em;
+  padding-left: 0.5rem;
+}
+
+.ang-video-opt-btn {
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  letter-spacing: -0.02em;
+  transition: all 0.2s ease;
+}
+
+.ang-video-opt-btn:hover {
+  background-color: var(--color-light-brown);
+}
+
+.ang-video-opt-btn.active {
+  background-color: var(--color-red-brown);
+  border-color: var(--color-red-brown);
+  color: var(--color-milk);
+}
+
+/* ==========================================================================
+   4. PINNED HORIZONTAL RUNWAY SHOWCASE (MATCHES SPYLT .VD-CARD THEME)
+   ========================================================================== */
+.ang-runway-section {
+  position: relative;
+  background-color: var(--color-milk);
+  border-top: 0.5vw solid var(--color-milk);
+  border-bottom: 0.5vw solid var(--color-milk);
+  padding: 6rem 0 7rem 0;
+  overflow: hidden;
+  color: var(--color-dark-brown);
+}
+
+.ang-runway-header {
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.ang-spylt-badge {
+  display: inline-block;
+  padding: 0.4rem 1.25rem;
+  background-color: var(--color-mid-brown);
+  color: #fce1cd;
+  border: 0.25vw solid var(--color-milk);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  rotate: -2deg;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 15px rgba(162, 104, 51, 0.25);
+}
+
+.ang-runway-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 8vw, 7.5rem);
+  color: var(--color-dark-brown);
+  line-height: 0.95;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  margin: 0 0 1rem 0;
+}
+
+.ang-runway-subtitle {
+  font-family: var(--font-paragraph);
+  font-size: 1.15rem;
+  color: var(--color-dark-brown);
+  opacity: 0.85;
+  max-width: 650px;
+  line-height: 1.45;
+  margin: 0 0 2rem 0;
+}
+
+.ang-runway-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ang-runway-arrow {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-light-brown);
+  border: 3px solid var(--color-dark-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(82, 49, 34, 0.2);
+}
+
+.ang-runway-arrow:hover {
+  background-color: #ebb36d;
+  transform: scale(1.08);
+}
+
+.ang-runway-drag-hint {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--color-mid-brown);
+  font-weight: 700;
+}
+
+.ang-runway-track-wrap {
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1.5rem 2rem 2.5rem 2rem;
+  cursor: grab;
+}
+
+.ang-runway-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.ang-runway-track-wrap:active {
+  cursor: grabbing;
+}
+
+.ang-runway-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  padding: 0 1rem;
+}
+
+/* Horizontal Card (Styled exactly like Spylt .vd-card) */
+.ang-runway-card {
+  width: 340px;
+  min-width: 340px;
+  background-color: var(--color-card-bg);
+  border: 0.4vw solid var(--color-milk);
+  border-radius: 2vw;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 18px 45px rgba(82, 49, 34, 0.2);
+  transition: transform 0.35s var(--default-spring), box-shadow 0.35s ease;
+}
+
+.ang-runway-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(82, 49, 34, 0.3);
+}
+
+.ang-runway-card-img {
+  width: 100%;
+  height: 220px;
+  background-color: #f4e5cf;
+  border-radius: 1.2vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.ang-runway-card-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 25px rgba(82, 49, 34, 0.3));
+  transition: transform 0.4s var(--default-spring);
+}
+
+.ang-runway-card:hover .ang-runway-card-img img {
+  transform: scale(1.08) translateY(-3px);
+}
+
+.ang-runway-card-tag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: var(--color-red-brown);
+  color: var(--color-milk);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  rotate: -2deg;
+}
+
+.ang-runway-card-category {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: var(--color-mid-brown);
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.ang-runway-card-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--color-dark-brown);
+  line-height: 1.05;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin: 0.35rem 0 0.5rem 0;
+  min-height: 3.5rem;
+}
+
+.ang-runway-card-paper {
+  font-family: var(--font-paragraph);
+  font-size: 0.9rem;
+  color: var(--color-dark-brown);
+  opacity: 0.75;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.ang-runway-card-footer {
+  margin-top: auto;
+  border-top: 2px solid #e8ddca;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ang-runway-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ang-runway-price-inr {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-red-brown);
+  letter-spacing: -0.03em;
+}
+
+.ang-runway-price-usd {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-mid-brown);
+  font-weight: 700;
+}
+
+.ang-runway-btn-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.ang-btn-custom {
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.65rem 0.5rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-dark-brown);
+  text-align: center;
+}
+
+.ang-btn-custom:hover {
+  background-color: #ebb36d;
+}
+
+.ang-btn-sample {
+  background-color: transparent;
+  border: 2px solid var(--color-dark-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.65rem 0.5rem;
+  border-radius: var(--radius-pill);
+  text-align: center;
+}
+
+.ang-btn-sample:hover {
+  background-color: var(--color-milk);
+}
+
+/* ==========================================================================
+   5. ALL 20 PRODUCTS ARCHIVE (MATCHES SPYLT .BENEFIT-SECTION / DARK BLACK)
+   ========================================================================== */
+.ang-all-products-section {
+  position: relative;
+  background-color: var(--color-black);
+  padding: 7rem 2rem;
+  color: var(--color-milk);
+  border-top: 1px solid rgba(250, 234, 222, 0.1);
+}
+
+.ang-products-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ang-products-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+
+.ang-category-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.ang-filter-btn {
+  padding: 0.65rem 1.5rem;
+  background-color: rgba(250, 234, 222, 0.1);
+  border: 2px solid rgba(250, 234, 222, 0.2);
+  border-radius: var(--radius-pill);
+  color: var(--color-milk);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.ang-filter-btn:hover {
+  border-color: var(--color-light-brown);
+  color: var(--color-light-brown);
+}
+
+.ang-filter-btn.active {
+  background-color: var(--color-light-brown);
+  border-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  box-shadow: 0 4px 15px rgba(227, 164, 88, 0.35);
+}
+
+.ang-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .ang-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .ang-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ang-hero-floating-card {
+    display: none;
+  }
+  .ang-hero-fanout-deck {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .ang-products-grid {
+    grid-template-columns: 1fr;
+  }
+  .ang-hero-top-banner {
+    display: none;
+  }
+  .ang-hero-quickbar {
+    width: calc(100% - 2rem);
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  .ang-video-switcher-bar {
+    width: calc(100% - 2rem);
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+}
+
+/* Individual Grid Card */
+.ang-grid-card {
+  background-color: #2b2a2c;
+  border: 2px solid rgba(250, 234, 222, 0.15);
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s var(--default-spring), border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.ang-grid-card:hover {
+  border-color: var(--color-light-brown);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+.ang-grid-card-img {
+  width: 100%;
+  height: 200px;
+  background-color: #353437;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  position: relative;
+}
+
+.ang-grid-card-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
+  transition: transform 0.4s var(--default-spring);
+}
+
+.ang-grid-card:hover .ang-grid-card-img img {
+  transform: scale(1.08);
+}
+
+.ang-grid-card-sku {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-light-brown);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.ang-grid-card-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-milk);
+  line-height: 1.05;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin: 0.25rem 0 0.5rem 0;
+  min-height: 3.2rem;
+}
+
+.ang-grid-card-desc {
+  font-family: var(--font-paragraph);
+  font-size: 0.9rem;
+  color: var(--color-milk);
+  opacity: 0.7;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ang-grid-card-foot {
+  margin-top: auto;
+  border-top: 1px solid rgba(250, 234, 222, 0.12);
+  padding-top: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ang-grid-card-price {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-light-brown);
+  letter-spacing: -0.02em;
+}
+
+.ang-grid-card-btn {
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  border: none;
+}
+
+.ang-grid-card-btn:hover {
+  background-color: #ebb36d;
+}
+
+/* ==========================================================================
+   6. FLAGSHIP SHOWROOMS & ATELIER LOCATIONS (MATCHES SPYLT THEME)
+   ========================================================================== */
+.ang-showrooms-section {
+  position: relative;
+  background-color: var(--color-milk);
+  border-top: 0.5vw solid var(--color-milk);
+  padding: 7rem 2rem;
+  color: var(--color-dark-brown);
+}
+
+.ang-showrooms-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ang-showrooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1100px) {
+  .ang-showrooms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .ang-showrooms-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ang-showroom-box {
+  background-color: var(--color-card-bg);
+  border: 0.35vw solid #e8ddca;
+  border-radius: 1.75rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: 0 15px 40px rgba(82, 49, 34, 0.15);
+  transition: transform 0.35s var(--default-spring);
+}
+
+.ang-showroom-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-dark-brown);
+}
+
+.ang-showroom-badge {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--color-red-brown);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ang-showroom-city {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--color-dark-brown);
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+}
+
+.ang-showroom-address {
+  font-family: var(--font-paragraph);
+  font-size: 0.95rem;
+  color: var(--color-dark-brown);
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.ang-showroom-details {
+  border-top: 2px solid #e8ddca;
+  padding-top: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: var(--font-paragraph);
+  font-size: 0.9rem;
+  color: var(--color-dark-brown);
+}
+
+.ang-showroom-foot {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ang-showroom-link {
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ang-showroom-link:hover {
+  color: var(--color-red-brown);
+}
+
+.ang-showroom-book-btn {
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-dark-brown);
+}
+
+/* ==========================================================================
+   7. CUSTOMIZER DRAWER (BLENDED 100% INTO SPYLT WARM CREAM/BROWN PALETTE)
+   ========================================================================== */
+.ang-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(34, 33, 35, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.ang-drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ang-customizer-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 580px;
+  background-color: var(--color-milk);
+  border-left: 4px solid var(--color-dark-brown);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.45s var(--default-spring);
+  color: var(--color-dark-brown);
+  z-index: 1000;
+}
+
+.ang-drawer-backdrop.active .ang-customizer-drawer {
+  transform: translateX(0);
+}
+
+.ang-drawer-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 3px solid var(--color-dark-brown);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5dfcb;
+}
+
+.ang-drawer-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--color-dark-brown);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.ang-drawer-close {
+  background-color: var(--color-milk);
+  border: 2px solid var(--color-dark-brown);
+  color: var(--color-dark-brown);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ang-drawer-tabs {
+  display: flex;
+  border-bottom: 2px solid #e8ddca;
+  padding: 0 1.5rem;
+  background-color: var(--color-card-bg);
+}
+
+.ang-drawer-tab {
+  padding: 0.85rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--color-mid-brown);
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+
+.ang-drawer-tab:hover {
+  color: var(--color-dark-brown);
+}
+
+.ang-drawer-tab.active {
+  color: var(--color-dark-brown);
+  border-bottom-color: var(--color-dark-brown);
+}
+
+.ang-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Card Preview Stage in Drawer */
+.ang-card-preview-stage {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+.ang-card-preview {
+  width: 100%;
+  max-width: 380px;
+  min-height: 440px;
+  background-color: var(--color-card-bg);
+  color: var(--color-dark-brown);
+  border: 0.4vw solid var(--color-dark-brown);
+  border-radius: 1.5rem;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 20px 45px rgba(82, 49, 34, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.ang-card-monogram {
+  font-family: var(--font-display);
+  font-size: 3.8rem;
+  line-height: 0.95;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--card-foil-color, var(--color-dark-brown));
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.ang-card-eyebrow {
+  font-family: var(--font-paragraph);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--color-mid-brown);
+  font-weight: 600;
+}
+
+.ang-card-names {
+  font-family: var(--font-display);
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 1.25rem 0 0.75rem 0;
+  color: var(--card-foil-color, var(--color-dark-brown));
+}
+
+.ang-card-details {
+  font-family: var(--font-paragraph);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-dark-brown);
+}
+
+.ang-wax-seal {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--card-seal-color, var(--color-red-brown));
+  border: 3px solid var(--color-milk);
+  box-shadow: 0 4px 15px rgba(82, 49, 34, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-milk);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1rem auto 0 auto;
+}
+
+/* Customizer Option Sections */
+.ang-option-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ang-option-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--color-dark-brown);
+  font-weight: 700;
+}
+
+.ang-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.ang-option-card {
+  background-color: var(--color-card-bg);
+  border: 2px solid #e8ddca;
+  border-radius: 1rem;
+  padding: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.ang-option-card:hover {
+  border-color: var(--color-dark-brown);
+}
+
+.ang-option-card.active {
+  border-color: var(--color-dark-brown);
+  background-color: #f7e0c4;
+}
+
+.ang-swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--color-dark-brown);
+}
+
+.ang-option-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+}
+
+.ang-input-field {
+  width: 100%;
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-dark-brown);
+  border-radius: 0.85rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-dark-brown);
+  font-family: var(--font-paragraph);
+  font-size: 1rem;
+  outline: none;
+}
+
+.ang-drawer-footer {
+  padding: 1.5rem 2rem;
+  border-top: 3px solid var(--color-dark-brown);
+  background-color: #f5dfcb;
+}
+
+.ang-btn-primary {
+  width: 100%;
+  background-color: var(--color-light-brown);
+  color: var(--color-dark-brown);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-pill);
+  border: 3px solid var(--color-dark-brown);
+  box-shadow: 0 6px 20px rgba(82, 49, 34, 0.2);
+}
+
+.ang-btn-primary:hover {
+  background-color: #ebb36d;
+}
+
+/* Toast */
+.ang-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: var(--color-dark-brown);
+  color: var(--color-milk);
+  border: 3px solid var(--color-milk);
+  border-radius: var(--radius-pill);
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s var(--default-spring);
+  z-index: 999999;
+}
+
+.ang-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Drawer Catalog & Store Cards */
+.ang-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.ang-product-card {
+  background-color: var(--color-card-bg);
+  border: 2px solid #e8ddca;
+  border-radius: 1.25rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.25s var(--default-spring), border-color 0.2s ease;
+}
+
+.ang-product-card:hover {
+  border-color: var(--color-dark-brown);
+  transform: translateY(-3px);
+}
+
+.ang-product-thumb {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+  background-color: #f4e5cf;
+  border-radius: 0.85rem;
+  padding: 0.4rem;
+}
+
+.ang-product-code {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-mid-brown);
+  font-weight: 700;
+}
+
+.ang-product-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  line-height: 1.05;
+}
+
+.ang-product-price {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-red-brown);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.ang-store-card {
+  background-color: var(--color-card-bg);
+  border: 2px solid #e8ddca;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ang-store-city {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+}
+
+.ang-store-addr {
+  font-family: var(--font-paragraph);
+  font-size: 0.9rem;
+  color: var(--color-dark-brown);
+  opacity: 0.85;
+}
+
+
+
+/* ==========================================================================
+   6. HERO CUTOUT SHOWCASE ORCHESTRATION & SCROLLSMOOTHER REFINEMENTS
+   ========================================================================== */
+
+/* Prevent native smooth-scroll from fighting GSAP ScrollSmoother */
+html, body {
+  scroll-behavior: auto !important;
+}
+
+/* Balanced Hero Content Stack so Text, CTA & Cards Showcase Never Collide */
+@media (min-width: 1025px) {
+  .hero-container .hero-content {
+    z-index: 22 !important;
+    padding-top: 4.75rem !important;
+    justify-content: flex-start !important;
+  }
+  .hero-container .hero-content .hero-title {
+    font-size: clamp(3.4rem, 5.8vw, 6.8rem) !important;
+    line-height: 0.92 !important;
+    margin-bottom: 0.55rem !important;
+  }
+  .hero-container .hero-content .hero-text-scroll {
+    margin-bottom: 0.85rem !important;
+  }
+  .hero-container .hero-content .hero-text-scroll h1 {
+    font-size: clamp(2rem, 4vw, 4.4rem) !important;
+    line-height: 0.98 !important;
+    padding-block: 0.25rem !important;
+    padding-bottom: 0.55rem !important;
+  }
+  .hero-container .hero-content h2 {
+    margin-top: 0.25rem !important;
+    font-size: clamp(0.95rem, 1.1vw, 1.125rem) !important;
+  }
+  .hero-container .hero-content .hero-button {
+    margin-top: 1rem !important;
+    padding: 0.75rem 2.4rem !important;
+    cursor: pointer;
+    position: relative;
+    z-index: 26;
+  }
+}
+
+/* Panoramic Transparent Cutout Cards Showcase in Hero */
+.ang-hero-panoramic-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 94vw;
+  max-width: 1260px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 12;
+  pointer-events: auto;
+}
+
+.ang-hero-panoramic-wrap img {
+  width: 100%;
+  max-width: 1220px;
+  max-height: 41vh;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  transition: transform 0.4s var(--default-spring), filter 0.4s ease;
+  filter: drop-shadow(0 25px 50px rgba(60, 30, 20, 0.38));
+  cursor: pointer;
+}
+
+.ang-hero-panoramic-wrap img:hover {
+  transform: translateY(-8px) scale(1.02);
+  filter: drop-shadow(0 35px 70px rgba(60, 30, 20, 0.52));
+}
+
+@media (max-width: 1024px) {
+  .ang-hero-top-banner {
+    display: none;
+  }
+  .ang-hero-panoramic-wrap {
+    bottom: 0.5rem;
+    max-width: 96vw;
+  }
+}
+
+/* Video Tour Live Info Pill Badge */
+.ang-video-info-badge {
+  position: absolute;
+  bottom: 6.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 1.35rem;
+  background-color: rgba(250, 234, 222, 0.94);
+  color: var(--color-dark-brown);
+  border: 2.5px solid var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  max-width: 90vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ang-video-info-badge .pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #a02128;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(160, 33, 40, 0.7);
+  animation: angPulseDot 1.8s infinite;
+}
+
+@keyframes angPulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(160, 33, 40, 0.65); }
+  70% { box-shadow: 0 0 0 10px rgba(160, 33, 40, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(160, 33, 40, 0); }
+}
+
+/* Clean Section Flow Guard for Injected Sections */
+#royal-horizontal-showcase,
+#atelier-all-products,
+#atelier-showrooms-section {
+  position: relative;
+  z-index: 30;
+}
+
+/* Crisp Nav Crest Pill Sizing */
+nav.fixed img[alt="nav-logo"] {
+  width: auto !important;
+  height: 50px !important;
+  max-width: 245px !important;
+  filter: drop-shadow(0 8px 20px rgba(82, 49, 34, 0.18));
+}
+
+@media (max-width: 1260px) {
+  .ang-hero-top-banner {
+    display: none;
+  }
+}
+
+.ang-hero-panoramic-wrap img {
+  max-height: 43vh;
+}
