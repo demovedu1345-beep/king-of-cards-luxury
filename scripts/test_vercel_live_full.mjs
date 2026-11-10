@@ -161,8 +161,9 @@ await send('Runtime.evaluate', {
 await delay(800);
 fs.writeFileSync(`${shotDir}\\live_footer_1440.png`, Buffer.from((await send('Page.captureScreenshot', { format: 'png' })).result.data, 'base64'));
 
-// Live Mobile 390
+// Live Mobile 390 with Touch Emulation (full smoother + horizontal scroll + all effects)
 await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
+await send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 });
 await send('Page.navigate', { url: 'https://kingsofcards.vercel.app/' });
 await delay(4500);
 fs.writeFileSync(`${shotDir}\\live_hero_390.png`, Buffer.from((await send('Page.captureScreenshot', { format: 'png' })).result.data, 'base64'));
@@ -170,15 +171,54 @@ const mobStats = await send('Runtime.evaluate', {
   expression: `(() => {
     const nav = document.querySelector('nav img[alt="nav-logo"]')?.getBoundingClientRect().toJSON();
     const hdr = document.getElementById('angHeader')?.getBoundingClientRect().toJSON();
+    const flavorsEl = document.querySelector('.flavors');
+    const secTop = (sel) => {
+      const el = document.querySelector(sel);
+      return el ? Math.round(el.getBoundingClientRect().top + window.scrollY) : null;
+    };
     return {
       logoHeaderOverlap: nav && hdr ? nav.right > hdr.left : false,
       duplicatePanOnMobile: !!document.querySelector('.ang-hero-panoramic-wrap'),
-      horizOverflow: document.documentElement.scrollWidth > window.innerWidth
+      horizOverflow: document.documentElement.scrollWidth > window.innerWidth,
+      smoothTouch: window.__spyltSmootherInstance?.vars?.smoothTouch,
+      flavorsRowDir: flavorsEl ? getComputedStyle(flavorsEl).flexDirection : null,
+      flavorsWidth: flavorsEl ? flavorsEl.scrollWidth : 0,
+      pinsCount: window.__spyltST ? window.__spyltST.getAll().filter(t => !!t.pin).length : 0,
+      flavorTop: secTop('.flavor-section'),
+      videoTop: secTop('.vd-pin-section'),
+      testiTop: secTop('.testimonials-section')
     };
   })()`,
   returnByValue: true
 });
-console.log('=== LIVE VERCEL MOBILE 390 ===', JSON.stringify(mobStats.result?.result?.value));
+const mv = mobStats.result?.result?.value || {};
+console.log('=== LIVE VERCEL MOBILE 390 ===', JSON.stringify(mv));
+
+await send('Runtime.evaluate', { expression: `window.scrollTo(0, ${(mv.flavorTop || 1688) + 850})` });
+await delay(900);
+const mobFlavorTransform = await send('Runtime.evaluate', {
+  expression: `getComputedStyle(document.querySelector('.flavor-section > div')).transform`,
+  returnByValue: true
+});
+fs.writeFileSync(`${shotDir}\\live_mob_mid_flavor.png`, Buffer.from((await send('Page.captureScreenshot', { format: 'png' })).result.data, 'base64'));
+
+await send('Runtime.evaluate', { expression: `window.scrollTo(0, ${(mv.videoTop || 7282) + 450})` });
+await delay(900);
+const mobVideoClip = await send('Runtime.evaluate', {
+  expression: `getComputedStyle(document.querySelector('.vd-pin-section .video-box')).clipPath`,
+  returnByValue: true
+});
+fs.writeFileSync(`${shotDir}\\live_mob_mid_video.png`, Buffer.from((await send('Page.captureScreenshot', { format: 'png' })).result.data, 'base64'));
+
+await send('Runtime.evaluate', { expression: `window.scrollTo(0, ${(mv.testiTop || 9102) + 750})` });
+await delay(900);
+fs.writeFileSync(`${shotDir}\\live_mob_mid_testimonials.png`, Buffer.from((await send('Page.captureScreenshot', { format: 'png' })).result.data, 'base64'));
+
+console.log('=== LIVE MOBILE PIN EFFECTS ===', JSON.stringify({
+  flavorHorizontalTransform: mobFlavorTransform.result?.result?.value,
+  videoCircleClipMidPin: mobVideoClip.result?.result?.value
+}));
+await send('Emulation.setTouchEmulationEnabled', { enabled: false });
 
 // Live Floema
 await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
