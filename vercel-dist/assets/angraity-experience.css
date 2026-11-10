@@ -198,6 +198,7 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, 
   position: absolute;
   top: 0.35rem;
   left: 0.35rem;
+  z-index: 5;
   background-color: var(--color-red-brown);
   color: var(--color-milk);
   font-family: var(--font-display);
@@ -1676,4 +1677,147 @@ nav.fixed img[alt="nav-logo"] {
 
 .ang-hero-panoramic-wrap img {
   max-height: 43vh;
+}
+
+
+/* === AUDIT REFINEMENTS: FOOTER, COMPOSITOR & RESPONSIVE === */
+.footer-royal-scroll-img {
+  position: absolute;
+  bottom: 0;
+  left: 2vw;
+  max-height: 68vh;
+  width: auto;
+  max-width: 32vw;
+  object-fit: contain;
+  object-position: bottom left;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.92;
+  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.45));
+}
+
+/* Smooth GPU Layering inside ScrollSmoother without costly multi-pass blur shadows */
+.ang-hero-floating-card,
+.ang-runway-card,
+.ang-grid-card {
+  will-change: transform;
+}
+
+.ang-hero-panoramic-wrap img {
+  filter: drop-shadow(0 16px 32px rgba(60, 30, 20, 0.32));
+}
+
+@media (max-width: 1200px) {
+  .ang-luxury-header {
+    right: 1rem;
+    gap: 0.85rem;
+    padding: 0.4rem 0.55rem 0.4rem 1rem;
+  }
+  .ang-nav-links {
+    gap: 0.9rem;
+  }
+  .ang-nav-link {
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-royal-scroll-img {
+    opacity: 0.24;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 78vw;
+    max-height: 50vh;
+  }
+  .hero-container .hero-content {
+    z-index: 22 !important;
+    padding-top: 4.9rem !important;
+    padding-inline: 1rem !important;
+    justify-content: flex-start !important;
+    transform: none !important;
+    translate: none !important;
+  }
+  .hero-container .hero-content .hero-title {
+    font-size: clamp(2.45rem, 9vw, 4.4rem) !important;
+    line-height: 0.96 !important;
+    margin-bottom: 0.45rem !important;
+  }
+  .hero-container .hero-content .hero-text-scroll {
+    margin-bottom: 0.65rem !important;
+    border-width: 3px !important;
+  }
+  .hero-container .hero-content .hero-text-scroll h1 {
+    font-size: clamp(1.25rem, 4.8vw, 2.5rem) !important;
+    line-height: 1.08 !important;
+    padding: 0.35rem 0.75rem !important;
+  }
+  .hero-container .hero-content h2 {
+    background: rgba(250, 234, 222, 0.88);
+    border-radius: 0.9rem;
+    padding: 0.55rem 0.9rem;
+    margin-top: 0.35rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.38 !important;
+    max-width: 92vw !important;
+    color: var(--color-dark-brown);
+  }
+  .hero-container .hero-content .hero-button {
+    margin-top: 0.75rem !important;
+    padding: 0.65rem 1.6rem !important;
+    font-size: 0.95rem !important;
+    position: relative;
+    z-index: 26;
+  }
+  .ang-hero-categories-bar {
+    margin-top: 0.7rem !important;
+    gap: 0.35rem !important;
+    max-width: 95vw !important;
+  }
+  .ang-hero-cat-pill {
+    padding: 0.3rem 0.62rem !important;
+    font-size: 0.74rem !important;
+    border-width: 1.5px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  nav.fixed {
+    padding: 0.7rem !important;
+  }
+  nav.fixed img[alt="nav-logo"] {
+    height: 36px !important;
+    max-width: 150px !important;
+  }
+  .ang-luxury-header {
+    top: 0.7rem;
+    right: 0.7rem;
+    left: auto;
+    max-width: calc(100vw - 165px);
+    padding: 0.28rem 0.42rem;
+    gap: 0.45rem;
+    border-width: 2px;
+  }
+  .ang-nav-links {
+    gap: 0.4rem;
+  }
+  #navLinkRunway,
+  #navLinkAllCards,
+  #navLinkCraft,
+  #navLinkStores {
+    display: none;
+  }
+  .ang-nav-link {
+    font-size: 0.8rem;
+  }
+  .ang-btn-customise {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    border-width: 1.5px;
+    white-space: nowrap;
+  }
+  .ang-video-info-badge {
+    bottom: 6.75rem;
+    font-size: 0.78rem;
+    padding: 0.4rem 0.9rem;
+  }
 }
