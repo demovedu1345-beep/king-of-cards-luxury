@@ -129,137 +129,7 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, 
   pointer-events: auto;
 }
 
-/* Floating Hero Cards (4 Corners/Sides) */
-.ang-hero-floating-card {
-  position: absolute;
-  z-index: 25;
-  width: 185px;
-  background-color: var(--color-card-bg);
-  border: 0.35vw solid var(--color-milk);
-  border-radius: 1.25rem;
-  padding: 0.65rem;
-  box-shadow: 0 16px 38px rgba(82, 49, 34, 0.22);
-  cursor: pointer;
-  pointer-events: auto;
-  transition: transform 0.35s var(--default-spring), box-shadow 0.3s ease;
-}
-
-.ang-hero-floating-card.left-top {
-  left: 1.5rem;
-  top: 23%;
-  transform: translateY(-50%) rotate(-4deg);
-}
-
-.ang-hero-floating-card.left-bottom {
-  left: 1.5rem;
-  top: 64%;
-  transform: translateY(-50%) rotate(-2deg);
-}
-
-.ang-hero-floating-card.right-top {
-  right: 1.5rem;
-  top: 23%;
-  transform: translateY(-50%) rotate(4deg);
-}
-
-.ang-hero-floating-card.right-bottom {
-  right: 1.5rem;
-  top: 64%;
-  transform: translateY(-50%) rotate(2deg);
-}
-
-.ang-hero-floating-card:hover {
-  transform: translateY(-54%) rotate(0deg) scale(1.06);
-  box-shadow: 0 24px 50px rgba(82, 49, 34, 0.35);
-  z-index: 40;
-}
-
-.ang-hero-card-img-wrap {
-  width: 100%;
-  height: 95px;
-  background-color: #f4e5cf;
-  border-radius: 0.85rem;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.35rem;
-}
-
-.ang-hero-card-img-wrap img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 12px rgba(82, 49, 34, 0.25));
-}
-
-.ang-hero-card-badge {
-  position: absolute;
-  top: 0.35rem;
-  left: 0.35rem;
-  z-index: 5;
-  background-color: var(--color-red-brown);
-  color: var(--color-milk);
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  padding: 0.12rem 0.45rem;
-  border-radius: var(--radius-pill);
-}
-
-.ang-hero-card-code {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: var(--color-mid-brown);
-  font-weight: 700;
-  margin-top: 0.4rem;
-}
-
-.ang-hero-card-title {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  color: var(--color-dark-brown);
-  line-height: 1.05;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  margin: 0.12rem 0 0.35rem 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.ang-hero-card-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 2px solid #e8ddca;
-  padding-top: 0.35rem;
-  margin-top: 0.35rem;
-}
-
-.ang-hero-card-price {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  color: var(--color-red-brown);
-  font-weight: 700;
-}
-
-.ang-hero-card-action {
-  background-color: var(--color-light-brown);
-  color: var(--color-dark-brown);
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--color-dark-brown);
-}
+/* Legacy .ang-hero-floating-card store UI removed in favor of full-hero Pure Card Cutout Exhibition Wall */
 
 /* Center Card Fan-Out Deck (Directly inspired by user image) */
 .ang-hero-fanout-deck {
@@ -854,9 +724,7 @@ button:active, .ang-btn:active, .ang-quick-pill:active, .ang-filter-btn:active, 
   .ang-products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .ang-hero-floating-card {
-    display: none;
-  }
+  /* removed legacy floating price card rule */
   .ang-hero-fanout-deck {
     display: none;
   }
@@ -1697,7 +1565,6 @@ nav.fixed img[alt="nav-logo"] {
 }
 
 /* Smooth GPU Layering inside ScrollSmoother without costly multi-pass blur shadows */
-.ang-hero-floating-card,
 .ang-runway-card,
 .ang-grid-card {
   will-change: transform;
@@ -2110,5 +1977,370 @@ nav.fixed img[alt="nav-logo"] {
   }
   .footer-royal-scroll-img {
     opacity: 0.14 !important;
+  }
+}
+
+
+
+
+
+/* === HERO PURE CARD CUTOUT WALL (PC + MOBILE) === */
+.hero-container {
+  background: radial-gradient(circle at 50% 42%, #fff6ec 0%, #faeade 52%, #efe0ce 100%) !important;
+}
+
+/* Hide React mobile single hero artwork so unified dense Cutout Wall + Panorama renders on all viewports */
+.hero-container > img[src*="hero-img"],
+.hero-container > img[src*="hero-bg"] {
+  display: none !important;
+}
+
+.ang-hero-top-banner {
+  left: 17.75rem;
+}
+
+.ang-hero-cutouts-wall {
+  --parallax-x: 0px;
+  --parallax-y: 0px;
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: auto;
+  overflow: hidden;
+  transform: translate3d(calc(var(--parallax-x) * 0.4), calc(var(--parallax-y) * 0.4), 0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ang-hero-cutout-item {
+  position: absolute;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  display: block;
+  transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)) scale(var(--s, 1));
+  opacity: 0;
+  animation: angCutoutDealIn 0.72s cubic-bezier(0.22, 1, 0.36, 1) var(--deal-delay, 0ms) forwards;
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  will-change: transform;
+  outline: none;
+}
+
+.ang-hero-cutout-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 12px 24px rgba(58, 30, 18, 0.24));
+}
+
+.ang-hero-cutout-item:hover {
+  z-index: 25 !important;
+  transform: translate3d(0, -10px, 0) rotate(calc(var(--r, 0deg) * 0.25)) scale(calc(var(--s, 1) * 1.09));
+}
+
+.ang-hero-cutout-item:active {
+  transform: translate3d(0, -3px, 0) rotate(calc(var(--r, 0deg) * 0.25)) scale(calc(var(--s, 1) * 0.96));
+}
+
+@keyframes angCutoutDealIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) rotate(calc(var(--r, 0deg) + 8deg)) scale(calc(var(--s, 1) * 0.86));
+  }
+  100% {
+    opacity: var(--o, 1);
+    transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)) scale(var(--s, 1));
+  }
+}
+
+/* Crisp Feathered Radial Cream Glow Behind Foreground Typography Layer */
+.hero-container .hero-content {
+  z-index: 28 !important;
+  pointer-events: none !important;
+}
+
+.hero-container .hero-content::before {
+  content: "";
+  position: absolute;
+  top: 2.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(780px, 88vw);
+  height: 430px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 55% 50% at 50% 44%,
+    rgba(250, 234, 222, 0.96) 0%,
+    rgba(250, 234, 222, 0.88) 42%,
+    rgba(250, 234, 222, 0.52) 66%,
+    rgba(250, 234, 222, 0) 92%
+  );
+}
+
+.hero-container .hero-content .hero-title {
+  pointer-events: auto;
+  text-shadow: 0 2px 22px rgba(250, 234, 222, 0.98), 0 0 8px rgba(250, 234, 222, 0.95);
+}
+
+.hero-container .hero-content .hero-text-scroll {
+  pointer-events: auto;
+  box-shadow: 0 12px 30px rgba(82, 49, 34, 0.24);
+}
+
+.hero-container .hero-content .hero-text-scroll h1 {
+  letter-spacing: 0.015em !important;
+}
+
+.hero-container .hero-content h2 {
+  pointer-events: auto;
+  background: rgba(250, 234, 222, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(162, 104, 51, 0.22);
+  border-radius: 1rem;
+  padding: 0.58rem 1.2rem;
+  box-shadow: 0 10px 26px rgba(82, 49, 34, 0.12);
+}
+
+.hero-container .hero-content .hero-button {
+  box-shadow: 0 10px 26px rgba(82, 49, 34, 0.22);
+}
+
+.hero-container .hero-content .hero-button,
+.hero-container .hero-content .ang-hero-categories-bar,
+.hero-container .hero-content .ang-hero-cat-pill {
+  pointer-events: auto !important;
+}
+
+.hero-container .hero-content .ang-hero-cat-pill {
+  background-color: rgba(250, 234, 222, 0.95);
+  box-shadow: 0 4px 14px rgba(82, 49, 34, 0.12);
+}
+
+/* Panoramic Base Spread Anchored Along Bottom Edge Above Deep Cutouts */
+.ang-hero-panoramic-wrap {
+  z-index: 16 !important;
+  bottom: -0.35rem !important;
+  width: min(1220px, 92vw) !important;
+  max-width: 1220px !important;
+}
+
+.ang-hero-panoramic-wrap img {
+  max-height: 40vh !important;
+}
+
+/* -------- DESKTOP & LARGE SCREEN FULL-HERO 24-CARD WALL (>= 1025px) -------- */
+@media (min-width: 1025px) {
+  .hero-container .hero-content {
+    translate: none !important;
+    transform: none !important;
+    padding-top: 5.4rem !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Upper Edge + Behind-Headline Exhibition Layer */
+  .slot-lt-outer    { left: -2.2%;  top: 7%;    width: clamp(185px, 15.5vw, 250px); --r: -12deg; --o: 1;    z-index: 13; }
+  .slot-lt-inner    { left: 9.5%;   top: 3%;    width: clamp(170px, 14vw, 225px);   --r: 7deg;   --o: 1;    z-index: 11; }
+  .slot-top-mid-l   { left: 21%;    top: -3%;   width: clamp(155px, 12.5vw, 200px); --r: -14deg; --o: 0.94; z-index: 10; }
+  .slot-top-center-l{ left: 32.5%;  top: 1.5%;  width: clamp(145px, 11.5vw, 185px); --r: -9deg;  --o: 0.72; z-index: 6;  }
+  .slot-top-center-c{ left: 44.5%;  top: -3%;   width: clamp(150px, 11.5vw, 185px); --r: 5deg;   --o: 0.68; z-index: 5;  }
+  .slot-top-center-r{ right: 32.5%; top: 1.5%;  width: clamp(145px, 11.5vw, 185px); --r: 10deg;  --o: 0.72; z-index: 6;  }
+  .slot-top-mid-r   { right: 21%;   top: -3%;   width: clamp(155px, 12.5vw, 200px); --r: 14deg;  --o: 0.94; z-index: 10; }
+  .slot-rt-inner    { right: 9.5%;  top: 5%;    width: clamp(165px, 13.5vw, 215px); --r: -7deg;  --o: 1;    z-index: 11; }
+  .slot-rt-outer    { right: -2%;   top: 8.5%;  width: clamp(185px, 15.5vw, 245px); --r: 12deg;  --o: 1;    z-index: 13; }
+
+  /* Middle Lateral Wings + Behind Typography Oval + Core Carpet */
+  .slot-ml-outer     { left: -2.5%;  top: 30%; width: clamp(210px, 17.5vw, 285px); --r: -8deg;  --o: 1;    z-index: 14; }
+  .slot-ml-inner     { left: 10%;    top: 26%; width: clamp(180px, 14.5vw, 235px); --r: 6deg;   --o: 1;    z-index: 11; }
+  .slot-mid-halo-l   { left: 21.5%;  top: 20%; width: clamp(160px, 13vw, 210px);   --r: -10deg; --o: 0.82; z-index: 8;  }
+  .slot-center-back-l{ left: 31%;    top: 34%; width: clamp(175px, 14.5vw, 230px); --r: -7deg;  --o: 0.72; z-index: 9;  }
+  .slot-mid-core-c   { left: 43%;    top: 35%; width: clamp(180px, 14.5vw, 235px); --r: 3deg;   --o: 0.76; z-index: 9;  }
+  .slot-center-back-r{ right: 31%;   top: 34%; width: clamp(175px, 14.5vw, 230px); --r: 7deg;   --o: 0.72; z-index: 9;  }
+  .slot-mid-halo-r   { right: 21.5%; top: 20%; width: clamp(160px, 13vw, 210px);   --r: 10deg;  --o: 0.82; z-index: 8;  }
+  .slot-mr-inner     { right: 10%;   top: 26%; width: clamp(180px, 14.5vw, 235px); --r: -6deg;  --o: 1;    z-index: 11; }
+  .slot-mr-outer     { right: -2.5%; top: 30%; width: clamp(205px, 17vw, 275px);   --r: 9deg;   --o: 1;    z-index: 14; }
+
+  /* Lower Tier Flanking Panoramic Spread & Bridging Mid-Bottom Stage */
+  .slot-bl-outer     { left: -2.5%;  bottom: -2%; width: clamp(220px, 18vw, 295px);   --r: 10deg;  --o: 1;    z-index: 18; }
+  .slot-bl-inner     { left: 5%;     bottom: 18%; width: clamp(195px, 16vw, 255px);   --r: -7deg;  --o: 1;    z-index: 15; }
+  .slot-mid-core-l   { left: 17.5%;  bottom: 24%; width: clamp(200px, 16.5vw, 265px); --r: -9deg;  --o: 0.96; z-index: 13; }
+  .slot-mid-core-r   { right: 17.5%; bottom: 24%; width: clamp(200px, 16.5vw, 265px); --r: 9deg;   --o: 0.96; z-index: 13; }
+  .slot-br-inner     { right: 5%;    bottom: 18%; width: clamp(195px, 16vw, 255px);   --r: 7deg;   --o: 1;    z-index: 15; }
+  .slot-br-outer     { right: -2.5%; bottom: -2%; width: clamp(220px, 18vw, 295px);   --r: -10deg; --o: 1;    z-index: 18; }
+}
+
+/* -------- TABLET GEOMETRY (768px - 1024px) -------- */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .hero-container .hero-content {
+    padding-top: 5.5rem !important;
+  }
+  .ang-hero-panoramic-wrap {
+    bottom: 0 !important;
+    width: 106vw !important;
+    max-width: none !important;
+  }
+  .ang-hero-panoramic-wrap img {
+    max-height: 31dvh !important;
+  }
+  .slot-lt-outer    { left: -4%;  top: 7%;    width: 24vw; --r: -13deg; z-index: 12; }
+  .slot-lt-inner    { left: 12%;  top: 4.5%;  width: 20vw; --r: 7deg;   z-index: 10; }
+  .slot-top-mid-l   { left: 26%;  top: -2%;   width: 18vw; --r: -12deg; --o: 0.72; z-index: 8; }
+  .slot-top-center-l{ left: 36%;  top: 8%;    width: 18vw; --r: -8deg;  --o: 0.45; z-index: 6; }
+  .slot-top-center-c{ left: 43%;  top: -1%;   width: 17vw; --r: 4deg;   --o: 0.48; z-index: 5; }
+  .slot-top-center-r{ right: 36%; top: 8%;    width: 18vw; --r: 8deg;   --o: 0.45; z-index: 6; }
+  .slot-top-mid-r   { right: 26%; top: -2%;   width: 18vw; --r: 12deg;  --o: 0.72; z-index: 8; }
+  .slot-rt-inner    { right: 11%; top: 5.5%;  width: 20vw; --r: -8deg;  z-index: 10; }
+  .slot-rt-outer    { right: -4%; top: 8%;    width: 23vw; --r: 13deg;  z-index: 12; }
+
+  .slot-ml-outer     { left: -5%;  top: 30%; width: 25vw; --r: -9deg;  z-index: 14; }
+  .slot-ml-inner     { left: 9%;   top: 32%; width: 21vw; --r: 6deg;   --o: 0.8; z-index: 9; }
+  .slot-mid-halo-l   { left: 22%;  top: 36%; width: 20vw; --r: -9deg;  --o: 0.68; z-index: 8; }
+  .slot-center-back-l{ left: 30%;  top: 44%; width: 22vw; --r: -7deg;  --o: 0.85; z-index: 12; }
+  .slot-mid-core-c   { left: 40%;  top: 48%; width: 22vw; --r: 2deg;   --o: 0.9;  z-index: 13; }
+  .slot-center-back-r{ right: 30%; top: 44%; width: 22vw; --r: 7deg;   --o: 0.85; z-index: 12; }
+  .slot-mid-halo-r   { right: 22%; top: 36%; width: 20vw; --r: 9deg;   --o: 0.68; z-index: 8; }
+  .slot-mr-inner     { right: 9%;  top: 32%; width: 21vw; --r: -6deg;  --o: 0.8; z-index: 9; }
+  .slot-mr-outer     { right: -5%; top: 30%; width: 24vw; --r: 9deg;   z-index: 14; }
+
+  .slot-bl-outer     { left: -4%;  bottom: 2%;  width: 28vw; --r: 9deg;  z-index: 18; }
+  .slot-bl-inner     { left: 15%;  bottom: 16%; width: 24vw; --r: -7deg; z-index: 14; }
+  .slot-mid-core-l   { left: 28%;  bottom: 24%; width: 23vw; --r: -8deg; z-index: 11; }
+  .slot-mid-core-r   { right: 28%; bottom: 24%; width: 23vw; --r: 8deg;  z-index: 11; }
+  .slot-br-inner     { right: 15%; bottom: 16%; width: 24vw; --r: 7deg;  z-index: 14; }
+  .slot-br-outer     { right: -4%; bottom: 2%;  width: 27vw; --r: -9deg; z-index: 18; }
+}
+
+/* -------- MOBILE PHONE FULL 24-CARD CARPET GEOMETRY (<= 767px) -------- */
+@media (max-width: 767px) {
+  .hero-container {
+    min-height: 100dvh;
+    height: 100dvh;
+  }
+
+  .hero-container .hero-content {
+    z-index: 28 !important;
+    padding-top: 4.6rem !important;
+    padding-inline: 0.7rem !important;
+    justify-content: flex-start !important;
+    translate: none !important;
+    transform: none !important;
+  }
+
+  .hero-container .hero-content::before {
+    top: 3.1rem;
+    width: 96vw;
+    height: 315px;
+    background: radial-gradient(
+      ellipse 56% 52% at 50% 45%,
+      rgba(250, 234, 222, 0.94) 0%,
+      rgba(250, 234, 222, 0.80) 44%,
+      rgba(250, 234, 222, 0.44) 68%,
+      rgba(250, 234, 222, 0) 94%
+    );
+  }
+
+  .hero-container .hero-content .hero-title {
+    font-size: clamp(2.2rem, 9.4vw, 3.1rem) !important;
+    line-height: 0.92 !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .hero-container .hero-content .hero-text-scroll {
+    margin-bottom: 0.42rem !important;
+    border-width: 2.5px !important;
+  }
+
+  .hero-container .hero-content .hero-text-scroll h1 {
+    font-size: clamp(0.95rem, 4.1vw, 1.35rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.02em !important;
+    padding: 0.25rem 0.65rem !important;
+  }
+
+  .hero-container .hero-content h2 {
+    margin-top: 0.22rem !important;
+    font-size: 0.78rem !important;
+    line-height: 1.28 !important;
+    max-width: 90vw !important;
+    padding: 0.38rem 0.7rem !important;
+  }
+
+  .hero-container .hero-content .hero-button {
+    margin-top: 0.48rem !important;
+    padding: 0.5rem 1.3rem !important;
+    font-size: 0.84rem !important;
+  }
+
+  .ang-hero-categories-bar {
+    margin-top: 0.42rem !important;
+    gap: 0.26rem !important;
+    max-width: 95vw !important;
+  }
+
+  .ang-hero-cat-pill {
+    padding: 0.22rem 0.5rem !important;
+    font-size: 0.66rem !important;
+    border-width: 1.5px !important;
+    background-color: rgba(250, 234, 222, 0.96) !important;
+  }
+
+  /* Panoramic Wedding Suites Anchor Along Bottom of Mobile Screen */
+  .ang-hero-panoramic-wrap {
+    bottom: -0.25rem !important;
+    width: 130vw !important;
+    max-width: none !important;
+    z-index: 18 !important;
+  }
+
+  .ang-hero-panoramic-wrap img {
+    max-height: 27dvh !important;
+    width: 100% !important;
+  }
+
+  /* Full-Screen 24-Cutout Mobile Collage: Upper Behind-Header, Mid Perimeter & Dense Mid-to-Bottom Blanket */
+  .slot-lt-outer     { left: -9%;  top: 5.5%;  width: 34vw; --r: -15deg; --o: 1;    z-index: 12; }
+  .slot-lt-inner     { left: 15%;  top: 2.5%;  width: 29vw; --r: 7deg;   --o: 0.9;  z-index: 9;  }
+  .slot-top-mid-l    { left: 26%;  top: 13%;   width: 30vw; --r: -10deg; --o: 0.62; z-index: 7;  }
+  .slot-top-center-l { left: 12%;  top: 18%;   width: 31vw; --r: 5deg;   --o: 0.58; z-index: 6;  }
+  .slot-top-center-c { left: 36%;  top: 4%;    width: 28vw; --r: 3deg;   --o: 0.64; z-index: 6;  }
+  .slot-top-center-r { right: 12%; top: 18%;   width: 31vw; --r: -5deg;  --o: 0.58; z-index: 6;  }
+  .slot-top-mid-r    { right: 26%; top: 13%;   width: 30vw; --r: 10deg;  --o: 0.62; z-index: 7;  }
+  .slot-rt-inner     { right: 14%; top: 3%;    width: 29vw; --r: -8deg;  --o: 0.9;  z-index: 9;  }
+  .slot-rt-outer     { right: -9%; top: 6%;    width: 33vw; --r: 14deg;  --o: 1;    z-index: 12; }
+
+  /* Mid Band Filling Everything Around & Directly Under Category Pills (Zero Empty Gap!) */
+  .slot-ml-outer     { left: -11%; top: 23%; width: 35vw; --r: -11deg; --o: 1;    z-index: 13; }
+  .slot-ml-inner     { left: -4%;  top: 39%; width: 38vw; --r: 7deg;   --o: 1;    z-index: 12; }
+  .slot-mid-halo-l   { left: 19%;  top: 36%; width: 35vw; --r: -9deg;  --o: 0.96; z-index: 12; }
+  .slot-center-back-l{ left: 12%;  top: 43%; width: 37vw; --r: -7deg;  --o: 1;    z-index: 14; }
+  .slot-mid-core-c   { left: 31%;  top: 39%; width: 38vw; --r: 3deg;   --o: 1;    z-index: 15; }
+  .slot-center-back-r{ right: 12%; top: 43%; width: 37vw; --r: 7deg;   --o: 1;    z-index: 14; }
+  .slot-mid-halo-r   { right: 19%; top: 36%; width: 35vw; --r: 9deg;   --o: 0.96; z-index: 12; }
+  .slot-mr-inner     { right: -4%; top: 39%; width: 38vw; --r: -7deg;  --o: 1;    z-index: 12; }
+  .slot-mr-outer     { right: -11%;top: 23%; width: 35vw; --r: 11deg;  --o: 1;    z-index: 13; }
+
+  /* Lower Tier Anchoring Bottom Horizon */
+  .slot-bl-outer     { left: -6%;  bottom: 4%;  width: 40vw; --r: 10deg;  --o: 1; z-index: 19; }
+  .slot-bl-inner     { left: 8%;   bottom: 17%; width: 43vw; --r: -7deg;  --o: 1; z-index: 16; }
+  .slot-mid-core-l   { left: -6%;  bottom: 30%; width: 41vw; --r: -11deg; --o: 1; z-index: 15; }
+  .slot-mid-core-r   { right: -6%; bottom: 30%; width: 41vw; --r: 11deg;  --o: 1; z-index: 15; }
+  .slot-br-inner     { right: 8%;  bottom: 17%; width: 42vw; --r: 7deg;   --o: 1; z-index: 16; }
+  .slot-br-outer     { right: -6%; bottom: 4%;  width: 40vw; --r: -10deg; --o: 1; z-index: 19; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ang-hero-cutout-item {
+    animation: none !important;
+    opacity: var(--o, 1) !important;
+    transition: none !important;
+  }
+  .ang-hero-cutouts-wall {
+    transform: none !important;
   }
 }

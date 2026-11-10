@@ -22,7 +22,7 @@ for (const u of [
   let extra = '';
   if (u.endsWith('angraity-experience.css')) {
     const txt = await r.text();
-    extra = ' footer-royal-scroll-img=' + txt.includes('footer-royal-scroll-img');
+    extra = ' ang-hero-cutouts-wall=' + txt.includes('ang-hero-cutouts-wall');
   }
   console.log(u, '->', r.status + extra);
 }
@@ -98,10 +98,18 @@ const desktopCheck = await send('Runtime.evaluate', {
     const smootherPaused = window.__spyltSmootherInstance?.paused?.();
     if (window.closeDrawer) window.closeDrawer();
     const smootherResumed = !window.__spyltSmootherInstance?.paused?.();
+    const heroFloating = document.querySelectorAll('.ang-hero-floating-card').length;
+    const heroCutouts = [...document.querySelectorAll('#angHeroCutoutsWall .ang-hero-cutout-item img')];
+    const heroCutoutsLoaded = heroCutouts.filter(i => i.complete && i.naturalWidth > 0).length;
+    const heroContentOpacity = getComputedStyle(document.querySelector('.hero-content')).opacity;
     return {
       totalImgs: imgs.length,
       loadedImgs: imgs.length - broken.length,
       broken,
+      heroFloating,
+      heroCutouts: heroCutouts.length,
+      heroCutoutsLoaded,
+      heroContentOpacity,
       htmlOv: getComputedStyle(document.documentElement).overflowX,
       bodyOv: getComputedStyle(document.body).overflowX,
       smootherOk: !!window.__spyltSmootherInstance,
@@ -176,13 +184,20 @@ const mobStats = await send('Runtime.evaluate', {
       const el = document.querySelector(sel);
       return el ? Math.round(el.getBoundingClientRect().top + window.scrollY) : null;
     };
+    const mobCutouts = [...document.querySelectorAll('#angHeroCutoutsWall .ang-hero-cutout-item img')];
     return {
       logoHeaderOverlap: nav && hdr ? nav.right > hdr.left : false,
-      duplicatePanOnMobile: !!document.querySelector('.ang-hero-panoramic-wrap'),
+      heroFloating: document.querySelectorAll('.ang-hero-floating-card').length,
+      heroCutouts: mobCutouts.length,
+      heroCutoutsLoaded: mobCutouts.filter(i => i.complete && i.naturalWidth > 0).length,
+      panoramicOnMobile: !!document.querySelector('.ang-hero-panoramic-wrap img'),
+      heroContentOpacity: getComputedStyle(document.querySelector('.hero-content')).opacity,
       horizOverflow: document.documentElement.scrollWidth > window.innerWidth,
       smoothTouch: window.__spyltSmootherInstance?.vars?.smoothTouch,
       flavorsRowDir: flavorsEl ? getComputedStyle(flavorsEl).flexDirection : null,
       flavorsWidth: flavorsEl ? flavorsEl.scrollWidth : 0,
+      mobCardH: document.querySelector('.flavor-section .slider-wrapper .flavors > div')?.getBoundingClientRect().height || 0,
+      hasDollarCurrency: /\$\s?\d/.test(document.body.innerText),
       pinsCount: window.__spyltST ? window.__spyltST.getAll().filter(t => !!t.pin).length : 0,
       flavorTop: secTop('.flavor-section'),
       videoTop: secTop('.vd-pin-section'),
