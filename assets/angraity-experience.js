@@ -433,7 +433,7 @@
         return;
       }
     } catch (e) {}
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + window.scrollY));
   }
 
   window.addEventListener('load', () => scheduleScrollRefresh(350));
@@ -643,14 +643,31 @@
       </div>
     `).join('');
 
-    // Wire Hero Elements
-    injectHeroElements();
-    injectVideoSwitcher();
-
-    // Wire In-Flow Sections
-    injectRunwayGallery();
-    injectAllProductsSection();
-    injectShowroomsSection();
+    const wireAllSections = () => {
+      injectHeroElements();
+      injectVideoSwitcher();
+      injectRunwayGallery();
+      injectAllProductsSection();
+      injectShowroomsSection();
+    };
+    wireAllSections();
+    const reactRootEl = document.getElementById('root');
+    if (reactRootEl && 'MutationObserver' in window) {
+      const obs = new MutationObserver(() => {
+        wireAllSections();
+        if (
+          document.getElementById('angHeroTopBanner') &&
+          document.getElementById('angVideoSwitcher') &&
+          document.getElementById('royal-horizontal-showcase') &&
+          document.getElementById('atelier-all-products') &&
+          document.getElementById('atelier-showrooms-section')
+        ) {
+          obs.disconnect();
+          scheduleScrollRefresh(180);
+        }
+      });
+      obs.observe(reactRootEl, { childList: true, subtree: true });
+    }
 
     // Wire Drawer & Interactions
     setupDrawerInteractions();
@@ -799,14 +816,24 @@
       }
     }
 
-    // Ensure hero panoramic cards wrap exists
-    if (!hero.querySelector('.ang-hero-panoramic-wrap')) {
+    // Ensure hero panoramic cards wrap exists (avoid stacking on top of mobile React artwork)
+    const hasMobileHeroArt = !!hero.querySelector('img[src*="hero-img"]');
+    if (!hasMobileHeroArt && !hero.querySelector('.ang-hero-panoramic-wrap')) {
       const panWrap = document.createElement('div');
       panWrap.className = 'ang-hero-panoramic-wrap';
       panWrap.innerHTML = `
-        <img src="./images/hero-cards-panoramic.webp" alt="Kings of Cards Luxury Wedding Cards Collection" fetchpriority="high" decoding="sync" onclick="openDrawer('customizer')" title="Click to customize any card in our 3D Atelier">
+        <img src="./images/hero-cards-panoramic.webp" alt="Kings of Cards Luxury Wedding Cards Collection" fetchpriority="high" decoding="sync">
       `;
       hero.appendChild(panWrap);
+    }
+    const panImg = hero.querySelector('.ang-hero-panoramic-wrap img');
+    if (panImg && !panImg.dataset.wired) {
+      panImg.dataset.wired = '1';
+      panImg.style.cursor = 'pointer';
+      panImg.title = 'Click to customize any card in our 3D Atelier';
+      panImg.addEventListener('click', () => {
+        if (window.openDrawer) window.openDrawer('customizer');
+      });
     }
   }
 
@@ -1264,11 +1291,13 @@
       setTab(tab);
       drawerBackdrop.classList.add('active');
       document.body.style.overflow = 'hidden';
+      try { window.__spyltSmootherInstance && window.__spyltSmootherInstance.paused(true); } catch (e) {}
     };
 
     window.closeDrawer = function () {
       drawerBackdrop.classList.remove('active');
       document.body.style.overflow = '';
+      try { window.__spyltSmootherInstance && window.__spyltSmootherInstance.paused(false); } catch (e) {}
     };
 
     openCustomizerBtn.addEventListener('click', () => openDrawer('customizer'));
@@ -1362,12 +1391,14 @@
       modalBackdrop.style.opacity = '1';
       modalBackdrop.style.pointerEvents = 'auto';
       document.body.style.overflow = 'hidden';
+      try { window.__spyltSmootherInstance && window.__spyltSmootherInstance.paused(true); } catch (e) {}
     });
 
     closeModalBtn.addEventListener('click', () => {
       modalBackdrop.style.opacity = '0';
       modalBackdrop.style.pointerEvents = 'none';
       document.body.style.overflow = '';
+      try { window.__spyltSmootherInstance && window.__spyltSmootherInstance.paused(false); } catch (e) {}
       showToast('Thank you — your sample card proof is reserved!');
     });
 
